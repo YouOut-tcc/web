@@ -1,0 +1,85 @@
+.divPrincipal{
+    display: flex;
+    text-align:center;
+}
+
+.divLogo{
+    background-color: #8200A8;
+    width: 50%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo{
+    border-radius: 150px;  
+}
+
+.btns{
+    background-color: #EDE0D6;
+    width: 50%;
+    height:600px;
+}
+
+#titulo{
+    background-color: #EDE0D6;
+    color: #8200A8;
+    font-size: 200%;
+    margin-top: 20%;
+    padding-bottom: 50px
+}
+
+.btnUsuario{
+    background-color: #8200A8;
+    color: white;
+    font-size: 100%;
+    width: 35%;
+    padding: 1.5%;
+    border: 0;
+    margin-bottom: 3%;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btnUsuario:hover{
+    background-color: #FE0472;
+}
+
+.btnEstabelecimento{
+    background-color: #8200A8;
+    color: white;
+    font-size: 100%;
+    width: 35%;
+    padding: 1.5%;
+    border: 0;
+    margin-bottom: 3%;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btnEstabelecimento:hover{
+    background-color: #FE0472;
+}
+
+.btnCadastrese{
+    background-color: #8200A8;
+    color: white;
+    font-size: 100%;
+    width: 35%;
+    padding: 1.5%;
+    border: 0;          
+    margin-bottom: 3%;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btnCadastrese:hover{
+    background-color: #FE0472;
+}
