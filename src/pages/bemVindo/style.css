@@ -1,29 +1,36 @@
 .divPrincipal{
     display: flex;
-    text-align:center;
-}
-
-.divLogo{
+    height: 100%;
     background-color: #8200A8;
-    width: 50%;
-    height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+.divButtons{
+    display: grid;
+    text-align:center;
+    width: 60%;
+    height: max-content;
+    background-color: #EDE0D6;
+    height: 100%;
+}
+.divLogo{
+  display: contents;
+  width: 50%;
+  height: 100%;
+  align-items: center;
+  align-content: center;
+  align-self: center;
 }
 
 #logo{
-    border-radius: 150px;  
-}
+    width: 28%;
+    border-radius: 50%;
+    height: 55%;
+    align-self: center; 
+    margin: 10%;
 
-.btns{
-    background-color: #EDE0D6;
-    width: 50%;
-    height:600px;
 }
 
 #titulo{
-    background-color: #EDE0D6;
+  
     color: #8200A8;
     font-size: 200%;
     margin-top: 20%;
@@ -35,6 +42,7 @@
     color: white;
     font-size: 100%;
     width: 35%;
+    height: 30%;
     padding: 1.5%;
     border: 0;
     margin-bottom: 3%;
@@ -53,6 +61,7 @@
     color: white;
     font-size: 100%;
     width: 35%;
+    height: 30%;
     padding: 1.5%;
     border: 0;
     margin-bottom: 3%;
@@ -71,6 +80,7 @@
     color: white;
     font-size: 100%;
     width: 35%;
+    height: 30%;
     padding: 1.5%;
     border: 0;          
     margin-bottom: 3%;
