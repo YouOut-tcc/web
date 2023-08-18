@@ -1,0 +1,95 @@
+.divPrincipal{
+    display: flex;
+    height: 100%;
+    background-color: #8200A8;
+}
+.divButtons{
+    display: grid;
+    text-align:center;
+    width: 60%;
+    height: max-content;
+    background-color: #EDE0D6;
+    height: 100%;
+}
+.divLogo{
+  display: contents;
+  width: 50%;
+  height: 100%;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+}
+
+#logo{
+    width: 28%;
+    border-radius: 50%;
+    height: 55%;
+    align-self: center; 
+    margin: 10%;
+
+}
+
+#titulo{
+  
+    color: #8200A8;
+    font-size: 200%;
+    margin-top: 20%;
+    padding-bottom: 50px
+}
+
+.btnUsuario{
+    background-color: #8200A8;
+    color: white;
+    font-size: 100%;
+    width: 35%;
+    height: 30%;
+    padding: 1.5%;
+    border: 0;
+    margin-bottom: 3%;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btnUsuario:hover{
+    background-color: #FE0472;
+}
+
+.btnEstabelecimento{
+    background-color: #8200A8;
+    color: white;
+    font-size: 100%;
+    width: 35%;
+    height: 30%;
+    padding: 1.5%;
+    border: 0;
+    margin-bottom: 3%;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btnEstabelecimento:hover{
+    background-color: #FE0472;
+}
+
+.btnCadastrese{
+    background-color: #8200A8;
+    color: white;
+    font-size: 100%;
+    width: 35%;
+    height: 30%;
+    padding: 1.5%;
+    border: 0;          
+    margin-bottom: 3%;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btnCadastrese:hover{
+    background-color: #FE0472;
+}
