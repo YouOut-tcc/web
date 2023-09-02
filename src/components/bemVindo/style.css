@@ -10,9 +10,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
+}   
 
-#logo{
+.logo{
     border-radius: 150px;  
 }
 

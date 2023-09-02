@@ -4,12 +4,18 @@ import './reset.css';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-import BemVindo from './pages/bemVindo/index';
+import BemVindo from './components/bemVindo';
+import Header from './components/Header';
+import Carrosel from './components/Carrosel';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BemVindo/>
+    {/* <BemVindo/> */}
+    {/* <Header/> */}
+    <Carrosel/>
   </React.StrictMode>
 );
 

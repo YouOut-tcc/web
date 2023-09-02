@@ -1,0 +1,71 @@
+body{
+    background-color: #8200A8;  
+}
+
+.sliderItem{
+    position: relative ;
+    width: 95%;
+    height: 280px;
+    border-radius: 20px;
+    margin: 5% 3%;
+}
+
+.divTitulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3% 5%;
+    height: 50px;
+   
+}
+
+.titulo{
+    display: block;
+    padding-top: 5%;
+ 
+}
+
+.checkin{
+    display: block;
+    padding-top: 5%;
+ 
+}
+
+.divBorda{
+    border-radius: 30px 30px 0px 0px;
+    background-color: #EDE0D6;
+    margin-top: -2%;
+}
+
+.checkin svg{
+    color: #8200A8;
+    width: 25%;
+    height: 50%;
+}
+
+.titulo h1{
+    font-weight: bold;
+    font-size: 200%;
+}
+
+.titulo h3{
+    font-size: 150%;
+
+}
+
+.checkin h1{
+    font-size: 140%;
+}
+
+.checkin h3{
+    font-weight: bold;
+    font-size: 150%;
+}
+
+.swiper-button-prev, .swiper-button-next{
+    color: #8200A8;
+    background-color: aqua;
+}
+
+
+

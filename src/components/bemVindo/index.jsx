@@ -5,7 +5,7 @@ function BemVindo() {
     return(
         <div className='divPrincipal'>
              <div className='divLogo'>
-                <img src={Logo} id='logo' alt='Logo YouOut'/> 
+                <img src={Logo} className='logo' alt='Logo YouOut'/> 
             </div>
             
             <div className='btns'>
