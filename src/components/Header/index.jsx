@@ -9,7 +9,7 @@ import {RxPerson} from 'react-icons/rx'
 function Header(){
     return(
         <header>
-            <container className='container'>
+            <container>
                 <div className='divMiniLogo'>
                     <img src={Logo} className='logo' alt='Logo YouOut'/> 
                     <h1>You Out</h1>

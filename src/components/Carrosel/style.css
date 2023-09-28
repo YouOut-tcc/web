@@ -1,71 +1,58 @@
-body{
-    background-color: #8200A8;  
+
+.carrosel{
+    height: 65%;
+    position: relative;
+    top: 31%; 
+    background-color:#EDE0D6;
+}
+
+.divBtnAdd{
+    height: 10%;
+}
+
+.btnAdd{
+    width: 15%;
+    height: 7%;
+    position: absolute;
+    top: 3%;
+    right: 2%;
+    color: #FE0472;
+}
+
+.slider{
+    position: absolute;
+    bottom: 25%;
+    
 }
 
 .sliderItem{
-    position: relative ;
     width: 95%;
     height: 280px;
     border-radius: 20px;
-    margin: 5% 3%;
+    margin: 25% 3%;
 }
 
-.divTitulo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 3% 5%;
-    height: 50px;
-   
+.swiper-button-prev:after{
+    position: absolute;
+    bottom: -80%;
+    color: #FE0472;
 }
 
-.titulo{
-    display: block;
-    padding-top: 5%;
- 
+.swiper-button-next:after{
+    position: absolute;
+    bottom: -80%;
+    color: #FE0472;
 }
 
-.checkin{
-    display: block;
-    padding-top: 5%;
- 
-}
 
-.divBorda{
-    border-radius: 30px 30px 0px 0px;
-    background-color: #EDE0D6;
-    margin-top: -2%;
-}
 
-.checkin svg{
-    color: #8200A8;
-    width: 25%;
-    height: 50%;
-}
 
-.titulo h1{
-    font-weight: bold;
-    font-size: 200%;
-}
 
-.titulo h3{
-    font-size: 150%;
 
-}
 
-.checkin h1{
-    font-size: 140%;
-}
 
-.checkin h3{
-    font-weight: bold;
-    font-size: 150%;
-}
 
-.swiper-button-prev, .swiper-button-next{
-    color: #8200A8;
-    background-color: aqua;
-}
+
 
 
 

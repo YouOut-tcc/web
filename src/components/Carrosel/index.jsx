@@ -1,16 +1,15 @@
-import styles from './style.css'
+import styles from '../Carrosel/style.css'
 import{useState, useEffect} from 'react'
-import Header from '../Header/index'
 import comercio1 from '../../img/comercio1.jpg'
 import comercio2 from '../../img/comercio2.jpg'
 import comercio3 from '../../img/comercio3.jpg'
-import {BsFillPeopleFill} from 'react-icons/bs'
+import {BsPlusCircleFill} from 'react-icons/bs'
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import {Swiper, SwiperSlide,} from 'swiper/react';
 
 
 import { register } from 'swiper/element/bundle';
@@ -57,26 +56,17 @@ function Slider() {
     },[])
 
     return(
-        <div>
-            <Header />
-            <div className='divBorda'>
-            <div className='divTitulo'>
-                <div className='titulo'>
-                    <h1>Lorem Ipsum</h1> 
-                    <h3>Rua lorem, 0000 - 12345-678</h3>
-                </div>
-                <div className='checkin'>
-                    <h1><BsFillPeopleFill/>Check-in</h1>
-                    <h3>Restaurante - 1km</h3>
-                </div>
+        <div className='carrosel'>
+            <div className='divBtnAdd'>
+                <h1><BsPlusCircleFill className='btnAdd'/></h1>
             </div>
             <Swiper
-                slidesPerView={slidePerView}
-                navigation={{clickable: true}}
-                autoplay={true}
-                autoplayTimeout={5}
+               slidesPerView={slidePerView}
+               navigation={{clickable: true}}
+               autoplay={true}
+               autoplayTimeout={5}
+               className='slider'
                 
-            
             >
                 {data.map( (item)=>(
                     <SwiperSlide key={item.id}>
@@ -87,8 +77,7 @@ function Slider() {
                         />
                     </SwiperSlide>   
                 ))}
-            </Swiper>
-            </div>      
+            </Swiper>    
         </div>
     )
 }

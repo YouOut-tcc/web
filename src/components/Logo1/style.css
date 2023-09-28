@@ -1,0 +1,16 @@
+.divLogo{
+    display: flex;
+    text-align:center;
+    width: 50%;
+    background-color: #8200A8;
+    height: 100%;
+    justify-content: center;
+}
+
+#logo{
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    height: 30%;
+    align-self: center;
+}

@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './reset.css';
 import './index.css';
+import './reset.css';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import BemVindo from './components/bemVindo';
 import Header from './components/Header';
 import Carrosel from './components/Carrosel';
+import HeaderComercio from './components/headerComercio';
+import Home from './pages/Home'
+import PgNotificacao from './pages/pgNotificacao';
 
 
 
@@ -15,7 +19,10 @@ root.render(
   <React.StrictMode>
     {/* <BemVindo/> */}
     {/* <Header/> */}
-    <Carrosel/>
+    {/* <Carrosel/> */}
+    {/* <HeaderComercio/> */}
+    <Home/>
+    {/* <PgNotificacao/> */}
   </React.StrictMode>
 );
 
