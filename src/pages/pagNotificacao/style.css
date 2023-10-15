@@ -1,0 +1,79 @@
+.containerNotificacao{
+  width: 100%;
+  position: fixed;
+}
+  
+.containerNotificacao h1{
+  font-size: 150%;
+  font-weight: bold;
+  background-color: #EDE0D6;
+  height: auto;
+  padding-top: 7%;
+  padding-left: 5%;
+}
+
+.iconeNotificacao{
+  position: relative;
+  top: 22.5%;
+  width: 2%;
+  height: 10%;
+  margin-left: 2.5%;
+}
+
+.divPaiNotificaco{
+  height: auto;
+  padding-top: 15%;
+  background-color: #EDE0D6;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.divPaiNotificaco h1{
+  padding-top: 2%;
+  font-weight: bold;
+  font-size: 130%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+          line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+
+.divPaiNotificaco h2{
+  font-size: 121%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: 85%;
+  height: auto;
+}
+
+.divPaiNotificaco h1, h2{
+  height: 4.5vh;
+  width: 90%;
+  margin-left: 8%;
+  margin-top: 2%; 
+}
+
+.divNotificacao{
+  margin-top: 1%;
+  width: 30%;
+  height: 15vh;
+  border: 2px black solid;
+  border-radius: 20px;
+}
+
+.linkVisualizar{
+  background-color: #EDE0D6;
+  color: #FE0472;
+  font-size: large;
+  font-weight: bold;
+  text-align: right;
+  padding-right: 7%;
+  padding-top: 1%;
+  /* height: auto; */
+  
+}
+

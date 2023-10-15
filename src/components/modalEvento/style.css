@@ -1,0 +1,10 @@
+.divPai {
+  background-color: aquamarine;
+  height: 70px;
+  width: 70px;
+  z-index: 1000;
+}
+
+.divPai button{
+  z-index: 1000;
+}

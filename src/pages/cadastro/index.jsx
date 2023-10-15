@@ -3,6 +3,7 @@ import "./style.css";
 import Logo from "../../components/LogoInicial";
 import { useState } from "react";
 import InputA from "../../components/Inputs/InputA";
+import { Link } from "react-router-dom";
 
 export default function Cadastro() {
 
@@ -37,6 +38,8 @@ export default function Cadastro() {
             {/* /> */}
             <InputA nome="Nome Comercial" id="nomeC"/>
             <InputA nome="Nome Fantasia" id="nomeF"/>
+
+            <Link to='/recuperarSenha'>senha</Link>
 
             {/* <br/><br/>
             Nome Fantasia: <input 

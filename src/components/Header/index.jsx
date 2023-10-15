@@ -4,6 +4,7 @@ import {LiaHomeSolid} from 'react-icons/lia'
 import {BsCalendarCheck} from 'react-icons/bs'
 import {ImTicket} from 'react-icons/im'
 import {RxPerson} from 'react-icons/rx'
+import { Link } from 'react-router-dom'
 
 
 function Header(){
@@ -17,10 +18,10 @@ function Header(){
                 <div className='menu'>
                     <nav>
                         <ul>
-                            <li className='pagInicial'> <LiaHomeSolid className='iconesMenuHome'/> Pagina Inicial </li>
-                            <li className='eventos'> <BsCalendarCheck className='iconesMenuEventos'/> Eventos</li>
-                            <li className='cupons'> <ImTicket className='iconesMenuCupons'/> Cupons</li>
-                            <li className='perfil'> <RxPerson className='iconesMenuPerfil'/> Perfil</li>
+                            <Link to='/'><li className='pagInicial'> <LiaHomeSolid className='iconesMenuHome' /> Pagina Inicial </li> </Link>
+                            <Link to='/eventos'><li className='eventos'> <BsCalendarCheck className='iconesMenuEventos'/> Eventos</li> </Link>
+                            <Link to='/cupons'><li className='cupons'> <ImTicket className='iconesMenuCupons'/> Cupons</li> </Link>
+                            <Link to='/perfil'><li className='perfil'> <RxPerson className='iconesMenuPerfil'/> Perfil</li> </Link>
                         </ul>
                     </nav>
                 </div>

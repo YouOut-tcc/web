@@ -5,24 +5,29 @@ import './reset.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import Cadastro from './pages/cadastro';
 import BemVindo from './components/bemVindo';
 import Header from './components/Header';
 import Carrosel from './components/Carrosel';
 import HeaderComercio from './components/headerComercio';
-import Home from './pages/Home'
-import PgNotificacao from './pages/pgNotificacao';
-
+import Home from './pages/Home';
+import PagNotificacao from './pages/pagNotificacao';
+import PagEventos from './pages/pagEventos';
+import PagCupons from './pages/pagCupons';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    {/* <Cadastro/> */}
     {/* <BemVindo/> */}
     {/* <Header/> */}
     {/* <Carrosel/> */}
     {/* <HeaderComercio/> */}
-    <Home/>
-    {/* <PgNotificacao/> */}
+    {/* <Home/> */}
+    {/* <PagNotificacao/> */}
+    <App/>
+    {/* <PagCupons/> */}
   </React.StrictMode>
 );
 

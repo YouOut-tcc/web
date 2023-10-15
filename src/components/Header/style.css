@@ -43,8 +43,6 @@ header{
     bottom: 100%;
     color: white;
     margin-left: 150px;
-    
-
 }
 
 .menu li svg{
@@ -60,6 +58,7 @@ header{
 
 .pagInicial:hover{
     font-weight: bold;
+    text-decoration: none;
 }
 
 .eventos:hover{
@@ -73,7 +72,6 @@ header{
 .perfil:hover{
     font-weight: bold;
 }
-
 
 
 

@@ -21,8 +21,8 @@
 
 .slider{
     position: absolute;
+    height: auto;
     bottom: 25%;
-    
 }
 
 .sliderItem{
@@ -33,14 +33,14 @@
 }
 
 .swiper-button-prev:after{
-    position: absolute;
-    bottom: -80%;
+    /* position: absolute;
+    bottom: -80%; */
     color: #FE0472;
 }
 
 .swiper-button-next:after{
-    position: absolute;
-    bottom: -80%;
+    /* position: absolute;
+    bottom: -80%; */
     color: #FE0472;
 }
 
