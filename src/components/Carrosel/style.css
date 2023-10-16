@@ -1,28 +1,33 @@
 
 .carrosel{
-    height: 65%;
-    position: relative;
-    top: 31%; 
+    /* height: auto; */
+    display: flex;
+    flex-direction: column;
+    /* position: relative; */
+    /* top: 31%;  */
     background-color:#EDE0D6;
 }
 
 .divBtnAdd{
-    height: 10%;
+    display: flex;
+    height: 8%;
+    justify-content: end;
 }
 
 .btnAdd{
+    display: flex;
     width: 15%;
-    height: 7%;
-    position: absolute;
-    top: 3%;
-    right: 2%;
+    height: 100%;
+    /* position: absolute; */
+    /* top: 3%; */
+    /* right: 2%; */
     color: #FE0472;
 }
 
 .slider{
-    position: absolute;
+    /* position: absolute; */
     height: auto;
-    bottom: 25%;
+    /* bottom: 25%; */
 }
 
 .sliderItem{
