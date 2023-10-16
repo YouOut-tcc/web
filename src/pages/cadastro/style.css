@@ -18,6 +18,7 @@
   background-color: #EDE0D6;
   width: 50%;
   border-radius: 25px 0 0 25px;
+  overflow: auto;
 
 }
 
@@ -36,10 +37,10 @@
   font-weight: 400;
   text-align: center;
   font-size: 300%;
-  padding: 20%;
+  padding: 10%;
   color: #8200A8;
   height: auto;
-  padding: 80px;
+  padding: 30px;
 }
 
 .form {
@@ -112,6 +113,7 @@
   text-align: center;
   white-space: nowrap;
 }
+
 #nomeF {
   background-color: #EDE0D6;
   z-index: 1;
@@ -132,4 +134,11 @@
   margin-bottom: 3%;
   padding-left: 0.5%;
   padding-right: 0.5%;
+}
+
+#outlined-required {
+  border-radius: 15%;
+  color:#8200A8;
+  align-items: center;
+  justify-content: center;
 }

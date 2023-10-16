@@ -11,6 +11,7 @@ import Carrosel from './components/Carrosel';
 import HeaderComercio from './components/headerComercio';
 import Home from './pages/Home'
 import PgNotificacao from './pages/pgNotificacao';
+import Cadastro from './pages/cadastro';
 
 
 
@@ -21,7 +22,7 @@ root.render(
     {/* <Header/> */}
     {/* <Carrosel/> */}
     {/* <HeaderComercio/> */}
-    <Home/>
+    <Cadastro/>
     {/* <PgNotificacao/> */}
   </React.StrictMode>
 );
