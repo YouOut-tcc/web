@@ -15,7 +15,7 @@ function PagEventos() {
 
   return(
       <div className='containerEventos'>
-          <Header/>
+          {/* <Header/> */}
           <HeaderPerfil/>
           <div className='divTituloEvento'>
             <h1 className='tituloHeaderEvento' > Eventos</h1>   

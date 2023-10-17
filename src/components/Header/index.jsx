@@ -17,25 +17,25 @@ function Header() {
         <div className="menu">
            <nav>
              <ul>
-               <Link to="/">
+               <Link to="">
                  <li className="pagInicial">
                    {" "}
                    <LiaHomeSolid className="iconesMenuHome" /> Pagina Inicial{" "}
                  </li>{" "}
                </Link>
-               <Link to="/eventos">
+               <Link to="eventos">
                  <li className="eventos">
                    {" "}
                    <BsCalendarCheck className="iconesMenuEventos" /> Eventos
                  </li>{" "}
                </Link>
-               <Link to="/cupons">
+               <Link to="cupons">
                  <li className="cupons">
                    {" "}
                    <ImTicket className="iconesMenuCupons" /> Cupons
                  </li>{" "}
                </Link>
-               <Link to="/perfil">
+               <Link to="perfil">
                  <li className="perfil">
                    {" "}
                    <RxPerson className="iconesMenuPerfil" /> Perfil

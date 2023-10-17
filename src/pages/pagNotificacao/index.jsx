@@ -8,7 +8,7 @@ import {IoMdNotifications} from 'react-icons/io'
 function PgNotificacao() {
 return(
     <div>
-        <Header/>   
+        {/* <Header/>    */}
         <HeaderPerfil/>
         <div className='containerNotificacao'>
             <IoMdNotifications className='iconeNotificacao'/>

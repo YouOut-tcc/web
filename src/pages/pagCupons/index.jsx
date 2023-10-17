@@ -16,7 +16,7 @@ function PagCupons() {
 
   return(
       <div className='containerCupons'>
-          <Header/>
+          {/* <Header/> */}
           <HeaderPerfil/>
           <div className='divTituloCupons'>
             <h1 className='tituloHeaderCupons'>Cupons</h1>

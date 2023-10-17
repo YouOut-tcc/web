@@ -5,7 +5,7 @@ import HeaderPerfil from '../../components/headerPerfil';
 function Perfil() {
   return(
       <div className='pele'>
-          <Header/>
+          {/* <Header/> */}
           <HeaderPerfil/>
 
           <div  className='divInfoP'>
