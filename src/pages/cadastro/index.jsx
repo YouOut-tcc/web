@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { purple } from "@mui/material/colors";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 export default function Cadastro() {
   const [name, setName] = useState("");
@@ -100,13 +101,10 @@ export default function Cadastro() {
               Voltar
             </Button>
           </Box>
+          <Link to='/recuperarSenha'>senha</Link>
           {/* <InputA nome="Nome Comercial" id="nomeC"/>
             <InputA nome="Nome Fantasia" id="nomeF"/>
-            <InputA nome="CNPJ" id="cnpj"/>
-            <InputA nome="E-mail" id="email"/>
-            <InputA nome="Confirme seu e-mail" id="confEmail"/>
-            <InputA nome="Senha" id="senha"/>
-            <InputA nome="Confirme sua senha" id="confSenha"/> */}
+
 
           {/* <br/><br/>
             Nome Fantasia: <input 

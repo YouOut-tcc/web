@@ -1,0 +1,67 @@
+#recupSenha {
+  background-color: #EDE0D6;
+  z-index: 1;
+  position: absolute;
+  /* border: 1px solid red; */
+  width: auto;
+  justify-content: center;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+  padding: 0.5%;
+  height: 2vh;
+  margin-bottom: 4.7%;
+  margin-left: 2%;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 200%;
+
+
+}
+
+.divRecuperaSenha {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 50px;
+  align-content: center;
+  /* align-items: center; */
+  justify-content: center;
+  /* margin-left: 375px; */
+  margin-top: 1%;
+  padding: 10px;
+  color:#8200A8; 
+  padding-left: 10%;
+  /* gap: 20px; */
+
+}
+
+.divPaiSenha {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  margin-top: 30%;
+}
+
+.btnLinkLogin {
+   margin-left: 10%;
+   margin-top: 1%;
+    width: 30%;
+    height: 5vh;
+    border-radius: 15px;
+    background-color: #8200A8;
+    color: white;
+    font-size: 150%;
+}
+
+.voltaLogin {
+  position: absolute;
+  height: auto;
+  width: auto;
+  margin-top: 3%;
+  margin-right: 5%;
+  right: 14%;
+  font-size: 150%;
+  /* margin-right: 50%; */
+}

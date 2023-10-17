@@ -1,0 +1,68 @@
+.divPaiModal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+.divModalButtons{
+  background-color:#EDE0D6;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  height: 50vh;
+  border: 4px #8200A8 solid;
+  border-radius: 20px;
+}
+
+.btnModalFechar{
+  background-color: transparent;
+  border: none;
+  margin-left: 85%;
+  width: 10%;
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  bottom: 89%;
+}
+
+.iconeBtnModalFechar{
+  width: 50%;
+  height: 5vh;
+
+}
+
+.divModalButtonAdd{
+  position: relative;
+  width: 5%;
+  height: auto;
+  left: 7%;
+  bottom: 30%;
+}
+
+.btnModalAdd{
+  background-color: transparent;
+  border: none;
+  margin-left: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+.iconeBtnModalAdd{
+  color: #8200A2;
+  width: 100%;
+  height: 3vh;
+}
+
+.divModalButtonFechar{
+  height: 50vh;
+}
+ 

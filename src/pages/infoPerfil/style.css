@@ -1,0 +1,48 @@
+.pele {
+  background-color: #EDE0D6 ;
+  height: auto;
+}
+.divInfoP {
+  display: flex;
+  flex-direction: column;
+  gap: 7px; /*Espaço entre os inputs*/
+  align-items: start;
+  background-color: #EDE0D6;
+  height: auto;
+
+}
+
+.divInfoP input{
+  position: relative;
+  bottom: 20px;
+  left: 5%;
+  border-color: black;
+  border: 4px black solid;
+  width: 40%;
+  height: 40px;
+  border-radius: 15px;
+  background-color: #EDE0D6;
+
+}
+
+.divInfoP h1{
+  height: 7vh;
+  font-size: 20px; /*Tamanho da font*/
+  font-weight: bold; /*Negrito*/
+  margin-left: 5%;
+  margin-top: 12%;
+ 
+}
+
+.btnAlterar {
+  background-color: blue;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 10px;
+  height: 4vh;
+  width: 5%;
+  display: flex;
+  margin-left: 22%;
+}
+
+

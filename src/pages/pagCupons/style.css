@@ -1,0 +1,204 @@
+.containerCupons{
+  height: auto;
+}
+
+.divTituloCupons{
+    background-color: #EDE0D6;
+    height: 29vh;
+  }
+  
+  .iconeCupon{
+    width: 2%;
+    height: 15%;
+    margin-left: 2.5%; 
+    position: relative;
+    bottom: 29vh;
+  }
+  
+  .tituloHeaderCupons {
+    padding-top: 12%;
+    width: 7%;
+    font-size: 150%;
+    font-weight: bold;
+    margin-left: 5%;
+  }
+  
+  .btnAddCupons{
+    background-color:transparent;
+    border: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3%;
+    height: 15%;
+    margin-left: 93%;
+    position: relative;
+    bottom: 115%;
+  }
+  
+  .iconeAddCupons{
+    color: #FE0472;
+    width: 90%;
+    height: 130%;  
+  }
+
+  .divModalConteudoCupons{
+    width: 97%;
+    height: 45vh;
+    margin-left: 1%;
+    margin-top: 1%;
+  }
+
+  .tituloCupom{
+    font-size: x-large;
+    font-weight: bold;
+    width: 50%;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .divModalConteudoImgCupons{
+    position: relative;
+    border: 1px solid black;
+    width: 40%;
+    height: 30vh;
+    left: 4%;
+    top: 5%;
+  }
+
+  .imgLogoCupom{
+    width: 100%;
+    height: 24vh;
+  }
+
+  .porcentagemCupom {
+    position: relative;
+    bottom: 72%;
+    left: 9.5%;
+    border: 2px solid black;
+    width: 43%;
+    height: 17.3vh;
+    
+  }
+
+  .porcentagemCupom h1 {
+    color: white;
+    font-size:400%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .txtCupom {
+    position: relative;
+    bottom: 132%;
+    left: 77%;
+    border: 2px solid black;
+    width: 18%;
+    height: 17.3vh;
+  }
+
+  .txtCupom h1 {
+    transform:rotate(270deg);
+    color: white;
+    font-size:larger;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
+
+  .divModalConteudoInputsCupons{
+    position: relative;
+    bottom: 64%;
+    left: 50%;
+    width: 40%;
+    height: 30vh;
+    /* border: 3px solid black; */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .divModalConteudoInputsCupons h1{
+    font-size:larger;
+    height: auto;
+  }
+
+  .divModalConteudoInputsCupons input{
+    position: relative;
+    bottom: 6%;
+    width: 80%;
+    height: 15px;
+    margin-left: 15%;
+    display: block;
+    border: 1px #8200A8 solid;
+    border-radius: 5px;
+    background-color: #EDE0D6;
+  }
+
+  .divModalConteudoInputsCupons svg{
+    position: relative;
+    top: 5%;
+    width: 10%;
+    height: 50%;
+
+  }
+
+  .btnSalvarCupom{
+    width: 100%;
+    height: 20vh;
+    margin-top: 5%;
+    border-radius: 15px;
+    background-color: #8200A8;
+    color: white;
+  }
+  
+  .divCupons{
+    background-color: #EDE0D6;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: auto;
+  }
+  
+  .cardCupons {
+    border-color: black;
+    border: 4px black solid;
+    border-radius: 15px;
+    width: 20%;
+    height: 14.5%;
+    margin: 2% 4% 3% 4% ;
+    position: relative;
+    padding: 1% 2%;
+    text-align: justify;
+  
+  } 
+  
+  .cardCupons h1 {
+    height: auto;
+    width: auto;
+    font-size: 100%;
+    font-weight: bold;
+  
+  } 
+  
+  .cardCupons ul {
+    height: auto;
+    width: auto;
+    padding: 1%;
+   
+  } 
+  
+  .cardCupons ul li {
+    list-style: disc inside;
+  }
+  
+  .dadosCupons{
+    text-align: center;
+  }
+  
+
+  
