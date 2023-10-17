@@ -1,0 +1,45 @@
+#linkSenha {
+  /* position: relative;
+  top: 30px; left: 13px */
+  margin-top: 10%;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  margin-top: -5%;
+  align-items: center;
+  
+}
+
+.formLogin{
+  height: auto;
+  padding: 5% 10% 5% 10% ;
+}
+
+.botoes {
+  display: flex;
+  justify-content: space-evenly;
+  padding-left: 30%;
+  padding-right: 30%;
+}
+
+.inputEmail fieldset {
+  border-radius: 20px;
+  /* border-color: #8200A8;
+  border-width: 15; */
+  border: 3px solid #8200A8;
+  
+}
+
+.inputSenha fieldset {
+  border-radius: 20px;
+  /* border-color: #8200A8;
+  border-width: 15; */
+  border: 3px solid #8200A8;
+}
+
+.inputLogin {
+  margin-top: 5%;
+}
+

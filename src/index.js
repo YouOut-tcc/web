@@ -5,13 +5,7 @@ import './reset.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import Cadastro from './pages/cadastro';
-import BemVindo from './components/bemVindo';
-import Header from './components/Header';
-import Carrosel from './components/Carrosel';
-import HeaderComercio from './components/headerComercio';
-import Home from './pages/Home'
-import PgNotificacao from './pages/pgNotificacao';
+
 
 
 

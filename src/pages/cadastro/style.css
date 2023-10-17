@@ -142,3 +142,21 @@
   align-items: center;
   justify-content: center;
 }
+
+.botoesCad {
+  display: flex;
+  justify-content: space-evenly;
+  padding-left: 30%;
+  padding-right: 30%;
+  padding-top: -2%;
+}
+
+.textField fieldset {
+  border-radius: 20px;
+  border: 3px solid #8200A8;
+}
+
+.formCad {
+  height: auto;
+  padding: 5% 10% 5% 10% ;
+}

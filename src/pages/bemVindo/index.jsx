@@ -1,5 +1,6 @@
 import styles from './style.css'
-import Logo from '../../img/logoYouOut.jpeg'
+import Logo from '../../img/logoYouOut.jpeg';
+import { Outlet, Link } from "react-router-dom";
 
 function BemVindo() {
     return(
@@ -10,8 +11,9 @@ function BemVindo() {
             
             <div className='btns'>
                 <h1 id='titulo'>Bem-Vindo ao <br></br>YouOut!</h1>
+                <Link to={`cadastro`}>Cadastro</Link>
                 <button className='btnUsuario'>USUÁRIO</button>
-                <button className='btnEstabelecimento'>ESTABELECIMENTO</button>
+                <Link to={'login'}><button className='btnEstabelecimento'>ESTABELECIMENTO</button></Link>
                 <button className='btnCadastrese'>CADASTRE-SE</button>
             </div>
         </div>
