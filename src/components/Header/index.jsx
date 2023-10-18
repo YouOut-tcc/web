@@ -9,40 +9,32 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <header>
-      <div>
+      <div className="divHeader">
         <div className="divMiniLogo">
           <img src={Logo} className="logo" alt="Logo YouOut" />
           <h1>You Out</h1>
         </div>
         <div className="menu">
-           <nav>
-             <ul>
-               <Link to="">
-                 <li className="pagInicial">
-                   {" "}
-                   <LiaHomeSolid className="iconesMenuHome" /> Pagina Inicial{" "}
-                 </li>{" "}
+           {/* <nav> */}
+             {/* <ul> */}
+               <Link className="iconesMenu" to="">
+                   <LiaHomeSolid className="iconesMenuHome iconesHeader" /> 
+                   <p>Pagina Inicial</p>
                </Link>
-               <Link to="eventos">
-                 <li className="eventos">
-                   {" "}
-                   <BsCalendarCheck className="iconesMenuEventos" /> Eventos
-                 </li>{" "}
+               <Link className="iconesMenu" to="eventos">
+                   <BsCalendarCheck className="iconesMenuEventos iconesHeader" /> 
+                   <p>Eventos</p>
                </Link>
-               <Link to="cupons">
-                 <li className="cupons">
-                   {" "}
-                   <ImTicket className="iconesMenuCupons" /> Cupons
-                 </li>{" "}
+               <Link className="iconesMenu" to="cupons">
+                   <ImTicket className="iconesMenuCupons iconesHeader" /> 
+                   <p>Cupons</p>
                </Link>
-               <Link to="perfil">
-                 <li className="perfil">
-                   {" "}
-                   <RxPerson className="iconesMenuPerfil" /> Perfil
-                 </li>{" "}
+               <Link className="iconesMenu" to="perfil">
+                   <RxPerson className="iconesMenuPerfil iconesHeader" /> 
+                   <p>Perfil</p>
                </Link>
-             </ul>
-           </nav>
+             {/* </ul> */}
+           {/* </nav> */}
          </div>
       </div>
     </header>

@@ -73,6 +73,10 @@ const router = createBrowserRouter([
     path: "/recuperarSenha",
     element: <PagRecuperarSenha />,
   },
+  {
+    path: "/layout",
+    element: <Layout1/>
+  }
 ]);
 
 export default function App() {
