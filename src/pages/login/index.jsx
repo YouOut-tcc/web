@@ -13,12 +13,12 @@ import { purple } from "@mui/material/colors";
 // import { MuiThemeProvider } from '@mui/material/styles';
 
 export default function Login() {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
+  const [login, setLogin] = useState(undefined);
+  const [password, setPassword] = useState(undefined);
 
   const handleSignupForm = (event) => {
     event.preventDefault();
-    console.log({ name, password });
+    console.log({ name: login, password });
   };
 
   const theme = createTheme({
@@ -58,6 +58,7 @@ export default function Login() {
                 id="outlined-required"
                 label="E-mail / CNPJ"
                 className="inputEmail inputLogin"
+                onChange={(e) => {setLogin(e.target.value)}}
 
                 // defaultValue="Insira nome de Registro"
               />
@@ -66,6 +67,7 @@ export default function Login() {
                 id="outlined-required"
                 label="Senha"
                 className="inputSenha inputLogin"
+                onChange={(e) => {setPassword(e.target.value)}}
                 // defaultValue="Insira uma senha alfanumérica"
               />
             </div>
