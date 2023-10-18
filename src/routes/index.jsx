@@ -20,6 +20,7 @@ import PagRecuperarSenha from "../pages/pagRecuperarSenha";
 import Layout1 from "../pages/Root";
 import { BiEnvelope } from "react-icons/bi";
 import Login from "../pages/login"
+import CommenceHome from "../pages/CommenceHome";
 
 const router = createBrowserRouter([
   {
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Home />,
+        element: <CommenceHome />,
       },
       {
         path: "eventos",
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: "perfil",
         element: <InfoPerfil />,
+      },
+      {
+        path: "comercio",
+        element: <Home />,
       },
     ],
   },

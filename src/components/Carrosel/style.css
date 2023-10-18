@@ -10,13 +10,13 @@
 
 .divBtnAdd{
     display: flex;
-    height: 8%;
+    /* height: 8%; */
     justify-content: end;
 }
 
 .btnAdd{
     display: flex;
-    width: 15%;
+    width: 2vw;
     height: 100%;
     /* position: absolute; */
     /* top: 3%; */
