@@ -10,11 +10,10 @@ import { Link } from 'react-router-dom';
 function Home() {
 return(
     <div>
-        <Header/>
         <HeaderComercio/>
         <Carrosel/>
         <Comentarios/>
-        <Link to='/cadastro'><h1 className='testee'>Cadastre-se</h1></Link>
+        {/* <Link to='/cadastro'><h1 className='testee'>Cadastre-se</h1></Link> */}
     </div>
 )
 }

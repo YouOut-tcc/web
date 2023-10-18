@@ -5,7 +5,7 @@ header{
     height: 7vh;
     padding-top: 1%;
     padding-bottom: 1%;
-    position: fixed;
+    /* position: fixed; */
     z-index: 2;
 }
 

@@ -1,0 +1,23 @@
+.root {
+  overflow: hidden;
+  background-color: #8200A8;
+}
+
+#main {
+  background-color: #EDE0D6;
+  width: 100%;
+  overflow: auto;
+  /* padding: 1%; */
+  border-radius: 12px 12px 0px 0px;
+}
+
+#conteiner {
+  background-color: #EDE0D6;
+  
+}
+
+#conteinerMain {
+  /* overflow: auto; */
+  margin: 1%;
+  margin-top: 2%;
+}
