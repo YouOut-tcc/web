@@ -9,6 +9,7 @@ import TextField from "@mui/material/TextField";
 import { purple } from "@mui/material/colors";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import { height } from "@mui/system";
 
 export default function Cadastro() {
   const [name, setName] = useState(undefined);
@@ -90,17 +91,19 @@ export default function Cadastro() {
             <div className="botoesCad">
             <Button
               variant="contained"
-              style={{backgroundColor: "#8200A8"}}
+              style={{backgroundColor: "#8200A8", height:"5vh"}}
               onClick={handleSignupForm}
             >
               Cadastrar
             </Button>
-            <Button
+
+            <Link to={"/"}>
+            <Button 
               variant="contained"
-              style={{backgroundColor: "#8200A8"}}
-            >
+              style={{backgroundColor: "#8200A8", height:"5vh"}}>
               Voltar
             </Button>
+           </Link>
             </div>
           </Box>
           

@@ -1,84 +1,127 @@
 .containerComentario{
-  margin-top: 30vh;
+
   height: auto;
 }
 
 .divComentario{
   display: flex;
   justify-content: space-between;
-  background-color: #EDE0D6;
-  height: 10%;
+  height: auto;
+  
 }
 
 .divComentario h1{
   font-weight: bold;
-  margin: 3% 5%;
-}
-
-.logoPerfil{
-  border-radius: 100px;
-  margin-top: 1%;
   margin-left: 5%;
-  width: 5%;
-  height: 10%;
-
+  margin-right: 2%;
 }
+
+/* -- ---------------------- */
 
 .divAvaliacao{
-  background-color: #EDE0D6;
+  display: flex;
+  margin-left: 5%;
+  margin-bottom: 1%;
+  
+}
+
+/* se apagar o logo perde as propriedades */
+.comentarioUserLogo{
+
+}
+
+.conteinerAvaliacaoImg{
+  /* align-self: center; */
+  width: auto;
   height: auto;
 }
 
-.divAvaliacao h1{
-  display: inline;
-  position: relative;
-  left: 1%;
-  bottom: 80px;
-  font-size:large;
+.conteinerAvaliacaoImg img{
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
 }
 
-.divAvaliacao p{
-  display: flex;
-  position: relative;
-  left: 11%;
-  bottom: 70px;
-  width: 85%;
+.conteinerAvaliacao{
+  margin-left: 1%;
+  width: 100%;
+}
+
+
+.conteinerAvaliacao h1{
+  /* display: inline; */
+  /* position: relative; */
+  /* left: 1%; */
+  /* bottom: 9vh; */
+  font-size: x-large;
+}
+
+.conteinerAvaliacao p{
+  /* position: relative; */
+  /* left: 11%; */
+  /* bottom: 70px; */
+  margin-top: 1%;
+  width: 70vw;
   height: 6%;
   font-weight: bold;
+  margin-left: 1%;
+  overflow-wrap: break-word;
 }
 
-.logoPerfil2{
-  border-radius: 100px;
-  margin-top: -3%;
-  margin-left: 10%;
-  width: 4%;
-  height: 8%;
-}
-
-.divAvaliacao input{
-   position: relative;
-   bottom: 20px;
-   left: 1%;
+.AvaliacaoRespotaInput{
    border-color: #FE0472;
-   width: 40%;
-   height: 40px;
+   width: 100%;
+   height: 2rem;
    border-radius: 50px;
 }
 
 .iconeEstrela{
-  position: relative;
-  top: 3px;
-  padding-right: 5px;
-  width: 20px;
-  height: 20px;
+  padding-right: 0%;
+  width: 30%;
+  height: 50%;
+}
+
+.conteinerRespostas{
+  display: flex;
+  margin-left: 1%;
+  margin-top: 1%;
+  /* align-items: center; */
+  width: 100%;
+}
+
+.conteinerRespostasInput{
+  display: flex;
+  align-items: center;
+  width: 70vw;
+  margin-left: 1%;
 }
 
 .iconeAviao{
+  position: relative;
   color: #FE0472;
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  left: 52%;
-  top: 133%;
+  width: 4vh;
+  height: 1.6vh;
+  bottom: 0.2vh;
+  right: 2.0vw;
+
   transform: rotate(-25deg);
+}
+
+.btResponderAvaliacao{
+  color: blue;
+}
+
+.avaliacoesListDot{
+  list-style-type: none;
+}
+
+.conteinerRespostasImg{
+  width: auto;
+  height: auto;
+}
+
+.conteinerRespostasImg img{
+  border-radius: 50%;
+  width: 1.8rem;
+  height: 1.8rem;
 }

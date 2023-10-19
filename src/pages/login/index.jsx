@@ -3,11 +3,13 @@ import "./styles.css";
 import Logo from "../../components/LogoInicial";
 import { useState } from "react";
 
+import { userLogin } from "../../services/login";
+
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 // import { purple } from "@mui/material/colors";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, redirect, useNavigate, useNavigation } from "react-router-dom";
 import { createTheme } from "@mui/material/styles";
 import { purple } from "@mui/material/colors";
 // import { MuiThemeProvider } from '@mui/material/styles';
@@ -16,9 +18,23 @@ export default function Login() {
   const [login, setLogin] = useState(undefined);
   const [password, setPassword] = useState(undefined);
 
-  const handleSignupForm = (event) => {
+  const navigate = useNavigate()
+
+  const handleSignupForm = async (event) => {
     event.preventDefault();
     console.log({ name: login, password });
+    
+    try {
+      let token = await userLogin({email: login, password});
+      if(!token){
+        return null;
+      }
+      sessionStorage.setItem("loginToken", token);
+      return navigate("/home");
+    } catch (error) {
+      console.log(error.constructor.name)
+    }
+
   };
 
   const theme = createTheme({
@@ -80,10 +96,11 @@ export default function Login() {
           </Box>
         </form>
         <div className="botoes">
-          <Link to={"/Home"}>
+          <Link>
             <Button 
               variant="contained"
-              style={{backgroundColor: "#8200A8"}}>
+              style={{backgroundColor: "#8200A8"}}
+              onClick={handleSignupForm}>
               Entrar
             </Button>
           </Link>

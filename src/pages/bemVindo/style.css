@@ -6,16 +6,26 @@
 .divLogo{
     background-color: #8200A8;
     width: 50%;
-    height: 600px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.logoPgHome{
+    width: 50%;
+    height: auto;
+    border-radius: 50%;
+    /* display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto; */
+}
+
 .btns{
     background-color: #EDE0D6;
     width: 50%;
-    height:600px;
+    height:auto;
 }
 
 #titulo{
@@ -23,7 +33,12 @@
     color: #8200A8;
     font-size: 200%;
     margin-top: 20%;
-    padding-bottom: 50px
+    padding-bottom: 10vh;
+    height: auto;
+}
+
+.linkPgHome{
+    text-decoration: none;
 }
 
 .btnUsuario{
