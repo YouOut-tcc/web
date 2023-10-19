@@ -5,7 +5,7 @@ function headerPerfil() {
   return(
       <div className='fundo'>
         <div className='HPerfil'>
-          <img src={CommerceLogo} className='fotoPerfilCommerce'/> 
+          <img src={CommerceLogo} className='fotoPerfilCommerce' alt=""/> 
           <h1>Nome do Usuario</h1>
         </div>
       </div>

@@ -1,85 +1,123 @@
 .containerComentario{
-  margin-top: 30vh;
+
   height: auto;
 }
 
 .divComentario{
   display: flex;
   justify-content: space-between;
-  background-color: #EDE0D6;
-  /* height: 10%; */
+  height: auto;
+  
 }
 
 .divComentario h1{
   font-weight: bold;
-  margin: 3% 5%;
-}
-
-.logoPerfil{
-  border-radius: 100px;
-  margin-top: 1%;
   margin-left: 5%;
-  width: 5%;
-  height: 10vh;
-
+  margin-right: 2%;
 }
+
+/* -- ---------------------- */
 
 .divAvaliacao{
-  background-color: #EDE0D6;
-  height: 100vh;
+  display: flex;
+  margin-left: 5%;
+  margin-bottom: 1%;
+  
 }
 
-.divAvaliacao h1{
-  display: inline;
-  position: relative;
-  left: 1%;
-  bottom: 9vh;
+/* se apagar o logo perde as propriedades */
+.comentarioUserLogo{
+
+}
+
+.conteinerAvaliacaoImg{
+  /* align-self: center; */
+  width: 7vw;
+}
+
+.conteinerAvaliacaoImg img{
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.conteinerAvaliacao{
+  margin-left: 1%;
+}
+
+
+.conteinerAvaliacao h1{
+  /* display: inline; */
+  /* position: relative; */
+  /* left: 1%; */
+  /* bottom: 9vh; */
   font-size: x-large;
 }
 
-.divAvaliacao p{
-  /* display: flex; */
-  position: relative;
-  left: 11%;
-  bottom: 70px;
+.conteinerAvaliacao p{
+  /* position: relative; */
+  /* left: 11%; */
+  /* bottom: 70px; */
+  margin-top: 1%;
   width: 85%;
   height: 6%;
   font-weight: bold;
+  margin-left: 1%;
 }
 
 .fotoPerfilCNPJ{
-  border-radius: 100px;
-  margin-top: -3%;
-  margin-left: 10%;
-  width: 4%;
+  border-radius: 50%;
+  /* margin-top: -3%; */
+  /* margin-left: 10%; */
+  width: 7%;
   height: 8%;
 }
 
-.divAvaliacao input{
-   position: relative;
-   bottom: 20px;
-   left: 1%;
+.AvaliacaoRespotaInput{
    border-color: #FE0472;
-   width: 40%;
-   height: 40px;
+   width: 100%;
+   height: 2rem;
    border-radius: 50px;
 }
 
 .iconeEstrela{
   background-color: aqua;
   position: relative;
-  /* top: 3%; */
   padding-right: 0%;
   width: 30%;
   height: 50%;
 }
 
+.conteinerRespostas{
+  display: flex;
+  margin-left: 1%;
+  margin-top: 1%;
+  /* align-items: center; */
+  width: 50%;
+}
+
+.conteinerRespostasInput{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-left: 1%;
+}
+
 .iconeAviao{
+  position: relative;
   color: #FE0472;
-  /* position: absolute; */
-  width: 2%;
-  height: 4vh;
-  /* left: 45%;
-  top: 133%; */
+  width: 4vh;
+  height: 1.6vh;
+  bottom: 0.2vh;
+  right: 2.0vw;
+
   transform: rotate(-25deg);
+}
+
+.btResponderAvaliacao{
+  color: blue;
+}
+
+.avaliacoesListDot{
+  list-style-type: none;
 }

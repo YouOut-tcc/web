@@ -65,7 +65,7 @@ const router = createBrowserRouter([
         element: <InfoPerfil />,
       },
       {
-        path: "comercio",
+        path: "comercio/:uuid",
         element: <Home />,
       },
     ],
