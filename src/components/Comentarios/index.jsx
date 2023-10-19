@@ -21,14 +21,20 @@ function Comentarios() {
 
 		// um para testar ou para usar
 
-		setAvaliacoes(avaliacoesFetch);
-		// setAvaliacoes(avaliacoesFetch.concat({
-		// 	id: 0,
-		// 	nome: "Eduardo",
-		// 	comentario: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-		// 	resposta: undefined,
-		// 	teste: true
-		// }))
+		// setAvaliacoes(avaliacoesFetch);
+		setAvaliacoes(avaliacoesFetch.concat({
+			id: 0,
+			nome: "Eduardo",
+			comentario: `dsadaddddddddddddddddd
+			dddddddddddddddddddddddddddddddddddddd
+			dddddddddddddddddddddddddddddddddddddddd
+			ddddddddddddddddddddddddddddddddddddddddd
+			ddddddddddddddddddddddddddddddddddddddddddd
+			dddddddddddddddddddddddddddddddddddddddddddd
+			ddddddddddddddddddddddddddddddddddddddddd`,
+			resposta: undefined,
+			teste: true
+		}))
 
 		//
 	}

@@ -32,17 +32,19 @@
 
 .conteinerAvaliacaoImg{
   /* align-self: center; */
-  width: 7vw;
+  width: auto;
+  height: auto;
 }
 
 .conteinerAvaliacaoImg img{
   border-radius: 50%;
-  width: 100%;
-  height: 100%;
+  width: 5rem;
+  height: 5rem;
 }
 
 .conteinerAvaliacao{
   margin-left: 1%;
+  width: 100%;
 }
 
 
@@ -59,18 +61,11 @@
   /* left: 11%; */
   /* bottom: 70px; */
   margin-top: 1%;
-  width: 85%;
+  width: 70vw;
   height: 6%;
   font-weight: bold;
   margin-left: 1%;
-}
-
-.fotoPerfilCNPJ{
-  border-radius: 50%;
-  /* margin-top: -3%; */
-  /* margin-left: 10%; */
-  width: 7%;
-  height: 8%;
+  overflow-wrap: break-word;
 }
 
 .AvaliacaoRespotaInput{
@@ -81,8 +76,6 @@
 }
 
 .iconeEstrela{
-  background-color: aqua;
-  position: relative;
   padding-right: 0%;
   width: 30%;
   height: 50%;
@@ -93,13 +86,13 @@
   margin-left: 1%;
   margin-top: 1%;
   /* align-items: center; */
-  width: 50%;
+  width: 100%;
 }
 
 .conteinerRespostasInput{
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 70vw;
   margin-left: 1%;
 }
 
@@ -120,4 +113,15 @@
 
 .avaliacoesListDot{
   list-style-type: none;
+}
+
+.conteinerRespostasImg{
+  width: auto;
+  height: auto;
+}
+
+.conteinerRespostasImg img{
+  border-radius: 50%;
+  width: 1.8rem;
+  height: 1.8rem;
 }
