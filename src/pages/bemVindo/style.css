@@ -1,6 +1,7 @@
 .divPrincipal{
     display: flex;
     text-align:center;
+    background-color: #8200A8;
 }
 
 .divLogo{
@@ -16,16 +17,13 @@
     width: 50%;
     height: auto;
     border-radius: 50%;
-    /* display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto; */
 }
 
 .btns{
     background-color: #EDE0D6;
     width: 50%;
     height:auto;
+    border-radius: 25px 0 0 25px;
 }
 
 #titulo{
@@ -33,8 +31,10 @@
     color: #8200A8;
     font-size: 200%;
     margin-top: 20%;
+    text-align: center;
     padding-bottom: 10vh;
     height: auto;
+    width: auto;
 }
 
 .linkPgHome{

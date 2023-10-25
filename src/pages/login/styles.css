@@ -2,6 +2,8 @@
   /* position: relative;
   top: 30px; left: 13px */
   margin-top: 10%;
+  margin-bottom: 3%;
+  font-size: 150%;
 }
 
 .links {
@@ -14,6 +16,7 @@
 
 .formLogin{
   height: auto;
+  width: 60%;
   padding: 5% 10% 5% 10% ;
 }
 

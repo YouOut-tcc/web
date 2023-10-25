@@ -12,11 +12,13 @@ function BemVindo() {
             {/* </div> */}
              <Logo/>
             <div className='btns'>
-                <h1 id='titulo'>Bem-Vindo ao <br></br>YouOut!</h1>
+                <h1 id='titulo'>Bem-vindo ao <br></br>YouOut!</h1>
                 <button className='btnUsuario'>USUÁRIO</button>
                 <Link className="linkPgHome" to={'/login'}><button className='btnEstabelecimento'>ESTABELECIMENTO</button></Link>
                 <Link className="linkPgHome" to={'/cadastro'}><button className='btnCadastrese'>CADASTRE-SE</button></Link>
+               
             </div>
+           
         </div>
 
     )
