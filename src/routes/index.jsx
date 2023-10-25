@@ -21,6 +21,7 @@ import Layout1 from "../pages/Root";
 import { BiEnvelope } from "react-icons/bi";
 import Login from "../pages/login"
 import CommenceHome from "../pages/CommenceHome";
+import CadastroEstabelecimento from "../pages/cadEstabelecimento";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/cadastro",
     element: <Cadastro />,
+  },
+  {
+    path: "/cadastro/estabelecimento",
+    element: <CadastroEstabelecimento />,
   },
   {
     path: "/bemvindo",
