@@ -12,7 +12,9 @@ import Button from "@mui/material/Button";
 import { Link, redirect, useNavigate, useNavigation } from "react-router-dom";
 import { createTheme } from "@mui/material/styles";
 import { purple } from "@mui/material/colors";
+import {FcGoogle} from "react-icons/fc"
 // import { MuiThemeProvider } from '@mui/material/styles';
+
 
 export default function Login() {
   const [login, setLogin] = useState(undefined);
@@ -91,6 +93,7 @@ export default function Login() {
               <Link to="/recuperarSenha" id="linkSenha">
                 Esqueceu a senha? Clique aqui.
               </Link>
+              <FcGoogle/>
               <Link to="/cadastro">Cadastre-se</Link>
             </div>
           </Box>

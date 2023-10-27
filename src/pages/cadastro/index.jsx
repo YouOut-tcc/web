@@ -37,7 +37,6 @@ export default function Cadastro() {
               "& .MuiTextField-root": {
                 m: 1,
                 width: "65ch",
-                
               },
             }}
             noValidate
@@ -47,69 +46,70 @@ export default function Cadastro() {
               <TextField
                 required
                 id="outlined-required"
-                label="Nome"
-                onChange={(e) => {setName(e.target.value)}}
-                
-                // defaultValue="Insira nome de Registro"
+                label="Nome Completo"
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
               />
-              <TextField
-                required
-                id="outlined-required"
-                label="Nome Fantasia"
-                onChange={(e) => {setFantasyName(e.target.value)}}
-                // defaultValue="Insira nome comercial"
-              />
-              <TextField
-                required
-                id="outlined-required"
-                label="CNPJ"
-                onChange={(e) => {setCnpj(e.target.value)}}
-                // defaultValue="Insira um CNPJ válido"
-              />
+
               <TextField
                 required
                 id="outlined-required"
                 label="E-mail"
-                onChange={(e) => {setEmail(e.target.value)}}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
                 // defaultValue="Insira seu melhor e-mail"
               />
+
+              <TextField
+                required
+                id="outlined-required"
+                label="Celular"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
+
               <TextField
                 required
                 id="outlined-required"
                 label="Senha"
-                onChange={(e) => {setPassword(e.target.value)}}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
                 // defaultValue="Insira uma senha alfanumérica"
               />
               <TextField
                 required
                 id="outlined-required"
                 label="Confirme sua Senha"
-                onChange={(e) => {setConfPassword(e.target.value)}}
+                onChange={(e) => {
+                  setConfPassword(e.target.value);
+                }}
                 // defaultValue="Confirme a sua senha"
               />
             </div>
             <div className="botoesCad">
-            <Button
-              variant="contained"
-              style={{backgroundColor: "#8200A8", height:"5vh"}}
-              onClick={handleSignupForm}
-            >
-              Cadastrar
-            </Button>
+              <Button
+                variant="contained"
+                style={{ backgroundColor: "#8200A8", height: "5vh" }}
+                onClick={handleSignupForm}
+              >
+                Cadastrar
+              </Button>
 
-            <Link to={"/"}>
-            <Button 
-              variant="contained"
-              style={{backgroundColor: "#8200A8", height:"5vh"}}>
-              Voltar
-            </Button>
-           </Link>
+              <Link to={"/"}>
+                <Button
+                  variant="contained"
+                  style={{ backgroundColor: "#8200A8", height: "5vh" }}
+                >
+                  Voltar
+                </Button>
+              </Link>
             </div>
           </Box>
-          
-          
         </form>
-       
       </div>
     </div>
   );

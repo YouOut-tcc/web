@@ -1,0 +1,162 @@
+.divGeral {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: #8200A8;
+}
+
+#container-a {
+  background-color: #8200A8;
+  width: 50%;
+  height: auto;
+  justify-content: center;
+  text-align: center;
+  padding-top: 25vh;
+}
+
+#container-b {
+  background-color: #EDE0D6;
+  width: 50%;
+  border-radius: 25px 0 0 25px;
+  overflow: auto;
+
+}
+
+#logo {
+  width: 50%;
+  height: auto;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+}
+
+.title {
+  font-family: 'Roboto';
+  font-weight: 400;
+  text-align: center;
+  font-size: 300%;
+  padding: 10%;
+  color: #8200A8;
+  height: auto;
+  padding: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 50px;
+  align-content: center;
+  /* align-items: center; */
+  justify-content: center;
+  /* margin-left: 375px; */
+  margin-top: 1%;
+  padding: 10px;
+  color:#8200A8; 
+  padding-left: 10%;
+  /* gap: 20px; */
+}
+
+#botaoEnviar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 250px;
+  margin-left: 45%;
+  height: 20px;
+
+  /* border-radius: 35%; */
+}
+
+#botaoVoltar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-left: 45%;
+  height: 20px;
+  border-style: solid purple 2px;
+  /* border-radius: 35%; */
+}
+
+.comercialInput {
+  padding: 2%;
+  display:inline-block;
+    /* padding:15px 10px; */
+    line-height:140%;
+  /* display: block; */
+  background-color: #EDE0D6;
+  border-radius: 10px;
+  border: 3px solid purple;
+  /* border-bottom: 1px solid #ccc; */
+  width: 100%
+  
+}
+
+#nomeC {
+  background-color: #EDE0D6;
+  z-index: 1;
+  position: absolute;
+  /* border: 1px solid red; */
+  width: 16vh;
+  justify-content: center;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+  padding: 0.5%;
+  height: 2%;
+  margin-bottom: 9%;
+  margin-left: 2%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#nomeF {
+  background-color: #EDE0D6;
+  z-index: 1;
+  position: absolute;
+  /* border: 1px solid red; */
+  width: 16vh;
+  justify-content: center;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+  padding: 0.5%;
+  height: 2%;
+  margin-bottom: 0%;
+  margin-left: 2%;
+  text-align: center;
+  white-space: nowrap;
+}
+.inputContainer {
+  margin-bottom: 3%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+
+#outlined-required {
+  border-radius: 15%;
+  color:#8200A8;
+  align-items: center;
+  justify-content: center;
+}
+
+.botoesCad {
+  display: flex;
+  justify-content: space-evenly;
+  padding-left: 30%;
+  padding-right: 30%;
+  padding-top: -2%;
+}
+
+.textField fieldset {
+  border-radius: 20px;
+  border: 3px solid #8200A8;
+}
+
+.formCad {
+  height: auto;
+  padding: 5% 10% 5% 10% ;
+}
