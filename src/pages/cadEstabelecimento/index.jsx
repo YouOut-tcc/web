@@ -10,6 +10,7 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { height } from "@mui/system";
 import InputMask from "react-input-mask";
+import InputB from "../../components/Inputs/InputB";
 
 export default function CadastroEstabelecimento() {
   const [nomeFantasia, setNomeFantasia] = useState(undefined);
@@ -23,7 +24,7 @@ export default function CadastroEstabelecimento() {
   const [latitude, setLatitude] = useState(undefined);
   const [longitude, setLongitude] = useState(undefined);
 
-  const [nomeFantasiaError, setNomeFantasiaError] = useState(false);
+  const [nomeFantasiaError, setNomeFantasiaError] = useState("");
   const [nomeEmpresarialError, setNomeEmpresarialError] = useState(false);
   const [cnpjError, setCnpjError] = useState(false);
   const [emailComercialError, setEmailComercialError] = useState(false);
@@ -39,7 +40,7 @@ export default function CadastroEstabelecimento() {
   const handleSignupForm = (event) => {
     event.preventDefault();
 
-    setNomeFantasiaError(false);
+    setNomeFantasiaError("");
     setNomeEmpresarialError(false);
     setCnpjError(false);
     setEmailComercialError(false);
@@ -50,54 +51,56 @@ export default function CadastroEstabelecimento() {
     setLatitudeError(false);
     setLongitudeError(false);
 
-
+    if (nomeFantasia == undefined || nomeFantasia.trim() == 0) {
+      setNomeFantasiaError("coloque alguma coisa");
+    }
 
     if (nomeFantasia == undefined || nomeFantasia == "") {
-      setNomeFantasiaError(true)
+      setNomeFantasiaError("coloque alguma coisa");
     }
 
     if (nomeEmpresarial == undefined || nomeEmpresarial == "") {
-      setNomeEmpresarialError(true)
+      setNomeEmpresarialError(true);
     }
 
     if (cnpj == undefined || cnpj == "") {
-      setCnpjError(true)
+      setCnpjError(true);
     }
 
     if (emailComercial == undefined || emailComercial == "") {
-      setEmailComercialError(true)
+      setEmailComercialError(true);
     }
 
     if (telefoneComercial == undefined || telefoneComercial == "") {
-      setTelefoneComercialError(true)
+      setTelefoneComercialError(true);
     }
 
     if (cep == undefined || cep == "") {
-      setCepError(true)
+      setCepError(true);
     }
 
     if (numero == undefined || numero == "") {
-      setNumeroError(true)
+      setNumeroError(true);
     }
 
     if (categoria == undefined || categoria == "") {
-      setCategoriaError(true)
+      setCategoriaError(true);
     }
 
     if (latitude == undefined || latitude == "") {
-      setLatitudeError(true)
+      setLatitudeError(true);
     }
 
     if (longitude == undefined || longitude == "") {
-      setLongitudeError(true)
+      setLongitudeError(true);
     }
 
     const latitudefloat = parseFloat(latitude);
     const longitudefloat = parseFloat(longitude);
-      console.log({
-        latitudefloat,
-        longitudefloat
-      })
+    console.log({
+      latitudefloat,
+      longitudefloat,
+    });
     // console.log({
     //   nomeFantasia,
     //   nomeEmpresarial,
@@ -121,7 +124,7 @@ export default function CadastroEstabelecimento() {
 
       <div id="container-b">
         <h1 className="title">Cadastre-se seu Estabelecimento</h1>
-        <form className="form" onSubmit={handleSignupForm}>
+        <form className="form" onSubmit={handleSignupForm} >
           <Box
             component="form"
             sx={{
@@ -134,16 +137,14 @@ export default function CadastroEstabelecimento() {
             autoComplete="off"
           >
             <div className="textField formCad">
-              <TextField
-                required
-                id="outlined-required"
+              <InputB
+                value={nomeFantasia}
+                setValue={setNomeFantasia}
+                inputError={nomeFantasiaError}
+                errorMessage={nomeFantasiaError}
                 label="Nome Fantasia"
-                onChange={(e) => {
-                  setNomeFantasia(e.target.value);
-                }}
               />
-              {nomeFantasiaError && <p>erro</p>}
-              
+
               <TextField
                 required
                 id="outlined-required"
@@ -252,7 +253,6 @@ export default function CadastroEstabelecimento() {
                 }}
               />
               {longitudeError && <p>erro</p>}
-
             </div>
             <div className="botoesCad">
               <Button
