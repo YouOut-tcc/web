@@ -1,21 +1,11 @@
 import { useState, useEffect } from "react";
 import CommerceHomeCard from "./card";
-import { getPlacesOwn } from "../../services/login";
 
-export default function CommerceHomeList() {
+export default function CommerceHomeList({ data }) {
   const [places, setPlaces] = useState([]);
 
-  const fetchPlaces = async () => {
-    let placefetch = await getPlacesOwn();
-    setPlaces(places.concat(placefetch));
-    console.log(placefetch)
-  }
-
-  // map (value, index, self)
-
   useEffect(() => {
-    fetchPlaces();
-    console.log("entrando no useeffect do commercelist")
+    setPlaces(data);
   }, []);
 
   return (

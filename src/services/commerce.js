@@ -51,4 +51,23 @@ async function responderAvaliacao(uuid, id, resposta) {
   }
 }
 
-export { getAvaliacoes, getCommerceInfo, responderAvaliacao }
+async function placeCadastro(data) {
+  try {
+    const res = await api.post("/estabelecimento/manage/request", data)
+
+    return res;
+  } catch (error) {
+    console.log(error.constructor.name)
+    if (error instanceof AxiosError){
+      console.log("erro no cadastro")
+      console.log(error.response.status)
+      console.log(error.response.data.message)
+      throw error;
+    } else if (error instanceof ReferenceError){
+      console.log(error.message)
+      throw error;
+    }
+  }
+}
+
+export { getAvaliacoes, getCommerceInfo, responderAvaliacao, placeCadastro }

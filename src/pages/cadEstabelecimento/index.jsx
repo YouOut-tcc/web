@@ -7,9 +7,11 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { purple } from "@mui/material/colors";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import { height } from "@mui/system";
 import InputMask from "react-input-mask";
+import InputB from "../../components/Inputs/InputB";
+import { placeCadastro } from "../../services/commerce";
 
 export default function CadastroEstabelecimento() {
   const [nomeFantasia, setNomeFantasia] = useState(undefined);
@@ -23,7 +25,7 @@ export default function CadastroEstabelecimento() {
   const [latitude, setLatitude] = useState(undefined);
   const [longitude, setLongitude] = useState(undefined);
 
-  const [nomeFantasiaError, setNomeFantasiaError] = useState(false);
+  const [nomeFantasiaError, setNomeFantasiaError] = useState("");
   const [nomeEmpresarialError, setNomeEmpresarialError] = useState(false);
   const [cnpjError, setCnpjError] = useState(false);
   const [emailComercialError, setEmailComercialError] = useState(false);
@@ -34,12 +36,14 @@ export default function CadastroEstabelecimento() {
   const [latitudeError, setLatitudeError] = useState(false);
   const [longitudeError, setLongitudeError] = useState(false);
 
+  const navigate = useNavigate()
+
   const regexEmail = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
 
-  const handleSignupForm = (event) => {
+  const handleSignupForm = async (event) => {
     event.preventDefault();
 
-    setNomeFantasiaError(false);
+    setNomeFantasiaError("");
     setNomeEmpresarialError(false);
     setCnpjError(false);
     setEmailComercialError(false);
@@ -50,54 +54,56 @@ export default function CadastroEstabelecimento() {
     setLatitudeError(false);
     setLongitudeError(false);
 
-
+    if (nomeFantasia == undefined || nomeFantasia.trim() == 0) {
+      setNomeFantasiaError("coloque alguma coisa");
+    }
 
     if (nomeFantasia == undefined || nomeFantasia == "") {
-      setNomeFantasiaError(true)
+      setNomeFantasiaError("coloque alguma coisa");
     }
 
     if (nomeEmpresarial == undefined || nomeEmpresarial == "") {
-      setNomeEmpresarialError(true)
+      setNomeEmpresarialError(true);
     }
 
     if (cnpj == undefined || cnpj == "") {
-      setCnpjError(true)
+      setCnpjError(true);
     }
 
     if (emailComercial == undefined || emailComercial == "") {
-      setEmailComercialError(true)
+      setEmailComercialError(true);
     }
 
     if (telefoneComercial == undefined || telefoneComercial == "") {
-      setTelefoneComercialError(true)
+      setTelefoneComercialError(true);
     }
 
     if (cep == undefined || cep == "") {
-      setCepError(true)
+      setCepError(true);
     }
 
     if (numero == undefined || numero == "") {
-      setNumeroError(true)
+      setNumeroError(true);
     }
 
     if (categoria == undefined || categoria == "") {
-      setCategoriaError(true)
+      setCategoriaError(true);
     }
 
     if (latitude == undefined || latitude == "") {
-      setLatitudeError(true)
+      setLatitudeError(true);
     }
 
     if (longitude == undefined || longitude == "") {
-      setLongitudeError(true)
+      setLongitudeError(true);
     }
 
     const latitudefloat = parseFloat(latitude);
     const longitudefloat = parseFloat(longitude);
-      console.log({
-        latitudefloat,
-        longitudefloat
-      })
+    console.log({
+      latitudefloat,
+      longitudefloat,
+    });
     // console.log({
     //   nomeFantasia,
     //   nomeEmpresarial,
@@ -110,8 +116,27 @@ export default function CadastroEstabelecimento() {
     //   latitude,
     //   longitude,
     // });
-    if (regexEmail.test(emailComercial)) {
-      alert("qualquer coisa");
+    if (!regexEmail.test(emailComercial)) {
+      return alert("erro no email");
+    }
+
+    try {
+      await placeCadastro({
+        nome: nomeFantasia,
+        nome_empresarial: nomeEmpresarial,
+        cnpj: cnpj.replace(/[^\d]/g, ''),
+        emailComercial,
+        telefone: telefoneComercial.replace(/[^\d]/g, ''),
+        celular: telefoneComercial.replace(/[^\d]/g, ''),
+        cep: cep.replace(/[^\d]/g, ''),
+        numero,
+        descricao: categoria,
+        latitude,
+        longitude
+      });
+      return navigate("/home");
+    } catch (error) {
+      console.log(error.constructor.name)
     }
   };
 
@@ -134,16 +159,14 @@ export default function CadastroEstabelecimento() {
             autoComplete="off"
           >
             <div className="textField formCad">
-              <TextField
-                required
-                id="outlined-required"
+              <InputB
+                value={nomeFantasia}
+                setValue={setNomeFantasia}
+                inputError={nomeFantasiaError}
+                errorMessage={nomeFantasiaError}
                 label="Nome Fantasia"
-                onChange={(e) => {
-                  setNomeFantasia(e.target.value);
-                }}
               />
-              {nomeFantasiaError && <p>erro</p>}
-              
+
               <TextField
                 required
                 id="outlined-required"
@@ -252,7 +275,6 @@ export default function CadastroEstabelecimento() {
                 }}
               />
               {longitudeError && <p>erro</p>}
-
             </div>
             <div className="botoesCad">
               <Button

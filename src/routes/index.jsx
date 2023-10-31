@@ -20,8 +20,9 @@ import PagRecuperarSenha from "../pages/pagRecuperarSenha";
 import Layout1 from "../pages/Root";
 import { BiEnvelope } from "react-icons/bi";
 import Login from "../pages/login"
-import CommenceHome from "../pages/CommenceHome";
+import CommenceHome ,{ loader as commenceHomeLoader} from "../pages/CommenceHome";
 import CadastroEstabelecimento from "../pages/cadEstabelecimento";
+import { loader } from "../pages/CommenceHome";
 
 const router = createBrowserRouter([
   {
@@ -50,8 +51,9 @@ const router = createBrowserRouter([
     element: <Layout1 />,
     children: [
       {
-        path: "",
+        index: true,
         element: <CommenceHome />,
+        loader: commenceHomeLoader,
       },
       {
         path: "eventos",

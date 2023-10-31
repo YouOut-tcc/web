@@ -50,8 +50,10 @@ async function userCadastro(data) {
       console.log("erro no cadastro")
       console.log(error.response.status)
       console.log(error.response.data.message)
+      throw error;
     } else if (error instanceof ReferenceError){
       console.log(error.message)
+      throw error;
     }
   }
 }

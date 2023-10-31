@@ -15,7 +15,6 @@ import { purple } from "@mui/material/colors";
 import {FcGoogle} from "react-icons/fc"
 // import { MuiThemeProvider } from '@mui/material/styles';
 
-
 export default function Login() {
   const [login, setLogin] = useState(undefined);
   const [password, setPassword] = useState(undefined);
