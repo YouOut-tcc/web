@@ -7,10 +7,11 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { purple } from "@mui/material/colors";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import { height } from "@mui/system";
 import InputMask from "react-input-mask";
 import InputB from "../../components/Inputs/InputB";
+import { placeCadastro } from "../../services/commerce";
 
 export default function CadastroEstabelecimento() {
   const [nomeFantasia, setNomeFantasia] = useState(undefined);
@@ -35,9 +36,11 @@ export default function CadastroEstabelecimento() {
   const [latitudeError, setLatitudeError] = useState(false);
   const [longitudeError, setLongitudeError] = useState(false);
 
+  const navigate = useNavigate()
+
   const regexEmail = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
 
-  const handleSignupForm = (event) => {
+  const handleSignupForm = async (event) => {
     event.preventDefault();
 
     setNomeFantasiaError("");
@@ -113,8 +116,27 @@ export default function CadastroEstabelecimento() {
     //   latitude,
     //   longitude,
     // });
-    if (regexEmail.test(emailComercial)) {
-      alert("qualquer coisa");
+    if (!regexEmail.test(emailComercial)) {
+      return alert("erro no email");
+    }
+
+    try {
+      await placeCadastro({
+        nome: nomeFantasia,
+        nome_empresarial: nomeEmpresarial,
+        cnpj: cnpj.replace(/[^\d]/g, ''),
+        emailComercial,
+        telefone: telefoneComercial.replace(/[^\d]/g, ''),
+        celular: telefoneComercial.replace(/[^\d]/g, ''),
+        cep: cep.replace(/[^\d]/g, ''),
+        numero,
+        descricao: categoria,
+        latitude,
+        longitude
+      });
+      return navigate("/home");
+    } catch (error) {
+      console.log(error.constructor.name)
     }
   };
 
@@ -124,7 +146,7 @@ export default function CadastroEstabelecimento() {
 
       <div id="container-b">
         <h1 className="title">Cadastre-se seu Estabelecimento</h1>
-        <form className="form" onSubmit={handleSignupForm} >
+        <form className="form" onSubmit={handleSignupForm}>
           <Box
             component="form"
             sx={{

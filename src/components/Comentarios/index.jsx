@@ -18,25 +18,27 @@ function Comentarios() {
 		// falta pegar o uuid
 		let avaliacoesFetch = await getAvaliacoes(uuid);
 		console.log(avaliacoesFetch)
+		if(avaliacoesFetch < 1){
+			setAvaliacoes([])
+			console.log(avaliacoesFetch)
+		}
 
 		// um para testar ou para usar
 
-		// setAvaliacoes(avaliacoesFetch);
-		setAvaliacoes(avaliacoesFetch.concat({
-			id: 0,
-			nome: "Eduardo",
-			comentario: `dsadaddddddddddddddddd
-			dddddddddddddddddddddddddddddddddddddd
-			dddddddddddddddddddddddddddddddddddddddd
-			ddddddddddddddddddddddddddddddddddddddddd
-			ddddddddddddddddddddddddddddddddddddddddddd
-			dddddddddddddddddddddddddddddddddddddddddddd
-			ddddddddddddddddddddddddddddddddddddddddd`,
-			resposta: undefined,
-			teste: true
-		}))
-
-		//
+		setAvaliacoes(avaliacoesFetch);
+		// setAvaliacoes(avaliacoesFetch.concat({
+		// 	id: 0,
+		// 	nome: "Eduardo",
+		// 	comentario: `dsadaddddddddddddddddd
+		// 	dddddddddddddddddddddddddddddddddddddd
+		// 	dddddddddddddddddddddddddddddddddddddddd
+		// 	ddddddddddddddddddddddddddddddddddddddddd
+		// 	ddddddddddddddddddddddddddddddddddddddddddd
+		// 	dddddddddddddddddddddddddddddddddddddddddddd
+		// 	ddddddddddddddddddddddddddddddddddddddddd`,
+		// 	resposta: undefined,
+		// 	teste: true
+		// }))
 	}
 
 	useEffect(()=>{

@@ -8,8 +8,9 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { purple } from "@mui/material/colors";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { height } from "@mui/system";
+import { userCadastro, userLogin } from "../../services/login";
 
 export default function Cadastro() {
   const [name, setName] = useState(undefined);
@@ -19,9 +20,23 @@ export default function Cadastro() {
   const [password, setPassword] = useState(undefined);
   const [confPassword, setConfPassword] = useState(undefined);
 
-  const handleSignupForm = (event) => {
+  const navigate = useNavigate()
+
+  const handleSignupForm = async (event) => {
     event.preventDefault();
-    console.log({ name, fanatyName, email, cnpj, password, confPassword });
+    console.log({ name, email, password });
+
+    try {
+      await userCadastro({ name, email, password });
+      let token = await userLogin({ email, password });
+      if(!token){
+        return null;
+      }
+      sessionStorage.setItem("loginToken", token);
+      return navigate("estabelecimento");
+    } catch (error) {
+      console.log(error.constructor.name)
+    }
   };
 
   return (
