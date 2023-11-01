@@ -26,3 +26,9 @@
   height: auto;
   margin-bottom: 7%;
 }
+
+:root {
+  --primary-color: #EDE0D6;
+  --secondary-color: #8200A8;
+  --color-click: #FE0472;
+}

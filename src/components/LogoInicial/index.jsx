@@ -1,13 +1,24 @@
 import React from "react";
 import Logo from "../../img/logoYouOut.jpeg";
-import "./style.css";
+
+const styles = {
+  logoInicial: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh", 
+  },
+  logo:{
+    borderRadius: "50%",
+    width: "50%",
+    height: "50%"
+  }
+}
 
 export default function Logoinicial() {
   return (
-    
-      <div id="container-a">
-        <img id="logo" src={Logo} alt="logo do app You Out"></img>
-      </div>
-    
-  )
+    <div style={styles.logoInicial}>
+      <img style={styles.logo} src={Logo} alt="logo do app You Out" />
+    </div>
+  );
 }

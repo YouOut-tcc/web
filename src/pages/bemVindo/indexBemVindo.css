@@ -1,0 +1,55 @@
+.containerAll {
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center; 
+  text-align: center;
+}
+.containerLogo{
+  background-color: var(--secondary-color);
+  width: 50%;
+  height: 100%;
+  border-radius: 0 1rem 1rem 0;
+}
+.containerInfos {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  width: 50%;
+  justify-content: center;
+}
+#titulo{
+  font-size: 50px;
+  width: 100%;
+  color: var(--secondary-color);
+  text-align: center;
+  height: auto;
+  margin-bottom: 4rem;
+}
+.btns{
+  height: auto;
+}
+.btnUsuario,
+.btnEstabelecimento,
+.btnCadastrese {
+  width: 20rem;
+  height: 3rem;
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  margin: 2rem 0;
+  transition: background-color 0.2s; 
+  background-color: var(--secondary-color); 
+  
+}
+.linkPgHome{
+  text-decoration: none;
+}
+.btnUsuario:active,
+.btnEstabelecimento:active,
+.btnCadastrese:active {
+  background-color: var(--color-click)
+}

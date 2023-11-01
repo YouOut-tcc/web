@@ -1,48 +1,67 @@
-#linkSenha {
-  /* position: relative;
-  top: 30px; left: 13px */
-  margin-top: 10%;
-  margin-bottom: 3%;
-  font-size: 150%;
-}
-
-.links {
+.containerInfos {
   display: flex;
-  flex-direction: column;
-  margin-top: -5%;
-  align-items: center;
-  
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  width: 50%;
+  justify-content: center;
 }
-
+.inputLogin{
+  height: auto;
+}
 .formLogin{
   height: auto;
-  width: 60%;
-  padding: 5% 10% 5% 10% ;
 }
 
-.botoes {
+.inputA, .inputB{
+  height: auto;
+  margin: 3vh;
+}
+.btnEntrar, .btnVoltar{
+  width: 7rem;
+  height: 3rem;
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.1s; 
+  background-color: var(--secondary-color); 
+  margin-bottom: 2vh;
+}
+.btnEntrar:active,
+.btnVoltar:active {
+  background-color: var(--color-click)
+}
+.esqueceuSenha{
+  margin: 2rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+.OR{
+  margin: 5%;
+  height: auto;
+}
+.icon-google {
+  font-size: 30px;
+  margin-top: 2rem;
+ 
+}
+.googleButton{
   display: flex;
-  justify-content: space-evenly;
-  padding-left: 30%;
-  padding-right: 30%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--secondary-color);
+}
+.linkPg{
+  text-decoration: none;
 }
 
-.inputEmail fieldset {
-  border-radius: 20px;
-  /* border-color: #8200A8;
-  border-width: 15; */
-  border: 3px solid #8200A8;
-  
-}
-
-.inputSenha fieldset {
-  border-radius: 20px;
-  /* border-color: #8200A8;
-  border-width: 15; */
-  border: 3px solid #8200A8;
-}
-
-.inputLogin {
-  margin-top: 5%;
+.error-message {
+  color: red;
+  font-size: 14px; 
+  margin-top: 4px; 
+text-align: left;
 }
 
