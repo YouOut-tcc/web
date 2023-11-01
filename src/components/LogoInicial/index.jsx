@@ -9,15 +9,15 @@ const styles = {
     height: "100vh", 
   },
   logo:{
+    width: "25vw",
+    height: "25vw",
     borderRadius: "50%",
-    width: "50%",
-    height: "50%"
   }
 }
 
 export default function Logoinicial() {
   return (
-    <div style={styles.logoInicial}>
+    <div className="layoutAConteiner_logo">
       <img style={styles.logo} src={Logo} alt="logo do app You Out" />
     </div>
   );

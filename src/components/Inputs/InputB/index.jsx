@@ -20,6 +20,7 @@ export default function InputB({
           setValue={setValue}
           label={label}
           error={inputError}
+          type={type}
         />
       ) : (
         <InputBnormal

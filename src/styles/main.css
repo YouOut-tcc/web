@@ -27,6 +27,42 @@
   margin-bottom: 7%;
 }
 
+.layoutAConteiner_main{
+  background-color: var(--primary-color);
+  display: flex;
+  overflow: hidden;
+  align-items: center; 
+  text-align: center;
+}
+
+.layoutAConteiner_logo{
+  display: flex;
+  background-color: var(--secondary-color);
+  width: 50%;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-radius: 0 1rem 1rem 0;
+}
+
+.layoutAConteiner_body{
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  width: 50%;
+  justify-content: center;
+  overflow: scroll;
+}
+
+.layoutBConteiner_A{
+
+}
+
+.layoutBConteiner_B{
+  
+}
+
 :root {
   --primary-color: #EDE0D6;
   --secondary-color: #8200A8;

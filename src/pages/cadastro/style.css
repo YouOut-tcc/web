@@ -15,10 +15,10 @@
 }
 
 #container-b {
-  background-color: #EDE0D6;
-  width: 50%;
-  border-radius: 25px 0 0 25px;
-  overflow: auto;
+  /* background-color: #EDE0D6; */
+  /* width: 50%; */
+  /* border-radius: 25px 0 0 25px; */
+  /* overflow: auto; */
 
 }
 
@@ -151,10 +151,10 @@
   padding-top: -2%;
 }
 
-.textField fieldset {
+/* .textField fieldset {
   border-radius: 20px;
   border: 3px solid #8200A8;
-}
+} */
 
 .formCad {
   height: auto;

@@ -141,9 +141,6 @@ export default function CadastroEstabelecimento() {
   };
 
   return (
-    <div className="divGeral">
-      <Logo />
-
       <div id="container-b">
         <h1 className="title">Cadastre-se seu Estabelecimento</h1>
         <form className="form" onSubmit={handleSignupForm}>
@@ -167,6 +164,14 @@ export default function CadastroEstabelecimento() {
                 label="Nome Fantasia"
               />
 
+              <InputB
+                value={nomeEmpresarial}
+                setValue={setNomeEmpresarial}
+                inputError={nomeEmpresarialError}
+                errorMessage={nomeEmpresarialError}
+                label="Nome Empresarial"
+              />
+
               <TextField
                 required
                 id="outlined-required"
@@ -177,20 +182,14 @@ export default function CadastroEstabelecimento() {
               />
               {nomeEmpresarialError && <p>erro</p>}
 
-              <InputMask
-                mask="99.999.999/9999-99"
+              <InputB
                 value={cnpj}
-                disabled={false}
-                maskChar="_"
-                onChange={(e) => {
-                  setCnpj(e.target.value);
-                }}
-              >
-                {() => (
-                  <TextField required id="outlined-required" label="CNPJ" />
-                )}
-              </InputMask>
-              {cnpjError && <p>erro</p>}
+                setValue={setCnpj}
+                inputError={cnpjError}
+                errorMessage={cnpjError}
+                label="CNPJ"
+                mask="99.999.999/9999-99"
+              />
 
               <TextField
                 required
@@ -297,6 +296,5 @@ export default function CadastroEstabelecimento() {
           </Box>
         </form>
       </div>
-    </div>
   );
 }

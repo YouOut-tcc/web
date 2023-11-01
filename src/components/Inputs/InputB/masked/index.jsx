@@ -1,6 +1,5 @@
-import TextField from "@mui/material/TextField";
 import InputMask from "react-input-mask";
-// import "./style.css";
+import TextField from "@mui/material/TextField";
 
 export default function InputBmasked({
   mask,
@@ -8,8 +7,16 @@ export default function InputBmasked({
   setValue,
   label,
   error,
-  type
+  type,
 }) {
+  console.log({
+    mask,
+    value,
+    setValue,
+    label,
+    error,
+    type,
+  });
   return (
     <>
       <InputMask
@@ -21,7 +28,19 @@ export default function InputBmasked({
           setValue(e.target.value);
         }}
       >
-        {() => <TextField required={true} id="outlined-required"  error={error} type={type} label={label} />}
+        {() => (
+          <TextField
+            required
+            id="outlined-basic"
+            className="inputLogin"
+            InputLabelProps={{ shrink: true, style: { height: "auto" } }}
+            variant="outlined"
+            error={error}
+            type={type}
+            label={label}
+            style={{ width: "30vw" }}
+          />
+        )}
       </InputMask>
     </>
   );

@@ -40,8 +40,7 @@ export default function Cadastro() {
   };
 
   return (
-    <div className="divGeral">
-      <Logo />
+
 
       <div id="container-b">
         <h1 className="title">Cadastre-se</h1>
@@ -126,6 +125,6 @@ export default function Cadastro() {
           </Box>
         </form>
       </div>
-    </div>
+
   );
 }

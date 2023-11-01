@@ -40,10 +40,6 @@ export default function Login() {
   };
 
   return (
-    <div className="containerAll">
-      <div className="containerLogo">
-        <Logo />
-      </div>
       <div className="containerInfos">
         <h1 className="title">Login</h1>
         <form className="formLogin" onSubmit={handleSignupForm}>
@@ -58,7 +54,7 @@ export default function Login() {
                 className="inputLogin"
                 value={login}
                 onChange={(e) => setLogin(e.target.value)}
-                style={{ width: "60vh" }}
+                style={{ width: "30vw" }}
               />
             </ThemeProvider>
           </div>
@@ -72,7 +68,7 @@ export default function Login() {
                 InputLabelProps={{ shrink: true }}
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
-                style={{ width: "60vh" }}
+                style={{ width: "30vw" }}
               />
             </ThemeProvider>
             <p className="error-message">{error}</p>
@@ -98,6 +94,5 @@ export default function Login() {
           </div>
         </form>
       </div>
-    </div>
   );
 }

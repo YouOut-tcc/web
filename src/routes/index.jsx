@@ -17,38 +17,48 @@ import PagCupons from "../pages/pagCupons";
 import PagNotificacao from "../pages/pagNotificacao";
 import InfoPerfil from "../pages/infoPerfil";
 import PagRecuperarSenha from "../pages/pagRecuperarSenha";
-import Layout1 from "../pages/Root";
+// import LayoutB from "../pages/Root";
+import LayoutA from "../pages/layouts/LayoutA";
+import LayoutB from "../pages/layouts/LayoutB";
 import { BiEnvelope } from "react-icons/bi";
 import Login from "../pages/login"
 import CommenceHome ,{ loader as commenceHomeLoader} from "../pages/CommenceHome";
 import CadastroEstabelecimento from "../pages/cadEstabelecimento";
 import { loader } from "../pages/CommenceHome";
+import theme from "../styles/Global";
+import { ThemeProvider } from "@mui/material/styles";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <BemVindo />,
+    element: <LayoutA />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "/cadastro",
-    element: <Cadastro />,
-  },
-  {
-    path: "/cadastro/estabelecimento",
-    element: <CadastroEstabelecimento />,
-  },
-  {
-    path: "/bemvindo",
-    element: <BemVindo />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
+    children: [
+      {
+        index: true,
+        element: <BemVindo />,
+      },
+      {
+        path: "/bemvindo",
+        element: <BemVindo />,
+      },
+      {
+        path: "cadastro",
+        element: <Cadastro />,
+      },
+      {
+        path: "/cadastro/estabelecimento",
+        element: <CadastroEstabelecimento />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+    ]
   },
   {
     path: "/home",
-    element: <Layout1 />,
+    element: <LayoutB />,
     children: [
       {
         index: true,
@@ -86,11 +96,20 @@ const router = createBrowserRouter([
     element: <PagRecuperarSenha />,
   },
   {
-    path: "/layout",
-    element: <Layout1/>
-  }
+    path: "/layoutA",
+    element: <LayoutA />,
+  },
+  {
+    path: "/layoutB",
+    element: <LayoutB/>
+  },
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return(
+    <ThemeProvider theme={theme}>
+<RouterProvider router={router} />;
+      </ThemeProvider>
+
+  ) 
 }

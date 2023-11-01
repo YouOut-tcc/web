@@ -15,8 +15,9 @@
   flex-direction: column; 
   align-items: center; 
   text-align: center; 
-  width: 50%;
-  justify-content: center;
+  /* width: 50%; */
+  /* justify-content: center; */
+  margin-top: 25vh;
 }
 #titulo{
   font-size: 50px;

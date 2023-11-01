@@ -15,10 +15,10 @@
 }
 
 #container-b {
-  background-color: #EDE0D6;
+  /* background-color: #EDE0D6;
   width: 50%;
   border-radius: 25px 0 0 25px;
-  overflow: auto;
+  overflow: auto; */
 
 }
 
@@ -136,12 +136,12 @@
   padding-right: 0.5%;
 }
 
-#outlined-required {
+/* #outlined-required {
   border-radius: 15%;
   color:#8200A8;
   align-items: center;
   justify-content: center;
-}
+} */
 
 .botoesCad {
   display: flex;
@@ -151,10 +151,10 @@
   padding-top: -2%;
 }
 
-.textField fieldset {
+/* .textField fieldset {
   border-radius: 20px;
   border: 3px solid #8200A8;
-}
+} */
 
 .formCad {
   height: auto;

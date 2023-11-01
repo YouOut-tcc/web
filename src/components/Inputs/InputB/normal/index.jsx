@@ -1,20 +1,19 @@
 import TextField from "@mui/material/TextField";
-// import "./style.css";
 
 export default function InputBnormal({ value, setValue, label, type, error }) {
   return (
-    <>
-      <TextField
-        required={true}
-        id="outlined-required"
-        label={label}
-        type={type}
-        error={error}
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
-        value={value}
-      />
-    </>
+    <TextField
+      required
+      id="outlined-basic"
+      label={label}
+      type={type}
+      error={error}
+      variant="outlined"
+      InputLabelProps={{ shrink: true, style: { height: "auto" } }}
+      className="inputLogin"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      style={{ width: "30vw" }}
+    />
   );
 }
