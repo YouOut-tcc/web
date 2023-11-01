@@ -16,6 +16,7 @@ export default function Cadastro() {
   const [name, setName] = useState(undefined);
   const [fanatyName, setFantasyName] = useState(undefined);
   const [email, setEmail] = useState(undefined);
+  const [telefone, setTelefone] = useState(undefined);
   const [cnpj, setCnpj] = useState(undefined);
   const [password, setPassword] = useState(undefined);
   const [confPassword, setConfPassword] = useState(undefined);
@@ -59,6 +60,7 @@ export default function Cadastro() {
             <div className="textField formCad">
               <TextField
                 required
+                InputLabelProps={{ shrink: true }}
                 id="outlined-required"
                 label="Nome Completo"
                 onChange={(e) => {
@@ -70,6 +72,7 @@ export default function Cadastro() {
                 required
                 id="outlined-required"
                 label="E-mail"
+                InputLabelProps={{ shrink: true }}
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
@@ -79,9 +82,10 @@ export default function Cadastro() {
               <TextField
                 required
                 id="outlined-required"
+                InputLabelProps={{ shrink: true }}
                 label="Celular"
                 onChange={(e) => {
-                  setEmail(e.target.value);
+                  setTelefone(e.target.value);
                 }}
               />
 
@@ -89,6 +93,8 @@ export default function Cadastro() {
                 required
                 id="outlined-required"
                 label="Senha"
+                typeof="password"
+                InputLabelProps={{ shrink: true }}
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
@@ -98,6 +104,8 @@ export default function Cadastro() {
                 required
                 id="outlined-required"
                 label="Confirme sua Senha"
+                typeof="password"
+                InputLabelProps={{ shrink: true }}
                 onChange={(e) => {
                   setConfPassword(e.target.value);
                 }}
@@ -107,6 +115,7 @@ export default function Cadastro() {
             <div className="botoesCad">
               <Button
                 variant="contained"
+                InputLabelProps={{ shrink: true }}
                 style={{ backgroundColor: "#8200A8", height: "5vh" }}
                 onClick={handleSignupForm}
               >

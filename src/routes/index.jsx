@@ -12,6 +12,7 @@ import ErrorPage from "../pages/Errors";
 
 import Home from "../pages/Home";
 import Cadastro from "../pages/cadastro";
+import Usuario from "../pages/InfoAoUser"
 import PagEventos from "../pages/pagEventos";
 import PagCupons from "../pages/pagCupons";
 import PagNotificacao from "../pages/pagNotificacao";
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "/cadastro/estabelecimento",
         element: <CadastroEstabelecimento />,
+      },
+      {
+        path: "usuario",
+        element: <Usuario/>,
       },
       {
         path: "/login",
@@ -108,7 +113,7 @@ const router = createBrowserRouter([
 export default function App() {
   return(
     <ThemeProvider theme={theme}>
-<RouterProvider router={router} />;
+      <RouterProvider router={router} />
       </ThemeProvider>
 
   ) 

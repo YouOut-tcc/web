@@ -10,7 +10,9 @@ function BemVindo() {
         Bem-vindo ao <br></br>YouOut!
       </h1>
       <div className="btns">
+      <Link className="linkPgHome" to={"usuario"}>
         <button className="btnUsuario">USUÁRIO</button>
+        </Link>
         <Link className="linkPgHome" to={"/login"}>
           <button className="btnEstabelecimento">ESTABELECIMENTO</button>
         </Link>

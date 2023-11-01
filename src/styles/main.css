@@ -1,12 +1,12 @@
 .root {
-  overflow: hidden;
+  overflow: auto;
   background-color: #8200A8;
 }
 
 #main {
   background-color: #EDE0D6;
   width: 100%;
-  overflow: auto;
+
   /* padding: 1%; */
   border-radius: 12px 12px 0px 0px;
 }
@@ -25,12 +25,13 @@
   margin-top: 2%;
   height: auto;
   margin-bottom: 7%;
+
 }
 
 .layoutAConteiner_main{
   background-color: var(--primary-color);
   display: flex;
-  overflow: hidden;
+
   align-items: center; 
   text-align: center;
 }
@@ -51,8 +52,8 @@
   align-items: center; 
   text-align: center; 
   width: 50%;
-  justify-content: center;
-  overflow: scroll;
+  overflow: hidden;
+
 }
 
 .layoutBConteiner_A{

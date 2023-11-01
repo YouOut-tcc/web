@@ -9,12 +9,12 @@ export default function CommerceHomeList({ data }) {
   }, []);
 
   return (
-    <div>
+    <>
       {places.length > 0 && 
         places.map((element) => {
           return <CommerceHomeCard place={element}/>
         })
       }
-    </div>
+    </>
   );
 }

@@ -16,8 +16,8 @@ export default function CommenceHome() {
   const commerces = useLoaderData();
 
   return(
-    <div>
+    <>
       <CommerceHomeList data={commerces}/>
-    </div>
+    </>
   )
 }

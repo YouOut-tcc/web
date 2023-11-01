@@ -1,7 +1,16 @@
+.commerceDiv{
+  /* border: solid red 1px; */
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 .commerceList {
   height: auto;
   list-style-type: none;
   margin-top: 1%;
+  display: inline-flex;
+  margin: 3%;
 }
 
 .cardCommerce {
@@ -10,7 +19,7 @@
   border: medium solid #8200A8;
   border-radius: 15px;
   height: 10%;
-  width: 100%;
+  width: 80vh;
 }
 
 .commerceLink {
