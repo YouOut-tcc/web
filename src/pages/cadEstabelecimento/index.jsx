@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { purple } from "@mui/material/colors";
 import Button from "@mui/material/Button";
-import { Link, redirect, useNavigate, useHistory   } from "react-router-dom";
+import { Link, redirect, useNavigate, useHistory } from "react-router-dom";
 import { height } from "@mui/system";
 import InputMask from "react-input-mask";
 import InputB from "../../components/Inputs/InputB";
@@ -39,12 +39,10 @@ export default function CadastroEstabelecimento() {
   const [telaAnterior, setTelaAnterior] = useState("");
 
   const navigate = useNavigate();
-  
 
   const handleVoltar = () => {
-    navigate(-1); 
+    navigate(-1);
   };
-
 
   const regexEmail = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
 
@@ -166,8 +164,6 @@ export default function CadastroEstabelecimento() {
           <div className="textField formCad">
             <InputB
               value={nomeFantasia}
-              variant="outlined"
-              InputLabelProps={{ shrink: true }}
               setValue={setNomeFantasia}
               inputError={nomeFantasiaError}
               errorMessage={nomeFantasiaError}
@@ -176,20 +172,14 @@ export default function CadastroEstabelecimento() {
 
             <InputB
               value={nomeEmpresarial}
-              InputLabelProps={{ shrink: true }}
               setValue={setNomeEmpresarial}
               inputError={nomeEmpresarialError}
               errorMessage={nomeEmpresarialError}
               label="Nome Empresarial"
-              // onChange={(e) => {
-              //   setNomeEmpresarial(e.target.value);
-              // }}
             />
-            {nomeEmpresarialError && <p>erro</p>}
 
             <InputB
               value={cnpj}
-              InputLabelProps={{ shrink: true }}
               setValue={setCnpj}
               inputError={cnpjError}
               errorMessage={cnpjError}
@@ -198,98 +188,63 @@ export default function CadastroEstabelecimento() {
             />
 
             <InputB
-              required
-              id="outlined-required"
-              InputLabelProps={{ shrink: true }}
+              value={emailComercial}
+              setValue={setEmailComercial}
+              inputError={emailComercialError}
+              errorMessage={emailComercialError}
               label="E-mail Comercial"
-              // onChange={(e) => {
-              //   setEmailComercial(e.target.value);
-              // }}
             />
-            {emailComercialError && <p>erro</p>}
-
-            <InputMask
-              mask="(99)99999-9999"
-              InputLabelProps={{ shrink: true }}
-              value={telefoneComercial}
-              disabled={false}
-              maskChar="_"
-              // onChange={(e) => {
-              //   setTelefoneComercial(e.target.value);
-              // }}
-            >
-              {() => (
-                <InputB
-                  required
-                  id="outlined-required"
-                  label="Telefone Comercial"
-                  InputLabelProps={{ shrink: true }}
-                />
-              )}
-            </InputMask>
-            {telefoneComercialError && <p>erro</p>}
-
-            <InputMask
-              mask="99999-999"
-              InputLabelProps={{ shrink: true }}
-              value={cep}
-              disabled={false}
-              maskChar="_"
-              onChange={(e) => {
-                setCep(e.target.value);
-              }}
-            >
-              {() => (
-                <InputB
-                  required
-                  id="outlined-required"
-                  label="CEP"
-                  InputLabelProps={{ shrink: true }}
-                />
-              )}
-            </InputMask>
-            {cepError && <p>erro</p>}
 
             <InputB
-              required
-              InputLabelProps={{ shrink: true }}
-              id="outlined-required"
-              label="Número"
-              onChange={(e) => {
-                setNumero(e.target.value);
-              }}
+              value={telefoneComercial}
+              setValue={setTelefoneComercial}
+              inputError={telefoneComercialError}
+              errorMessage={telefoneComercialError}
+              label="Telefone Comercial"
+              mask="(99)99999-9999"
             />
-            {numeroError && <p>erro</p>}
+
+            <InputB
+              value={cep}
+              setValue={setCep}
+              inputError={cepError}
+              errorMessage={cepError}
+              label="CEP"
+              mask="99999-999"
+            />
+
+            <InputB
+              value={numero}
+              setValue={setNumero}
+              inputError={numeroError}
+              errorMessage={numeroError}
+              label="Número"
+            />
 
             <InputBSelect
               value={categoria}
               setValue={setCategoria}
               label="Categoria/Segmento"
               error={categoriaError}
-   className="selectBox"
+              className="selectBox"
             />
 
             <InputB
-              required
-              InputLabelProps={{ shrink: true }}
-              id="outlined-required"
+              value={latitude}
+              setValue={setLatitude}
+              inputError={latitudeError}
+              errorMessage={latitudeError}
               label="Latitude"
-              onChange={(e) => {
-                setLatitude(e.target.value);
-              }}
             />
-            {latitudeError && <p>erro</p>}
 
             <InputB
-              required
-              InputLabelProps={{ shrink: true }}
-              id="outlined-required"
+              value={longitude}
+              setValue={setLongitude}
+              inputError={longitudeError}
+              errorMessage={longitudeError}
               label="Longitude"
-              onChange={(e) => {
-                setLongitude(e.target.value);
-              }}
             />
-            {longitudeError && <p>erro</p>}
+            
           </div>
           <div className="botoesCad">
             <Button
@@ -300,13 +255,12 @@ export default function CadastroEstabelecimento() {
               Cadastrar
             </Button>
             <Button
-          variant="contained"
-          style={{ backgroundColor: "#8200A8", height: "5vh" }}
-          onClick={handleVoltar}
-        >
-          Voltar
-        </Button>
-           
+              variant="contained"
+              style={{ backgroundColor: "#8200A8", height: "5vh" }}
+              onClick={handleVoltar}
+            >
+              Voltar
+            </Button>
           </div>
         </Box>
       </form>

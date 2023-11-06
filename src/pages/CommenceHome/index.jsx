@@ -7,6 +7,7 @@ import "./styles.css"
 
 export async function loader() {
   let placefetch = await getPlacesOwn();
+  console.log(placefetch);
   if(placefetch < 1){
     return redirect("/cadastro/estabelecimento");
   }

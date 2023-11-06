@@ -12,19 +12,23 @@ export default function CommerceHomeList({ data }) {
 
   return (
     <>
-     <Link to={"/cadastro/estabelecimento"}>
-              <Button
-                variant="contained"
-                style={{ backgroundColor: "#8200A8", height: "5vh", marginLeft: "85%", marginTop: "2%" }}
-              >
-                Cadastrar nova unidade
-              </Button>
-            </Link>
-      {places.length > 0 && 
+      <Link to={"/cadastro/estabelecimento"}>
+        <Button
+          variant="contained"
+          style={{
+            backgroundColor: "#8200A8",
+            height: "5vh",
+            marginLeft: "85%",
+            marginTop: "2%",
+          }}
+        >
+          Cadastrar nova unidade
+        </Button>
+      </Link>
+      {/* {places &&
         places.map((element) => {
-          return <CommerceHomeCard place={element}/>
-        })
-      }
+          return <CommerceHomeCard place={element} />;
+        })} */}
     </>
   );
 }

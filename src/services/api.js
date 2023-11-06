@@ -14,6 +14,9 @@ api.interceptors.request.use(async (config)=>{
   try {
     token = sessionStorage.getItem("loginToken");
     config.headers.Authorization = token ? `Bearer ${token}` : '';
+    config.headers["ngrok-skip-browser-warning"] = "4153454";
+    console.log(config)
+    token ? console.log(token) : console.log("sem token")
     return config;
   } catch (error) {
     console.log("error on initial setup of a request: " +error.constructor.name);

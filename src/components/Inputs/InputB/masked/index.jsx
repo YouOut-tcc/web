@@ -31,7 +31,7 @@ export default function InputBmasked({
         {() => (
           <TextField
             required
-            id="outlined-basic"
+            id="outlined-required"
             className="inputLogin"
             InputLabelProps={{ shrink: true, style: { height: "auto" } }}
             variant="outlined"

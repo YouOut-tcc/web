@@ -4,7 +4,7 @@ export default function InputBnormal({ value, setValue, label, type, error }) {
   return (
     <TextField
       required
-      id="outlined-basic"
+      id="outlined-required"
       label={label}
       type={type}
       error={error}

@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/material/styles";
+import InputB from "../../components/Inputs/InputB";
 import theme from "../../styles/Global";
 
 export default function Login() {
@@ -26,7 +27,7 @@ export default function Login() {
       let token = await userLogin({ email: login, password });
       if (!login || !password) {
         setError("Por favor, preencha todos os campos");
-        return; 
+        return;
       }
       if (!token) {
         setError("Login falhou. Tente novamente.");
@@ -40,59 +41,41 @@ export default function Login() {
   };
 
   return (
-      <div className="containerInfos">
-        <h1 className="title">Login</h1>
-        <form className="formLogin" onSubmit={handleSignupForm}>
-          <div className="inputA">
-            <ThemeProvider theme={theme}>
-              <TextField
-              required
-                id="outlined-basic"
-                label="E-mail / CNPJ"
-                variant="outlined"
-                InputLabelProps={{ shrink: true }}
-                className="inputLogin"
-                value={login}
-                onChange={(e) => setLogin(e.target.value)}
-                style={{ width: "30vw" }}
-              />
-            </ThemeProvider>
-          </div>
-          <div className="inputB">
-            <ThemeProvider theme={theme}>
-              <TextField
-                required
-                id="outlined-required"
-                label="Senha"
-                className="inputSenha inputLogin"
-                InputLabelProps={{ shrink: true }}
-                type="password"
-                onChange={(e) => setPassword(e.target.value)}
-                style={{ width: "30vw" }}
-              />
-            </ThemeProvider>
-            <p className="error-message">{error}</p>
-          </div>
-          <div className="btns">
-            <Link>
-              <button onClick={handleSignupForm} className="btnEntrar">
-                Entrar
-              </button>
-            </Link>
-          </div>
-          <Link to={"/"} className="esqueceuSenha">
-            Esqueceu a senha?
+    <div className="containerInfos">
+      <h1 className="title">Login</h1>
+      <form className="formLogin" onSubmit={handleSignupForm}>
+        <div className="inputA">
+          <InputB value={login} setValue={setLogin} label="E-mail / CNPJ" />
+        </div>
+
+        <div className="inputB">
+          <InputB
+            value={password}
+            setValue={setPassword}
+            type="password"
+            label="Senha"
+          />
+        </div>
+        <div className="btns">
+          <Link>
+            <button onClick={handleSignupForm} className="btnEntrar">
+              Entrar
+            </button>
           </Link>
-          <div className="OR">
-            ━━━━━━━ OU ━━━━━━━ <br></br>
-            <Link className="linkPg">
-              <div className="googleButton" >
-                <FcGoogle className="icon-google" />
-                Faça login com o Google
-              </div>
-            </Link>
-          </div>
-        </form>
-      </div>
+        </div>
+        <Link to={"/"} className="esqueceuSenha">
+          Esqueceu a senha?
+        </Link>
+        <div className="OR">
+          ━━━━━━━ OU ━━━━━━━ <br></br>
+          <Link className="linkPg">
+            <div className="googleButton">
+              <FcGoogle className="icon-google" />
+              Faça login com o Google
+            </div>
+          </Link>
+        </div>
+      </form>
+    </div>
   );
 }
