@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../img/logoYouOut.jpeg";
+import Logo from "../../assets/logotipo.png";
 
 const styles = {
   logoInicial: {

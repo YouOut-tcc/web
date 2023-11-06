@@ -2,6 +2,7 @@ import { Link, useNavigate, redirect, useLoaderData } from "react-router-dom";
 import CommerceHomeList from "../../components/CommerceHomeList";
 import { getPlacesOwn } from "../../services/login";
 
+
 import "./styles.css"
 
 export async function loader() {

@@ -93,7 +93,7 @@ export default function Cadastro() {
                 required
                 id="outlined-required"
                 label="Senha"
-                typeof="password"
+                type="password"
                 InputLabelProps={{ shrink: true }}
                 onChange={(e) => {
                   setPassword(e.target.value);
@@ -104,7 +104,7 @@ export default function Cadastro() {
                 required
                 id="outlined-required"
                 label="Confirme sua Senha"
-                typeof="password"
+                type="password"
                 InputLabelProps={{ shrink: true }}
                 onChange={(e) => {
                   setConfPassword(e.target.value);

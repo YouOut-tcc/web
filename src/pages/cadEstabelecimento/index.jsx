@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { purple } from "@mui/material/colors";
 import Button from "@mui/material/Button";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link, redirect, useNavigate, useHistory   } from "react-router-dom";
 import { height } from "@mui/system";
 import InputMask from "react-input-mask";
 import InputB from "../../components/Inputs/InputB";
@@ -36,8 +36,15 @@ export default function CadastroEstabelecimento() {
   const [categoriaError, setCategoriaError] = useState(false);
   const [latitudeError, setLatitudeError] = useState(false);
   const [longitudeError, setLongitudeError] = useState(false);
+  const [telaAnterior, setTelaAnterior] = useState("");
 
   const navigate = useNavigate();
+  
+
+  const handleVoltar = () => {
+    navigate(-1); 
+  };
+
 
   const regexEmail = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
 
@@ -143,7 +150,7 @@ export default function CadastroEstabelecimento() {
 
   return (
     <div id="container-b">
-      <h1 className="title">Cadastre seu Estabelecimento</h1>
+      <h1 className="title">Cadastre seu estabelecimento</h1>
       <form className="form" onSubmit={handleSignupForm}>
         <Box
           component="form"
@@ -174,9 +181,9 @@ export default function CadastroEstabelecimento() {
               inputError={nomeEmpresarialError}
               errorMessage={nomeEmpresarialError}
               label="Nome Empresarial"
-              onChange={(e) => {
-                setNomeEmpresarial(e.target.value);
-              }}
+              // onChange={(e) => {
+              //   setNomeEmpresarial(e.target.value);
+              // }}
             />
             {nomeEmpresarialError && <p>erro</p>}
 
@@ -195,9 +202,9 @@ export default function CadastroEstabelecimento() {
               id="outlined-required"
               InputLabelProps={{ shrink: true }}
               label="E-mail Comercial"
-              onChange={(e) => {
-                setEmailComercial(e.target.value);
-              }}
+              // onChange={(e) => {
+              //   setEmailComercial(e.target.value);
+              // }}
             />
             {emailComercialError && <p>erro</p>}
 
@@ -207,9 +214,9 @@ export default function CadastroEstabelecimento() {
               value={telefoneComercial}
               disabled={false}
               maskChar="_"
-              onChange={(e) => {
-                setTelefoneComercial(e.target.value);
-              }}
+              // onChange={(e) => {
+              //   setTelefoneComercial(e.target.value);
+              // }}
             >
               {() => (
                 <InputB
@@ -292,15 +299,14 @@ export default function CadastroEstabelecimento() {
             >
               Cadastrar
             </Button>
-
-            <Link to={"/"}>
-              <Button
-                variant="contained"
-                style={{ backgroundColor: "#8200A8", height: "5vh" }}
-              >
-                Voltar
-              </Button>
-            </Link>
+            <Button
+          variant="contained"
+          style={{ backgroundColor: "#8200A8", height: "5vh" }}
+          onClick={handleVoltar}
+        >
+          Voltar
+        </Button>
+           
           </div>
         </Box>
       </form>

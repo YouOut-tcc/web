@@ -52,7 +52,7 @@
   align-items: center; 
   text-align: center; 
   width: 50%;
-  overflow: hidden;
+  overflow-y: auto;
 
 }
 
