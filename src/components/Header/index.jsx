@@ -1,6 +1,6 @@
 import styles from "./style.css";
-import Logo from "../../img/minilogoYouOut.jpg";
-import { LiaHomeSolid } from "react-icons/lia";
+import YOUT from "../../assets/logotipo.png";
+import { TfiHome } from "react-icons/tfi";
 import { BsCalendarCheck } from "react-icons/bs";
 import { ImTicket } from "react-icons/im";
 import { RxPerson } from "react-icons/rx";
@@ -10,15 +10,19 @@ function Header() {
   return (
     <header>
       <div className="divHeader">
-        <div className="divMiniLogo">
-          <img src={Logo} className="logo" alt="Logo YouOut" />
-          <h1>You Out</h1>
+      <div className="layoutBLogo">
+        <div className="logoY">
+
+          <img src={YOUT} className="logolb" alt="Logo YouOut" />
         </div>
+          <h1>YouOut</h1>
+          <div className="line"></div>
+        </div> 
         <div className="menu">
            {/* <nav> */}
              {/* <ul> */}
                <Link className="iconesMenu" to="">
-                   <LiaHomeSolid className="iconesMenuHome iconesHeader" /> 
+                   <TfiHome className="iconesMenuHome iconesHeader" /> 
                    <p>Pagina Inicial</p>
                </Link>
                <Link className="iconesMenu" to="eventos">
