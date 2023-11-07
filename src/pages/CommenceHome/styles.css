@@ -1,13 +1,14 @@
 .commerceDiv{
-  /* border: solid red 1px; */
+  display: contents;
   width: 100%;
   height: auto;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+ 
 }
 .commerceList {
-  height: auto;
+  height: 30vh;
   list-style-type: none;
   margin-top: 1%;
   display: inline-flex;

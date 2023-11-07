@@ -52,7 +52,7 @@ export default function CommerceHomeCard({ place }) {
         sx={{
           border: "2px solid var(--secondary-color)",
           backgroundColor: "var(--primary-color)",
-          borderRadius: "2vh",
+          borderRadius: "2vh", marginLeft: "15vh",
         }}
       >
         <CardActionArea>
@@ -64,7 +64,7 @@ export default function CommerceHomeCard({ place }) {
                   alignSelf: "center",
                   display: "grid",
                   alignContent: "center",
-                  marginLeft: "2vh",
+                  
                 }}
               >
                 <CardMedia
@@ -79,6 +79,7 @@ export default function CommerceHomeCard({ place }) {
                     marginTop: "2vh",
                     justifyContent: "center",
                     justifySelf: "center",
+                    marginLeft: "2vh",
                   }}
                 />
               </Grid>
@@ -96,7 +97,7 @@ export default function CommerceHomeCard({ place }) {
                     variant="body2"
                     color="text.secondary"
                     className="divTextCommerce"
-                    sx={{ fontSize: "3vh" }}
+                    sx={{ fontSize: "3vh", paddingTop: "0" }}
                   >
                     <p>Estr. Kizaemon Takeuti, 1987</p>
                     <p>Pirajussara, Taboão da Serra - SP</p>
