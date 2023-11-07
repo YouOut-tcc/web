@@ -38,14 +38,15 @@
   flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
-  margin-top: 1%;
+  /* margin-top: 1%; */
 }
 
 .iconesMenu {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   text-decoration: none;
+  
 }
 
 .iconesMenu p {
@@ -53,13 +54,14 @@
   padding-top: 0.5vh;
   height: auto;
   font-weight: bold;
-  font-size: x-large;
+  font-size: 3vh;
 }
 
 .iconesHeader {
     color: var(--primary-color);
-  width: 45%;
-  height: 45%;
+  /* width: 45%;
+  height: 45%; */
+  margin-right: 2vh;
 }
 
 .pagInicial:hover {

@@ -1,6 +1,9 @@
 import styles from "./style.css";
 import YOUT from "../../assets/logotipo.png";
 import { TfiHome } from "react-icons/tfi";
+import { AiFillHome } from "react-icons/ai";
+import { FaCalendarCheck } from "react-icons/fa";
+import { FaUserAlt } from "react-icons/fa";
 import { BsCalendarCheck } from "react-icons/bs";
 import { ImTicket } from "react-icons/im";
 import { RxPerson } from "react-icons/rx";
@@ -22,19 +25,19 @@ function Header() {
            {/* <nav> */}
              {/* <ul> */}
                <Link className="iconesMenu" to="">
-                   <TfiHome className="iconesMenuHome iconesHeader" /> 
-                   <p>Pagina Inicial</p>
+                   <AiFillHome size={50} className="iconesMenuHome iconesHeader" /> 
+                   <p>Início</p>
                </Link>
                <Link className="iconesMenu" to="eventos">
-                   <BsCalendarCheck className="iconesMenuEventos iconesHeader" /> 
+                   <FaCalendarCheck size={40} className="iconesMenuEventos iconesHeader" /> 
                    <p>Eventos</p>
                </Link>
                <Link className="iconesMenu" to="cupons">
-                   <ImTicket className="iconesMenuCupons iconesHeader" /> 
+                   <ImTicket size={40} className="iconesMenuCupons iconesHeader" /> 
                    <p>Cupons</p>
                </Link>
                <Link className="iconesMenu" to="perfil">
-                   <RxPerson className="iconesMenuPerfil iconesHeader" /> 
+                   <FaUserAlt size={40} className="iconesMenuPerfil iconesHeader" /> 
                    <p>Perfil</p>
                </Link>
              {/* </ul> */}
