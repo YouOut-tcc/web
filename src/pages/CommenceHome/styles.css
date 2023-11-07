@@ -1,6 +1,7 @@
 .commerceDiv{
   /* border: solid red 1px; */
   width: 100%;
+  height: auto;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -18,8 +19,8 @@
   /* background-color: blue; */
   border: medium solid #8200A8;
   border-radius: 15px;
-  height: 10%;
-  width: 80vh;
+  height: 25vh;
+  width: 70vh;
 }
 
 .commerceLink {
@@ -35,20 +36,13 @@
   padding-top: 3%;
 }
 
-.divTextCommerce p{
-  color: black;
-  font-size: x-large;
-  height: auto;
-}
 
 .commerceListImg {
   display: flex;
   height: 25vh;
   border-radius: 10px;
   width: auto;
-  /* padding: 1%; */
-  margin: 1%;
-  margin-left: 4vh;
+  align-items: center;
 }
 
 .commerceListImg img{
@@ -56,6 +50,6 @@
   background-size:cover;
   background-position:center;
   object-fit: cover;
-  height: 25vh;
-  width: 25vh;
+  height: 18vh;
+  width: 18vh;
 }

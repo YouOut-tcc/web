@@ -1,10 +1,11 @@
 .root {
   overflow: auto;
-  background-color: #8200A8;
+  background-color: #8200a8;
+  height: 15%;
 }
 
 #main {
-  background-color: #EDE0D6;
+  background-color: #ede0d6;
   width: 100%;
 
   /* padding: 1%; */
@@ -12,11 +13,10 @@
 }
 
 #conteiner {
-  background-color: #EDE0D6;
+  background-color: #ede0d6;
   margin: 1%;
   margin-top: 2%;
   height: auto;
-  
 }
 
 #conteinerMain {
@@ -25,18 +25,17 @@
   margin-top: 2%;
   height: auto;
   margin-bottom: 7%;
-
 }
 
-.layoutAConteiner_main{
+.layoutAConteiner_main {
   background-color: var(--primary-color);
   display: flex;
 
-  align-items: center; 
+  align-items: center;
   text-align: center;
 }
 
-.layoutAConteiner_logo{
+.layoutAConteiner_logo {
   display: flex;
   background-color: var(--secondary-color);
   width: 50%;
@@ -46,26 +45,34 @@
   border-radius: 0 1rem 1rem 0;
 }
 
-.layoutAConteiner_body{
+.layoutAConteiner_body {
   display: flex;
-  flex-direction: column; 
-  align-items: center; 
-  text-align: center; 
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   width: 50%;
   overflow-y: auto;
-
 }
 
-.layoutBConteiner_A{
-
+.layoutBConteinerMenu {
+  /* border: solid 1px red; */
+  height: 10%;
+  background-color: var(--secondary-color);
+  border-radius: 0px 0 15px 15px;
 }
 
-.layoutBConteiner_B{
-  
+.layoutBConteiner_A {
+  background-color: var(--primary-color);
 }
+
+.layoutBConteiner_B {
+  /* border: solid 1px blue; */
+  background-color: var(--primary-color);
+}
+
 
 :root {
-  --primary-color: #EDE0D6;
-  --secondary-color: #8200A8;
-  --color-click: #FE0472;
+  --primary-color: #ede0d6;
+  --secondary-color: #8200a8;
+  --color-click: #fe0472;
 }

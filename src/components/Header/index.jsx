@@ -1,6 +1,9 @@
 import styles from "./style.css";
-import Logo from "../../img/minilogoYouOut.jpg";
-import { LiaHomeSolid } from "react-icons/lia";
+import YOUT from "../../assets/logotipo.png";
+import { TfiHome } from "react-icons/tfi";
+import { AiFillHome } from "react-icons/ai";
+import { FaCalendarCheck } from "react-icons/fa";
+import { FaUserAlt } from "react-icons/fa";
 import { BsCalendarCheck } from "react-icons/bs";
 import { ImTicket } from "react-icons/im";
 import { RxPerson } from "react-icons/rx";
@@ -10,27 +13,31 @@ function Header() {
   return (
     <header>
       <div className="divHeader">
-        <div className="divMiniLogo">
-          <img src={Logo} className="logo" alt="Logo YouOut" />
-          <h1>You Out</h1>
+      <div className="layoutBLogo">
+        <div className="logoY">
+
+          <img src={YOUT} className="logolb" alt="Logo YouOut" />
         </div>
+          <h1>YouOut</h1>
+          <div className="line"></div>
+        </div> 
         <div className="menu">
            {/* <nav> */}
              {/* <ul> */}
                <Link className="iconesMenu" to="">
-                   <LiaHomeSolid className="iconesMenuHome iconesHeader" /> 
-                   <p>Pagina Inicial</p>
+                   <AiFillHome size={50} className="iconesMenuHome iconesHeader" /> 
+                   <p>Início</p>
                </Link>
                <Link className="iconesMenu" to="eventos">
-                   <BsCalendarCheck className="iconesMenuEventos iconesHeader" /> 
+                   <FaCalendarCheck size={40} className="iconesMenuEventos iconesHeader" /> 
                    <p>Eventos</p>
                </Link>
                <Link className="iconesMenu" to="cupons">
-                   <ImTicket className="iconesMenuCupons iconesHeader" /> 
+                   <ImTicket size={40} className="iconesMenuCupons iconesHeader" /> 
                    <p>Cupons</p>
                </Link>
                <Link className="iconesMenu" to="perfil">
-                   <RxPerson className="iconesMenuPerfil iconesHeader" /> 
+                   <FaUserAlt size={40} className="iconesMenuPerfil iconesHeader" /> 
                    <p>Perfil</p>
                </Link>
              {/* </ul> */}

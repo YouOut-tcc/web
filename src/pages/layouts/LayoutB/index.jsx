@@ -1,5 +1,7 @@
+import { Outlet, Link } from "react-router-dom";
 import Header from "../../../components/Header";
-import { Outlet } from "react-router-dom";
+import Logo from "../../../components/LogoInicial";
+
 
 import "../../../styles/main.css";
 
@@ -7,12 +9,13 @@ import "../../../styles/main.css";
 
 export default function LayoutB() {
   return (
-    <div className="root">
-      <Header/>
-      <div id="main">
-        <div id="conteinerMain">
-          <Outlet />
-        </div>
+    <div className="layoutBConteiner_A">
+      <div className="layoutBConteinerMenu">
+        <Header/>
+      </div>
+
+      <div className="layoutBConteiner_B">
+        <Outlet />
       </div>
     </div>
   );
