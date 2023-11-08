@@ -1,27 +1,15 @@
 
 .carrosel{
-    /* height: auto; */
     display: flex;
     flex-direction: column;
-    /* position: relative; */
-    /* top: 31%;  */
     background-color:#EDE0D6;
+    height: auto;
 }
 
-.divBtnAdd{
-    display: flex;
-    /* height: 8%; */
-    justify-content: end;
-}
-
-.btnAdd{
-    display: flex;
-    width: 2vw;
-    height: 100%;
-    /* position: absolute; */
-    /* top: 3%; */
-    /* right: 2%; */
-    color: #FE0472;
+.divSlide{
+    display: inline;
+    
+    height: auto;
 }
 
 .slider{
@@ -31,21 +19,19 @@
 }
 
 .sliderItem{
-    width: 95%;
+    width: 85%;
     height: 280px;
     border-radius: 20px;
-    margin: 25% 3%;
+    margin-left: 5vh;
+ 
 }
 
 .swiper-button-prev:after{
-    /* position: absolute;
-    bottom: -80%; */
     color: #FE0472;
+    margin-right: 10px;
 }
 
 .swiper-button-next:after{
-    /* position: absolute;
-    bottom: -80%; */
     color: #FE0472;
 }
 

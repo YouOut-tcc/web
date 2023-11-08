@@ -3,6 +3,9 @@ import { GoPaperAirplane } from "react-icons/go";
 import CommerceLogo from "../../img/commerceLogo.png";
 import RespostaCard from "./RespostaCard";
 import { useState, useEffect } from "react";
+import Box from "@mui/material/Box";
+import Rating from "@mui/material/Rating";
+import Typography from "@mui/material/Typography";
 
 import "./style.css";
 
@@ -31,11 +34,36 @@ export default function ComentarioCard({ avaliacao, uuid }) {
       </div>
       <div className="conteinerAvaliacao">
         <h1>{avaliacao.nome}</h1>
+        <div className="infoComent">
+          
+          <Box
+            sx={{
+              "& > legend": { mt: 2 },
+              color: "var(--click-color)",
+            }}
+          >
+            <Typography component="legend"> 15/11/1111</Typography>
+            <Rating
+              name="disabled"
+              disabled
+              value={3}
+              sx={{ color: "#fe0472" }}
+            />
+          </Box>
+        </div>
         <p>{avaliacao.comentario}</p>
         {resposta ? (
-          <RespostaCard respostaProps={resposta} avaliacaoid={avaliacao.id} uuid={uuid}/>
+          <RespostaCard
+            respostaProps={resposta}
+            avaliacaoid={avaliacao.id}
+            uuid={uuid}
+          />
         ) : requestResposta ? (
-          <RespostaCard respostaProps={resposta} avaliacaoid={avaliacao.id} uuid={uuid}/>
+          <RespostaCard
+            respostaProps={resposta}
+            avaliacaoid={avaliacao.id}
+            uuid={uuid}
+          />
         ) : (
           <p className="btResponderAvaliacao" onClick={handleOpenResposta}>
             Responder

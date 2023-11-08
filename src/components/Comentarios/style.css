@@ -1,13 +1,15 @@
 .containerComentario{
-
   height: auto;
+  margin-bottom: 2rem;
+  /* border: solid 1px red; */
 }
 
 .divComentario{
   display: flex;
   justify-content: space-between;
   height: auto;
-  
+  margin-top: 5vh;
+  font-size: 3vh;
 }
 
 .divComentario h1{
@@ -38,8 +40,9 @@
 
 .conteinerAvaliacaoImg img{
   border-radius: 50%;
-  width: 5rem;
-  height: 5rem;
+  width: 6rem;
+  height: 6rem;
+  margin: 1rem;
 }
 
 .conteinerAvaliacao{
@@ -49,17 +52,11 @@
 
 
 .conteinerAvaliacao h1{
-  /* display: inline; */
-  /* position: relative; */
-  /* left: 1%; */
-  /* bottom: 9vh; */
+  margin-left: 1rem;
   font-size: x-large;
 }
 
 .conteinerAvaliacao p{
-  /* position: relative; */
-  /* left: 11%; */
-  /* bottom: 70px; */
   margin-top: 1%;
   width: 70vw;
   height: 6%;
@@ -84,15 +81,17 @@
 .conteinerRespostas{
   display: flex;
   margin-left: 1%;
-  margin-top: 1%;
+  margin-top: 2%;
   /* align-items: center; */
-  width: 100%;
+  width: 90%;
+  border: solid 1px;
 }
 
 .conteinerRespostasInput{
   display: flex;
   align-items: center;
   width: 70vw;
+  height: 4vw;
   margin-left: 1%;
 }
 
@@ -108,11 +107,14 @@
 }
 
 .btResponderAvaliacao{
-  color: blue;
+  color: var(--secondary-color);
+  cursor: pointer;
 }
 
 .avaliacoesListDot{
   list-style-type: none;
+  margin: 2vh;
+  margin-top: 4vh;
 }
 
 .conteinerRespostasImg{
@@ -122,6 +124,15 @@
 
 .conteinerRespostasImg img{
   border-radius: 50%;
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 4rem;
+  height: 4rem;
+}
+.infoComent{
+  display: inline-block;
+  margin-left: 70%;
+  justify-content: end;
+  margin-top: -10vh;
+  height: auto;
+  text-align: center;
+
 }

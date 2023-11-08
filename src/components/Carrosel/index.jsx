@@ -4,6 +4,10 @@ import comercio1 from "../../img/comercio1.jpg";
 import comercio2 from "../../img/comercio2.jpg";
 import comercio3 from "../../img/comercio3.jpg";
 import { BsPlusCircleFill } from "react-icons/bs";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Fab from "@mui/material/Fab";
+import { BiEdit } from "react-icons/bi";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -61,10 +65,23 @@ function Slider() {
 
   return (
     <div className="carrosel">
-      <div className="divBtnAdd">
-        <BsPlusCircleFill className="btnAdd" />
-      </div>
-      <div>
+      <Box
+        sx={{
+          "& > :not(style)": { m: 1 },
+          justifyContent: "end",
+          height: "auto",
+          display: "flex",
+        }}
+      >
+        <Fab color="primary" aria-label="add">
+          <BsPlusCircleFill size={30} />
+        </Fab>
+        <Fab color="primary" aria-label="edit">
+          <BiEdit size={30} />
+        </Fab>
+      </Box>
+
+      <div className="divSlide">
         <Swiper
           slidesPerView={slidePerView}
           navigation={{ clickable: true }}

@@ -63,6 +63,7 @@
 
 .layoutBConteiner_A {
   background-color: var(--primary-color);
+  overflow: auto;
 }
 
 .layoutBConteiner_B {
