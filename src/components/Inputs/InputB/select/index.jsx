@@ -4,13 +4,15 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
-export default function InputBSelect() {
-  const [categoria, setCategoria] = React.useState("");
+export default function InputBSelect({ categoria, setCategoria }) {
+
 
   const handleChange = (event) => {
     setCategoria(event.target.value);
+
   };
 
+  console.log(" teste categoria", categoria)
   const menuItemStyle = {
     color: "black",
     height: "5%",
@@ -27,7 +29,6 @@ export default function InputBSelect() {
           Categoria/Segmento
         </InputLabel>
         <Select
-          
           value={categoria}
           onChange={handleChange}
           label={"categoria"}
@@ -35,40 +36,40 @@ export default function InputBSelect() {
             <MenuItem value="" sx={menuItemStyle}>
               <em></em>
             </MenuItem>
-            <MenuItem value={10} sx={menuItemStyle}>
+            <MenuItem value={"Restaurantes e Cafeterias"} sx={menuItemStyle}>
               Restaurantes e Cafeterias
             </MenuItem>
-            <MenuItem value={21} sx={menuItemStyle}>
+            <MenuItem value={"Varejo"} sx={menuItemStyle}>
               Varejo
             </MenuItem>
-            <MenuItem value={22} sx={menuItemStyle}>
+            <MenuItem value={"Saúde e Bem-Estar"} sx={menuItemStyle}>
               Saúde e Bem-Estar
             </MenuItem>
-            <MenuItem value={22} sx={menuItemStyle}>
+            <MenuItem value={"Entretenimento"} sx={menuItemStyle}>
               Entretenimento
             </MenuItem>
-            <MenuItem value={22} sx={menuItemStyle}>
+            <MenuItem value={"Serviços Profissionais"} sx={menuItemStyle}>
               Serviços Profissionais
             </MenuItem>
-            <MenuItem value={22} sx={menuItemStyle}>
+            <MenuItem value={"Serviços Automotivos"} sx={menuItemStyle}>
               Serviços Automotivos
             </MenuItem>
-            <MenuItem value={22} sx={menuItemStyle}>
+            <MenuItem value={"Tecnologia"} sx={menuItemStyle}>
               Tecnologia
             </MenuItem>
-            <MenuItem value={22} sx={menuItemStyle}>
+            <MenuItem value={"Educação"} sx={menuItemStyle}>
               Educação
             </MenuItem>
-            <MenuItem value={22} sx={menuItemStyle}>
+            <MenuItem value={"Construção e Reparação2"} sx={menuItemStyle}>
               Construção e Reparação
             </MenuItem>
-            <MenuItem value={22} sx={menuItemStyle}>
+            <MenuItem value={"Artes e Cultura"} sx={menuItemStyle}>
               Artes e Cultura
             </MenuItem>
-            <MenuItem value={22} sx={menuItemStyle}>
+            <MenuItem value={"Agricultura"} sx={menuItemStyle}>
               Agricultura
             </MenuItem>
-            <MenuItem value={22} sx={menuItemStyle}>
+            <MenuItem value={"Serviços Financeiros"} sx={menuItemStyle}>
               Serviços Financeiros
             </MenuItem>
         </Select>

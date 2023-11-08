@@ -59,6 +59,7 @@ export default function CadastroEstabelecimento() {
     setCategoriaError(false);
     setLatitudeError(false);
     setLongitudeError(false);
+    setCategoria("")
 
     if (nomeFantasia == undefined || nomeFantasia.trim() == 0) {
       setNomeFantasiaError("coloque alguma coisa");
@@ -222,8 +223,8 @@ export default function CadastroEstabelecimento() {
             />
 
             <InputBSelect
-              value={categoria}
-              setValue={setCategoria}
+              categoria={categoria}
+              setCategoria={setCategoria}
               label="Categoria/Segmento"
               error={categoriaError}
               className="selectBox"
