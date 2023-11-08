@@ -1,6 +1,6 @@
 import TextField from "@mui/material/TextField";
 
-export default function InputBnormal({ value, setValue, label, type, error }) {
+export default function InputBnormal({ value, setValue, label, index, type, error }) {
   return (
     <TextField
       required
@@ -12,7 +12,9 @@ export default function InputBnormal({ value, setValue, label, type, error }) {
       InputLabelProps={{ shrink: true, style: { height: "auto" } }}
       className="inputLogin"
       value={value}
-      onChange={(e) => setValue(e.target.value)}
+      onChange={(e) => {
+        setValue(e.target.value, index)
+      }}
       style={{ width: "30vw" }}
     />
   );

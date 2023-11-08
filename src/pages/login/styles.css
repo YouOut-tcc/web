@@ -13,6 +13,10 @@
   height: auto;
 }
 
+.formLogin{
+  display: flex;
+  flex-direction: column;
+}
 
 .inputA, .inputB{
   height: auto;

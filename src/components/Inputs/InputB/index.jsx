@@ -8,6 +8,7 @@ export default function InputB({
   setValue,
   inputError,
   errorMessage,
+  index,
   label,
   type
 }) {
@@ -19,6 +20,7 @@ export default function InputB({
           value={value}
           setValue={setValue}
           label={label}
+          index={index}
           error={inputError}
           type={type}
         />
@@ -27,11 +29,12 @@ export default function InputB({
           value={value}
           setValue={setValue}
           label={label}
+          index={index}
           error={inputError}
           type={type}
         />
       )}
-      {inputError && <p>{errorMessage}</p>}
+      {errorMessage && <p>{errorMessage}</p>}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import "./styles.css";
 import Logo from "../../components/LogoInicial";
 import { userLogin } from "../../services/login";
@@ -11,28 +11,54 @@ import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/material/styles";
 import InputB from "../../components/Inputs/InputB";
 import theme from "../../styles/Global";
+import { useReducerInputs } from "../../hooks/Inputs";
+import { validateInputsEmpty } from "../../helpers/validator/inputs";
+
+const loginInitialState = [
+  {
+    label: "E-mail",
+    name: "email",
+    value: "",
+    type: undefined,
+    errorMessage: undefined,
+    error: false,
+  },
+  {
+    label: "Senha",
+    name: "senha",
+    value: "",
+    type: "password",
+    errorMessage: undefined,
+    error: false,
+  },
+];
 
 export default function Login() {
-  const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [login, onChange, setError, clearErrors] = useReducerInputs(loginInitialState);
 
   const navigate = useNavigate();
 
   const handleSignupForm = async (event) => {
     event.preventDefault();
-    console.log({ name: login, password });
+    console.log("rodou")
+
+    let email = login[0].value;
+    let password = login[1].value;
+
+    clearErrors();
+
+    if(validateInputsEmpty(login, setError))
+      return;
 
     try {
-      let token = await userLogin({ email: login, password });
-      if (!login || !password) {
-        setError("Por favor, preencha todos os campos");
-        return;
-      }
+      let token = await userLogin({ email, password });
+
       if (!token) {
-        setError("Login falhou. Tente novamente.");
+        setError(0);
+        setError(1, "Login falhou. Tente novamente.");
         return null;
       }
+
       sessionStorage.setItem("loginToken", token);
       return navigate("/home");
     } catch (error) {
@@ -44,18 +70,32 @@ export default function Login() {
     <div className="containerInfos">
       <h1 className="title">Login</h1>
       <form className="formLogin" onSubmit={handleSignupForm}>
-        <div className="inputA">
-          <InputB value={login} setValue={setLogin} label="E-mail / CNPJ" />
-        </div>
-
-        <div className="inputB">
-          <InputB
-            value={password}
-            setValue={setPassword}
-            type="password"
-            label="Senha"
-          />
-        </div>
+        <Box
+          component="form"
+          sx={{
+            "& .MuiTextField-root": {
+              m: 1,
+              width: "65ch",
+            },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          {loginInitialState.map((element, index) => {
+            return (
+              <InputB
+                key={index}
+                index={index}
+                value={login[index].value}
+                setValue={onChange}
+                label={element.label}
+                type={element.type}
+                inputError={login[index].error}
+                errorMessage={login[index].errorMessage}
+              />
+            );
+          })}
+        </Box>
         <div className="btns">
           <Link>
             <button onClick={handleSignupForm} className="btnEntrar">

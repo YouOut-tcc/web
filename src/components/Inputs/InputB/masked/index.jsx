@@ -6,6 +6,7 @@ export default function InputBmasked({
   value,
   setValue,
   label,
+  index,
   error,
   type,
 }) {
@@ -24,9 +25,7 @@ export default function InputBmasked({
         value={value}
         disabled={false}
         maskChar="_"
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
+        onChange={(e) => setValue(e.target.value, index)}
       >
         {() => (
           <TextField
