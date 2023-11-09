@@ -9,6 +9,7 @@ import {BiTimeFive} from 'react-icons/bi'
 import {RiMoneyDollarCircleFill} from 'react-icons/ri'
 import CommerceLogo from '../../img/commerceLogo.png';
 import { Link } from 'react-router-dom';
+import CardEventos from '../../components/cardEventos/cardEvento';
 
 function PagEventos() {
   const [openModal, setOpenModal] = useState(false)
@@ -49,66 +50,7 @@ function PagEventos() {
 
             <div className='evento'>
              
-              <div className='cardEvento'>
-                <h1 className='dadosEvento'>Evento Fulano de tal</h1>
-                <h1>Detalhes:</h1>
-                <ul>
-                  <li>Dia xx/xx/xxxx</li>
-                  <li>A partir de xxh</li>
-                  <li>Valor do ingresso</li>
-                </ul>
-              </div>
-
-              <div className='cardEvento'>
-              <h1 className='dadosEvento'>Evento Fulano de tal </h1>
-              <h1>Detalhes:</h1>
-                <ul>
-                  <li>Dia xx/xx/xxxx</li>
-                  <li>A partir de xxh</li>
-                  <li>Valor do ingresso</li>
-                </ul>
-              </div>
-
-              <div className='cardEvento'>
-              <h1 className='dadosEvento'>Evento Fulano de tal</h1>
-              <h1>Detalhes:</h1>
-                <ul>
-                  <li>Dia xx/xx/xxxx</li>
-                  <li>A partir de xxh</li>
-                  <li>Valor do ingresso</li>
-                </ul>
-              </div>
-
-              <div className='cardEvento'>
-              <h1 className='dadosEvento'>Evento Fulano de tal</h1>
-              <h1>Detalhes:</h1>
-                <ul>
-                  <li>Dia xx/xx/xxxx</li>
-                  <li>A partir de xxh</li>
-                  <li>Valor do ingresso</li>
-                </ul>
-              </div>
-
-              <div className='cardEvento'>
-              <h1 className='dadosEvento'>Evento Fulano de tal</h1>
-              <h1>Detalhes:</h1>
-                <ul>
-                  <li>Dia xx/xx/xxxx</li>
-                  <li>A partir de xxh</li>
-                  <li>Valor do ingresso</li>
-                </ul>
-              </div>
-
-              <div className='cardEvento'>
-              <h1 className='dadosEvento'>Evento Fulano de tal</h1>
-              <h1>Detalhes:</h1>
-                <ul>
-                  <li>Dia xx/xx/xxxx</li>
-                  <li>A partir de xxh</li>
-                  <li>Valor do ingresso</li>
-                </ul>
-              </div>
-
+           <CardEventos/>
             </div>
         
       </div>

@@ -67,9 +67,12 @@
 
 .AvaliacaoRespotaInput{
    border-color: #FE0472;
-   width: 100%;
-   height: 2rem;
-   border-radius: 50px;
+    width: 100%;
+    height: 5vh;
+    border-radius: 9px;
+    align-items: center;
+    display: flex;
+
 }
 
 .iconeEstrela{
@@ -84,7 +87,6 @@
   margin-top: 2%;
   /* align-items: center; */
   width: 90%;
-  border: solid 1px;
 }
 
 .conteinerRespostasInput{
@@ -120,6 +122,8 @@
 .conteinerRespostasImg{
   width: auto;
   height: auto;
+  align-items: center;
+  display: flex;
 }
 
 .conteinerRespostasImg img{
