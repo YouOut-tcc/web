@@ -3,10 +3,12 @@
 }
 
 .divTituloEvento{
-  background-color: #EDE0D6;
-  height: 29vh;
+  margin: 2vh;
+font-size: 3vh;
 }
-
+.divLogoEstab{
+  border: solid 1px red;
+}
 .iconeEvento{
   width: 2%;
   height: 10%;
@@ -16,11 +18,7 @@
 }
 
 .tituloHeaderEvento {
-  padding-top: 12%;
-  width: 7%;
-  font-size: 150%;
-  font-weight: bold;
-  margin-left: 5%;
+margin-top: 3vh;
 }
 
 .btnAddEvento{
@@ -95,7 +93,7 @@
   position: relative;
   bottom: 6%;
   width: 80%;
-  height: 15px;
+  height: 113px;
   margin-left: 15%;
   display: block;
   border: 1px #8200A8 solid;
