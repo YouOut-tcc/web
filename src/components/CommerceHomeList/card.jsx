@@ -15,6 +15,7 @@ export default function CommerceHomeCard({ place }) {
 
   const fetchEndereco = async () => {
     // cep, logradouro, complemento, bairro, localidade, uf, ibge, gia, ddd, siafi
+    console.log(place);
     let enderecofetch = await fetchCEP(place.cep);
     console.log(enderecofetch);
     setEndereco(enderecofetch);
@@ -99,9 +100,13 @@ export default function CommerceHomeCard({ place }) {
                     className="divTextCommerce"
                     sx={{ fontSize: "3vh", paddingTop: "0" }}
                   >
-                    <p>Estr. Kizaemon Takeuti, 1987</p>
-                    <p>Pirajussara, Taboão da Serra - SP</p>
-                    <p>06775-002</p>
+                    {endereco &&
+                    <>
+                      <p>{endereco.logradouro}, {place.numero}</p>
+                      <p>{endereco.bairro}, {endereco.localidade} - {endereco.uf}</p>
+                      <p>{endereco.cep}</p>
+                    </>
+                    }
                     <p
                       style={{
                         display: "flex",
