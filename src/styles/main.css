@@ -68,6 +68,7 @@
 
 .layoutBConteiner_B {
   /* border: solid 1px blue; */
+  overflow-x: clip;
   background-color: var(--primary-color);
 }
 
