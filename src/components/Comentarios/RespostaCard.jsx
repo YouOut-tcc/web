@@ -20,6 +20,7 @@ export default function RespostaCard({ respostaProps, avaliacaoid, uuid }) {
 
   return (
     <div className="conteinerRespostas">
+      <div className="line2"></div>
       <div className="conteinerRespostasImg">
       <img src={CommerceLogo} className="fotoPerfilCNPJ" alt="Logo YouOut" />
       </div>
