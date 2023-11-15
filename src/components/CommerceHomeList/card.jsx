@@ -56,7 +56,7 @@ export default function CommerceHomeCard({ place }) {
         }}
       >
         <CardActionArea>
-          <Link to={`comercio/${place.uuid}`} className="commerceLink">
+          <Link to={`comercio/${place.uuid}`} className="commerceLink" >
             <Grid container spacing={2}>
               <Grid
                 item
@@ -97,11 +97,15 @@ export default function CommerceHomeCard({ place }) {
                     variant="body2"
                     color="text.secondary"
                     className="divTextCommerce"
-                    sx={{ fontSize: "3vh", paddingTop: "0" }}
+                    sx={{ fontSize: "3vh", paddingTop: "0"}}
                   >
-                    <p>Estr. Kizaemon Takeuti, 1987</p>
-                    <p>Pirajussara, Taboão da Serra - SP</p>
-                    <p>06775-002</p>
+                    {endereco && 
+                    <>
+                    <p>{endereco.logradouro}, {place.numero}</p>
+                    <p>{endereco.bairro},{endereco.uf} </p>
+                    <p>{endereco.cep}</p>
+                    </>
+                    }
                     <p
                       style={{
                         display: "flex",
