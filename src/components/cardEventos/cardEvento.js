@@ -32,7 +32,8 @@ export default function CardEventos() {
   };
 
   return (
-    <Card sx={{ maxWidth: 345, margin: "2vh", backgroundColor:"var(--primary-color)", border: "solid 2px #8200a8" }}>
+    <>
+    <Card sx={{ maxWidth: 345, margin: "2vh",  marginLeft: "4vh", backgroundColor:"var(--primary-color)", border: "solid 2px #8200a8" }}>
       <CardHeader title="Evento tal" subheader="September 14, 2016" />
       <CardMedia
         component="img"
@@ -87,5 +88,6 @@ export default function CardEventos() {
         </CardContent>
       </Collapse>
     </Card>
+</>    
   );
 }

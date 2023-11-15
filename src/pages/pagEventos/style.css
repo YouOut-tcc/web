@@ -4,8 +4,13 @@
 
 .divTituloEvento{
   margin: 2vh;
-font-size: 3vh;
+  font-size: 4.5vh;
+  margin-left: 4vh;
 }
+.divTituloEvento h1{
+  margin-bottom: 15px;
+}
+
 .divLogoEstab{
   border: solid 1px red;
 }
