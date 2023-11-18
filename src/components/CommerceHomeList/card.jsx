@@ -54,10 +54,11 @@ export default function CommerceHomeCard({ place }) {
           border: "2px solid var(--secondary-color)",
           backgroundColor: "var(--primary-color)",
           borderRadius: "2vh", marginLeft: "15vh",
+          width: "38%",
         }}
       >
         <CardActionArea>
-          <Link to={`comercio/${place.uuid}`} className="commerceLink">
+          <Link to={`comercio/${place.uuid}`} className="commerceLink" >
             <Grid container spacing={2}>
               <Grid
                 item
@@ -80,7 +81,8 @@ export default function CommerceHomeCard({ place }) {
                     marginTop: "2vh",
                     justifyContent: "center",
                     justifySelf: "center",
-                    marginLeft: "2vh",
+                    marginLeft: "2vh",    
+
                   }}
                 />
               </Grid>
@@ -98,13 +100,13 @@ export default function CommerceHomeCard({ place }) {
                     variant="body2"
                     color="text.secondary"
                     className="divTextCommerce"
-                    sx={{ fontSize: "3vh", paddingTop: "0" }}
+                    sx={{ fontSize: "3vh", paddingTop: "0"}}
                   >
-                    {endereco &&
+                    {endereco && 
                     <>
-                      <p>{endereco.logradouro}, {place.numero}</p>
-                      <p>{endereco.bairro}, {endereco.localidade} - {endereco.uf}</p>
-                      <p>{endereco.cep}</p>
+                    <p>{endereco.logradouro}, {place.numero}</p>
+                    <p>{endereco.bairro},{endereco.uf} </p>
+                    <p>{endereco.cep}</p>
                     </>
                     }
                     <p

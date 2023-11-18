@@ -47,16 +47,14 @@ function PagEventos() {
     <div className="containerEventos">
       <HeaderPerfil />
       <div className="divTituloEvento">
-        <h1>
-          <BsCalendarCheck /> Eventos
-        </h1>
+        <h1><BsCalendarCheck size={35}/> Eventos</h1>
         <Box
           sx={{
             "& > :not(style)": { m: 1 },
             justifyContent: "end",
             height: "auto",
             display: "flex",
-            marginTop: "-4vh",
+            marginTop: "-8.5vh"
           }}
         >
           <Fab
