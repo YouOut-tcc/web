@@ -15,6 +15,7 @@ export default function CommerceHomeCard({ place }) {
 
   const fetchEndereco = async () => {
     // cep, logradouro, complemento, bairro, localidade, uf, ibge, gia, ddd, siafi
+    console.log(place);
     let enderecofetch = await fetchCEP(place.cep);
     console.log(enderecofetch);
     setEndereco(enderecofetch);

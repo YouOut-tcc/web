@@ -51,6 +51,23 @@ async function responderAvaliacao(uuid, id, resposta) {
   }
 }
 
+async function criarEvento(uuid, evento) {
+  try {
+    await api.post(`/estabelecimento/manage/${uuid}/eventos/`, {
+      evento
+    });
+
+  } catch (error) {
+    console.log(error.constructor.name);
+    if (error instanceof AxiosError) {
+      console.log(error.response.status);
+      console.log(error.response.data.message);
+    } else if (error instanceof ReferenceError) {
+      console.log(error.message);
+    }
+  }
+}
+
 async function placeCadastro(data) {
   try {
     const res = await api.post("/estabelecimento/manage/request", data)
@@ -70,4 +87,4 @@ async function placeCadastro(data) {
   }
 }
 
-export { getAvaliacoes, getCommerceInfo, responderAvaliacao, placeCadastro }
+export { getAvaliacoes, getCommerceInfo, responderAvaliacao, placeCadastro, criarEvento }
