@@ -14,8 +14,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 65%;
-  height: 50vh;
+  width: 50%;
+  height: 70vh;
   border: 4px #8200A8 solid;
   border-radius: 20px;
 }
