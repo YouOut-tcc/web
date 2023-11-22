@@ -9,14 +9,12 @@ export default function Modal({ isOpen, setModalOpen, children}) {
     return (
         <div className="divPaiModal">
           <div className="divModalButtons">
+              <button onClick={setModalOpen} className="btnModalFechar"><IoClose className="iconeBtnModalFechar"/></button>
             <div className="divModalButtonFechar">
               {children}
-              <button onClick={setModalOpen} className="btnModalFechar"><IoClose className="iconeBtnModalFechar"/></button>
             </div>
           
-            <div className="divModalButtonAdd">
-              <button className="btnModalAdd"><BsPlusCircleFill className="iconeBtnModalAdd"/></button>
-            </div>
+       
           </div>
         </div>
     )

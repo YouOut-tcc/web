@@ -16,6 +16,7 @@ import Fab from "@mui/material/Fab";
 import { BiEdit } from "react-icons/bi";
 import InputB from "../../components/Inputs/InputB";
 import { criarEvento } from "../../services/commerce";
+import ModalEventos from "./modalEventos";
 
 function convertDateToUTC(date) { return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds()); }
 
@@ -67,23 +68,9 @@ function PagEventos() {
           </Fab>
         </Box>
       </div>
-      <div className="divPaiModalConteudoEventos">
+      <div>
         <Modal isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}>
-          <div className="divModalConteudoEventos">
-            <div className="divModalConteudoImgEventos">
-              <img src={CommerceLogo} className="imgLogoEvento" />
-            </div>
-
-            <div className="divModalConteudoInputsEventos">
-              <h1>Detalhes</h1>
-              <BsCalendarCheck /> <input type="datetime-local" id="inicio" value={inicio} onChange={e => setInicio(e.target.value)}/>
-              <BsCalendarCheck /> <input type="text" id="inicio" value={nome} onChange={e => setNome(e.target.value)}/>
-              <BiTimeFive />
-              <input type="datetime-local" id="fim" value={fim} onChange={e => setFim(e.target.value)}/>
-              <RiMoneyDollarCircleFill /> <input type="text" id="descricao" value={descricao} onChange={e => setDescricao(e.target.value)}/>
-              <button className="btnSalvarEvento" onClick={handleSubmit}>Salvar Evento</button>
-            </div>
-          </div>
+          <ModalEventos/>
         </Modal>
       </div>
 

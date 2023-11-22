@@ -14,14 +14,14 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
-  height: 70vh;
+  width: 60%;
+  max-height: 80vh;
   border: 4px #8200A8 solid;
   border-radius: 20px;
 }
 
 .btnModalFechar{
-  background-color: transparent;
+  /* background-color: transparent;
   border: none;
   margin-left: 85%;
   width: 10%;
@@ -30,13 +30,19 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  bottom: 89%;
+  bottom: 105vh; */
+      margin-left: 85%;
+      z-index: 1;
+      position: absolute;
+      background-color: transparent;
+      border: none;
+      width: 25vh;
+
 }
 
 .iconeBtnModalFechar{
   width: 50%;
   height: 5vh;
-
 }
 
 .divModalButtonAdd{
@@ -47,14 +53,6 @@
   bottom: 30%;
 }
 
-.btnModalAdd{
-  background-color: transparent;
-  border: none;
-  margin-left: 7%;
-  display: flex;
-  align-items: center;
-  justify-content: center;  
-}
 
 .iconeBtnModalAdd{
   color: #8200A2;
