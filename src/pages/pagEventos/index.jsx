@@ -1,26 +1,18 @@
-import styles from "../pagEventos/style.css";
-import Header from "../../components/Header";
-import HeaderPerfil from "../../components/headerPerfil";
 import { BsCalendarCheck } from "react-icons/bs";
 import { BsPlusCircleFill } from "react-icons/bs";
-import { useState } from "react";
-import Modal from "../../components/modalCupons";
-import { BiTimeFive } from "react-icons/bi";
-import { RiMoneyDollarCircleFill } from "react-icons/ri";
-import CommerceLogo from "../../img/commerceLogo.png";
-import { Link } from "react-router-dom";
-import CardEventos from "../../components/cardEventos/cardEvento";
-import * as React from "react";
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
-import { BiEdit } from "react-icons/bi";
-import InputB from "../../components/Inputs/InputB";
+import { useRouteLoaderData } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
+import CardEventos from "../../components/cardEventos/cardEvento";
+import HeaderPerfil from "../../components/headerPerfil";
+import Modal from "../../components/modalCupons";
 import { criarEvento } from "../../services/commerce";
 import ModalEventos from "./modalEventos";
+import UuidContext from "../../contexts/uuidCommerceContext";
+import styles from "../pagEventos/style.css";
 
-function convertDateToUTC(date) { return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds()); }
-
-function PagEventos() {
+function App({ setUuid }) {
   const [openModal, setOpenModal] = useState(false);
   const [descricao, setDescricao] = useState("");
   const [nome, setNome] = useState("");
@@ -28,17 +20,41 @@ function PagEventos() {
   const [fim, setFim] = useState("");
   const [preco, setPreco] = useState("");
 
+  const commerces = useRouteLoaderData("commerceRoot");
+  const uuid = useContext(UuidContext);
+
+  // funcionado parcialmente
+  // useEffect(()=>{
+  //   console.log("pegando o uuid do useContext");
+  //   console.log(uuid);
+  // },[uuid]);
+
+  useEffect(() => {
+    console.log("pag eventos entrou no useEffect");
+  }, []);
+
   const handleSubmit = async () => {
     try {
-      let uuid = undefined
-      let inicioT = new Date(inicio).toISOString().replace("T", " ").replace(".000Z", "")
-      let fimT = new Date(fim).toISOString().replace("T", " ").replace(".000Z", "")
+      let uuid = undefined;
+      let inicioT = new Date(inicio)
+        .toISOString()
+        .replace("T", " ")
+        .replace(".000Z", "");
+      let fimT = new Date(fim)
+        .toISOString()
+        .replace("T", " ")
+        .replace(".000Z", "");
       console.log(nome);
       console.log(descricao);
       console.log(inicioT);
       console.log(fimT);
       console.log(preco);
-      await criarEvento(uuid, {descricao: descricao, inicio: inicioT, fim: fimT, nome: nome})
+      await criarEvento(uuid, {
+        descricao: descricao,
+        inicio: inicioT,
+        fim: fimT,
+        nome: nome,
+      });
     } catch (err) {
       console.log(err);
     }
@@ -46,16 +62,21 @@ function PagEventos() {
 
   return (
     <div className="containerEventos">
-      <HeaderPerfil />
+      <HeaderPerfil
+        commerces={commerces}
+        setUuid={setUuid}
+      />
       <div className="divTituloEvento">
-        <h1><BsCalendarCheck size={35}/> Eventos</h1>
+        <h1>
+          <BsCalendarCheck size={35} /> Eventos
+        </h1>
         <Box
           sx={{
             "& > :not(style)": { m: 1 },
             justifyContent: "end",
             height: "auto",
             display: "flex",
-            marginTop: "-8.5vh"
+            marginTop: "-8.5vh",
           }}
         >
           <Fab
@@ -70,7 +91,7 @@ function PagEventos() {
       </div>
       <div>
         <Modal isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}>
-          <ModalEventos/>
+          <ModalEventos />
         </Modal>
       </div>
 
@@ -81,4 +102,11 @@ function PagEventos() {
   );
 }
 
-export default PagEventos;
+export default function PagEventos() {
+  const [uuid, setUuid] = useState();
+  return (
+    <UuidContext.Provider value={uuid}>
+      <App setUuid={setUuid} />
+    </UuidContext.Provider>
+  );
+}

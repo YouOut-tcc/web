@@ -1,25 +1,16 @@
-import { Link, useNavigate, redirect, useLoaderData } from "react-router-dom";
+import { redirect, useRouteLoaderData } from "react-router-dom";
 import CommerceHomeList from "../../components/CommerceHomeList";
 import { getPlacesOwn } from "../../services/login";
 
-
-import "./styles.css"
-
-export async function loader() {
-  let placefetch = await getPlacesOwn();
-  console.log(placefetch);
-  if(placefetch < 1){
-    return redirect("/cadastro/estabelecimento");
-  }
-  return placefetch;
-}
+import "./styles.css";
 
 export default function CommenceHome() {
-  const commerces = useLoaderData();
+  const commerces = useRouteLoaderData("commerceRoot");
+  console.log("carregando os places");
 
-  return(
+  return (
     <>
-      <CommerceHomeList data={commerces}/>
+      <CommerceHomeList data={commerces} />
     </>
-  )
+  );
 }

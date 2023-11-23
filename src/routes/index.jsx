@@ -1,15 +1,7 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import BemVindo from "../pages/bemVindo";
-import Header from "../components/Header";
-import Carrosel from "../components/Carrosel";
-import HeaderComercio from "../components/headerComercio";
-import Comentarios from "../components/Comentarios";
-
 import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
-
 import ErrorPage from "../pages/Errors";
-
 import Home from "../pages/Home";
 import Cadastro from "../pages/cadastro";
 import Usuario from "../pages/InfoAoUser"
@@ -18,14 +10,11 @@ import PagCupons from "../pages/pagCupons";
 import PagNotificacao from "../pages/pagNotificacao";
 import InfoPerfil from "../pages/infoPerfil";
 import PagRecuperarSenha from "../pages/pagRecuperarSenha";
-// import LayoutB from "../pages/Root";
 import LayoutA from "../pages/layouts/LayoutA";
-import LayoutB from "../pages/layouts/LayoutB";
-import { BiEnvelope } from "react-icons/bi";
+import LayoutB, { loader as commenceHomeLoader} from "../pages/layouts/LayoutB";
 import Login from "../pages/login"
-import CommenceHome ,{ loader as commenceHomeLoader} from "../pages/CommenceHome";
+import CommenceHome from "../pages/CommenceHome";
 import CadastroEstabelecimento from "../pages/cadEstabelecimento";
-import { loader } from "../pages/CommenceHome";
 import theme from "../styles/Global";
 import { ThemeProvider } from "@mui/material/styles";
 
@@ -64,15 +53,18 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <LayoutB />,
+    id: "commerceRoot",
+    loader: commenceHomeLoader,
     children: [
       {
         index: true,
         element: <CommenceHome />,
-        loader: commenceHomeLoader,
+        // loader: commenceHomeLoader,
       },
       {
         path: "eventos",
         element: <PagEventos />,
+        // loader: fuc
       },
       {
         path: "cupons",

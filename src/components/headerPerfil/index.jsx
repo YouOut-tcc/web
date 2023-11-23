@@ -1,24 +1,31 @@
-import styles from "../headerPerfil/style.css";
+import { useState, useEffect } from "react";
 import CommerceLogo from "../../img/commerceLogo.png";
-import React, { useState } from "react";
+import styles from "../headerPerfil/style.css";
 
-export default function HeaderPerfil() {
-  const estabelecimentos = [
-    { id: 1, nome: "Estabelecimento 1", imagem: CommerceLogo },
-    { id: 2, nome: "Estabelecimento 2", imagem: CommerceLogo },
-    { id: 3, nome: "Estabelecimento 3", imagem: CommerceLogo },
-  ];
+// tem que fazer um sistema caso não tenha um estabelecimento cadastrado
+// pode ser que aconteça, mesmo que não seja permitido entra na home sem um
+// estabelecimento cadastro
+// vai que ¯\_(ツ)_/¯
+
+export default function HeaderPerfil({ commerces, setUuid }) {
   const [selectedEstabelecimento, setSelectedEstabelecimento] = useState(
-    estabelecimentos[0]
+    commerces[0]
   );
 
   const handleEstabelecimentoChange = (event) => {
-    const estabelecimentoId = parseInt(event.target.value);
-    const selected = estabelecimentos.find(
-      (estabelecimento) => estabelecimento.id === estabelecimentoId
-    );
+    let index = event.target.value;
+    let selected = commerces[index];
     setSelectedEstabelecimento(selected);
+    setUuid(commerces[index].uuid);
+    console.log(commerces[index].uuid)
   };
+
+  useEffect(()=>{
+    console.log("header entrou no useeffect")
+    console.log(selectedEstabelecimento.uuid)
+    setUuid(commerces[0].uuid);
+  },[])
+
   return (
     <div className="HPerfil">
       <select
@@ -26,15 +33,16 @@ export default function HeaderPerfil() {
         onChange={handleEstabelecimentoChange}
         className="unidade"
       >
-        {estabelecimentos.map((estabelecimento) => (
-          <option key={estabelecimento.id} value={estabelecimento.id}>
-            {estabelecimento.nome}
-          </option>
-        ))}
+        {commerces &&
+          commerces.map((estabelecimento, index) => (
+            <option value={index}>
+              {estabelecimento.nome}
+            </option>
+          ))}
       </select>
       <div className="estabelecimento-info">
         <img
-          src={selectedEstabelecimento.imagem}
+          src={CommerceLogo}
           alt={selectedEstabelecimento.nome}
           className="fotoPerfilCommerce"
         />
