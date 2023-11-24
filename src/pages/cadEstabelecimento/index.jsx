@@ -8,35 +8,61 @@ import TextField from "@mui/material/TextField";
 import { purple } from "@mui/material/colors";
 import Button from "@mui/material/Button";
 import { Link, redirect, useNavigate, useHistory } from "react-router-dom";
-import { height } from "@mui/system";
-import InputMask from "react-input-mask";
 import InputB from "../../components/Inputs/InputB";
-import InputBSelect from "../../components/Inputs/InputB/select/index";
 import { placeCadastro } from "../../services/commerce";
+import { useReducerInputs } from "../../hooks/Inputs";
+import { validateInputsEmpty } from "../../helpers/validator/inputs";
+
+const cadastroInitialState = [
+  {
+    label: "Nome Fantasia",
+    name: "email",
+  },
+  {
+    label: "Nome Empresarial",
+    name: "senha",
+  },
+  {
+    label: "CNPJ",
+    mask: "99.999.999/9999-99",
+    name: "senha",
+  },
+  {
+    label: "E-mail Comercial",
+    name: "senha",
+  },
+  {
+    label: "Telefone Comercial",
+    mask: "(99)99999-9999",
+    name: "senha",
+  },
+  {
+    label: "CEP",
+    mask: "99999-999",
+    name: "senha",
+  },
+  {
+    label: "Número",
+    name: "senha",
+  },
+  {
+    label: "Categoria/Segmento",
+    categoria: true,
+    name: "senha",
+  },
+  {
+    label: "Latitude",
+    name: "senha",
+  },
+  {
+    label: "Longitude",
+    name: "senha",
+  },
+];
 
 export default function CadastroEstabelecimento() {
-  const [nomeFantasia, setNomeFantasia] = useState(undefined);
-  const [nomeEmpresarial, setNomeEmpresarial] = useState(undefined);
-  const [cnpj, setCnpj] = useState(undefined);
-  const [emailComercial, setEmailComercial] = useState(undefined);
-  const [telefoneComercial, setTelefoneComercial] = useState(undefined);
-  const [cep, setCep] = useState(undefined);
-  const [numero, setNumero] = useState(undefined);
-  const [categoria, setCategoria] = useState(undefined);
-  const [latitude, setLatitude] = useState(undefined);
-  const [longitude, setLongitude] = useState(undefined);
-
-  const [nomeFantasiaError, setNomeFantasiaError] = useState("");
-  const [nomeEmpresarialError, setNomeEmpresarialError] = useState(false);
-  const [cnpjError, setCnpjError] = useState(false);
-  const [emailComercialError, setEmailComercialError] = useState(false);
-  const [telefoneComercialError, setTelefoneComercialError] = useState(false);
-  const [cepError, setCepError] = useState(false);
-  const [numeroError, setNumeroError] = useState(false);
-  const [categoriaError, setCategoriaError] = useState(false);
-  const [latitudeError, setLatitudeError] = useState(false);
-  const [longitudeError, setLongitudeError] = useState(false);
-  const [telaAnterior, setTelaAnterior] = useState("");
+  const [cadastro, onChange, setError, clearErrors] =
+    useReducerInputs(cadastroInitialState);
 
   const navigate = useNavigate();
 
@@ -49,61 +75,20 @@ export default function CadastroEstabelecimento() {
   const handleSignupForm = async (event) => {
     event.preventDefault();
 
-    setNomeFantasiaError("");
-    setNomeEmpresarialError(false);
-    setCnpjError(false);
-    setEmailComercialError(false);
-    setTelefoneComercialError(false);
-    setCepError(false);
-    setNumeroError(false);
-    setCategoriaError(false);
-    setLatitudeError(false);
-    setLongitudeError(false);
-    setCategoria("")
+    let nomeFantasia = cadastro[0].value;
+    let nomeEmpresarial = cadastro[1].value;
+    let cnpj = cadastro[2].value;
+    let emailComercial = cadastro[3].value;
+    let telefoneComercial = cadastro[4].value;
+    let cep = cadastro[5].value;
+    let numero = cadastro[6].value;
+    let descricao = cadastro[7].value;
+    let latitude = cadastro[8].value;
+    let longitude = cadastro[9].value;
 
-    if (nomeFantasia == undefined || nomeFantasia.trim() == 0) {
-      setNomeFantasiaError("coloque alguma coisa");
-    }
+    clearErrors();
 
-    if (nomeFantasia == undefined || nomeFantasia == "") {
-      setNomeFantasiaError("coloque alguma coisa");
-    }
-
-    if (nomeEmpresarial == undefined || nomeEmpresarial == "") {
-      setNomeEmpresarialError(true);
-    }
-
-    if (cnpj == undefined || cnpj == "") {
-      setCnpjError(true);
-    }
-
-    if (emailComercial == undefined || emailComercial == "") {
-      setEmailComercialError(true);
-    }
-
-    if (telefoneComercial == undefined || telefoneComercial == "") {
-      setTelefoneComercialError(true);
-    }
-
-    if (cep == undefined || cep == "") {
-      setCepError(true);
-    }
-
-    if (numero == undefined || numero == "") {
-      setNumeroError(true);
-    }
-
-    if (categoria == undefined || categoria == "") {
-      setCategoriaError(true);
-    }
-
-    if (latitude == undefined || latitude == "") {
-      setLatitudeError(true);
-    }
-
-    if (longitude == undefined || longitude == "") {
-      setLongitudeError(true);
-    }
+    if (validateInputsEmpty(cadastro, setError)) return;
 
     const latitudefloat = parseFloat(latitude);
     const longitudefloat = parseFloat(longitude);
@@ -111,18 +96,20 @@ export default function CadastroEstabelecimento() {
       latitudefloat,
       longitudefloat,
     });
-    // console.log({
-    //   nomeFantasia,
-    //   nomeEmpresarial,
-    //   cnpj,
-    //   emailComercial,
-    //   telefoneComercial,
-    //   cep,
-    //   numero,
-    //   categoria,
-    //   latitude,
-    //   longitude,
-    // });
+
+    console.log({
+      nomeFantasia,
+      nomeEmpresarial,
+      cnpj,
+      emailComercial,
+      telefoneComercial,
+      cep,
+      numero,
+      descricao,
+      latitude,
+      longitude,
+    });
+
     if (!regexEmail.test(emailComercial)) {
       return alert("erro no email");
     }
@@ -137,7 +124,7 @@ export default function CadastroEstabelecimento() {
         celular: telefoneComercial.replace(/[^\d]/g, ""),
         cep: cep.replace(/[^\d]/g, ""),
         numero,
-        descricao: categoria,
+        descricao: descricao,
         latitude,
         longitude,
       });
@@ -163,89 +150,16 @@ export default function CadastroEstabelecimento() {
           autoComplete="off"
         >
           <div className="textField formCad">
-            <InputB
-              value={nomeFantasia}
-              setValue={setNomeFantasia}
-              inputError={nomeFantasiaError}
-              errorMessage={nomeFantasiaError}
-              label="Nome Fantasia"
-            />
-
-            <InputB
-              value={nomeEmpresarial}
-              setValue={setNomeEmpresarial}
-              inputError={nomeEmpresarialError}
-              errorMessage={nomeEmpresarialError}
-              label="Nome Empresarial"
-            />
-
-            <InputB
-              value={cnpj}
-              setValue={setCnpj}
-              inputError={cnpjError}
-              errorMessage={cnpjError}
-              label="CNPJ"
-              mask="99.999.999/9999-99"
-            />
-
-            <InputB
-              value={emailComercial}
-              setValue={setEmailComercial}
-              inputError={emailComercialError}
-              errorMessage={emailComercialError}
-              label="E-mail Comercial"
-            />
-
-            <InputB
-              value={telefoneComercial}
-              setValue={setTelefoneComercial}
-              inputError={telefoneComercialError}
-              errorMessage={telefoneComercialError}
-              label="Telefone Comercial"
-              mask="(99)99999-9999"
-            />
-
-            <InputB
-              value={cep}
-              setValue={setCep}
-              inputError={cepError}
-              errorMessage={cepError}
-              label="CEP"
-              mask="99999-999"
-            />
-
-            <InputB
-              value={numero}
-              setValue={setNumero}
-              inputError={numeroError}
-              errorMessage={numeroError}
-              label="Número"
-            />
-
-            <InputBSelect
-              categoria={categoria}
-              setCategoria={setCategoria}
-              label="Categoria/Segmento"
-              error={categoriaError}
-              className="selectBox"
-            />
-
-            <InputB
-              value={latitude}
-              setValue={setLatitude}
-              inputError={latitudeError}
-              errorMessage={latitudeError}
-              label="Latitude"
-            />
-
-            <InputB
-              value={longitude}
-              setValue={setLongitude}
-              inputError={longitudeError}
-              errorMessage={longitudeError}
-              label="Longitude"
-            />
-            
+            <InputB index={0} state={cadastro} onChange={onChange} />
+            <InputB index={1} state={cadastro} onChange={onChange} />
+            <InputB index={2} state={cadastro} onChange={onChange} />
+            <InputB index={3} state={cadastro} onChange={onChange} />
+            <InputB index={4} state={cadastro} onChange={onChange} />
+            <InputB index={5} state={cadastro} onChange={onChange} />
+            <InputB index={6} state={cadastro} onChange={onChange} />
+            <InputB index={7} state={cadastro} onChange={onChange} />
+            <InputB index={8} state={cadastro} onChange={onChange} />
+            <InputB index={9} state={cadastro} onChange={onChange} />
           </div>
           <div className="botoesCad">
             <Button

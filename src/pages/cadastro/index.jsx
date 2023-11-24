@@ -12,18 +12,52 @@ import { Link, useNavigate } from "react-router-dom";
 import { height } from "@mui/system";
 import { userCadastro, userLogin } from "../../services/login";
 import InputB from "../../components/Inputs/InputB";
+import { useReducerInputs } from "../../hooks/Inputs";
+
+const cadastroInitialState = [
+  {
+    label: "Nome Completo",
+    name: "nome",
+    type: undefined
+  },
+  {
+    label: "E-Mail",
+    name: "email",
+    type: "email",
+  },
+  {
+    label: "Celular",
+    name: "telefone",
+    type: undefined
+
+  },
+  {
+    label: "Senha",
+    name: "senha",
+    type: "password",
+  },
+  {
+    label: "Confirme sua Senha",
+    name: "confirma a senha",
+    type: "password",
+  },
+];
 
 export default function Cadastro() {
-  const [name, setName] = useState(undefined);
-  const [email, setEmail] = useState(undefined);
-  const [telefone, setTelefone] = useState(undefined);
-  const [password, setPassword] = useState(undefined);
-  const [confPassword, setConfPassword] = useState(undefined);
+  const [cadastro, onChange, setError, clearErrors] =
+    useReducerInputs(cadastroInitialState);
 
   const navigate = useNavigate();
 
   const handleSignupForm = async (event) => {
     event.preventDefault();
+
+    let name = cadastro[0].value;
+    let email = cadastro[1].value;
+    let celular = cadastro[2].value;
+    let password = cadastro[3].value;
+    let confsenha = cadastro[4].value;
+
     console.log({ name, email, password });
 
     try {
@@ -55,25 +89,11 @@ export default function Cadastro() {
           autoComplete="off"
         >
           <div className="textField formCad">
-            <InputB value={name} setValue={setName} label="Nome Completo" />
-
-            <InputB value={email} setValue={setEmail} label="E-mail" />
-
-            <InputB value={telefone} setValue={setTelefone} label="Celular" />
-
-            <InputB
-              value={password}
-              setValue={setPassword}
-              type="password"
-              label="Senha"
-            />
-
-            <InputB
-              value={confPassword}
-              setValue={setConfPassword}
-              type="password"
-              label="Confirme sua Senha"
-            />
+            <InputB index={0} state={cadastro} onChange={onChange} />
+            <InputB index={1} state={cadastro} onChange={onChange} />
+            <InputB index={2} state={cadastro} onChange={onChange} />
+            <InputB index={3} state={cadastro} onChange={onChange} />
+            <InputB index={4} state={cadastro} onChange={onChange} />
           </div>
           <div className="botoesCad">
             <Button

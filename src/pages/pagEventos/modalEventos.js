@@ -16,12 +16,32 @@ import eventos from "../../assets/events.png";
 import TextField from "@mui/material/TextField";
 import { BsPlusCircleFill } from "react-icons/bs";
 import UuidContext from "../../contexts/uuidCommerceContext";
+import { useReducerInputs } from "../../hooks/Inputs";
 
 // colocar os useStates aqui
 // fazer a função de enviar
 // fazer as validaçãoes
 
+const initialState = [
+  {
+    label: "Título do evento",
+    name: "email",
+  },
+  {
+    label: "Data e Hora",
+    name: "senha",
+    type: "datetime-local",
+  },
+  {
+    label: "Valor",
+    name: "senha",
+  },
+];
+
 export default function ModalEventos() {
+  const [state, onChange, setError, clearErrors] =
+    useReducerInputs(initialState);
+
   const uuid = useContext(UuidContext);
 
   return (
@@ -39,8 +59,11 @@ export default function ModalEventos() {
         Evento
       </h1>
       <div className="inputTitulo">
-        <InputB label="Título do evento" />
-        <TextField
+        <InputB index={0} state={state} onChange={onChange} />
+        <InputB index={1} state={state} onChange={onChange} />
+        <InputB index={2} state={state} onChange={onChange} />
+
+        {/* <TextField
           required
           id="outlined-required"
           label={"Data"}
@@ -68,7 +91,7 @@ export default function ModalEventos() {
           InputLabelProps={{ shrink: true, style: { height: "auto" } }}
           className="inputDate"
           style={{ width: "5vw", marginLeft: "2vh", height: "auto" }}
-        />
+        /> */}
       </div>
 
       <div className="divImage">

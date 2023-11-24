@@ -18,37 +18,31 @@ const loginInitialState = [
   {
     label: "E-mail",
     name: "email",
-    value: "",
-    type: undefined,
-    errorMessage: undefined,
-    error: false,
+    type: "email",
   },
   {
     label: "Senha",
     name: "senha",
-    value: "",
     type: "password",
-    errorMessage: undefined,
-    error: false,
   },
 ];
 
 export default function Login() {
-  const [login, onChange, setError, clearErrors] = useReducerInputs(loginInitialState);
+  const [login, onChange, setError, clearErrors] =
+    useReducerInputs(loginInitialState);
 
   const navigate = useNavigate();
 
   const handleSignupForm = async (event) => {
     event.preventDefault();
-    console.log("rodou")
+    console.log("rodou");
 
     let email = login[0].value;
     let password = login[1].value;
 
     clearErrors();
 
-    if(validateInputsEmpty(login, setError))
-      return;
+    if (validateInputsEmpty(login, setError)) return;
 
     try {
       let token = await userLogin({ email, password });
@@ -81,20 +75,8 @@ export default function Login() {
           noValidate
           autoComplete="off"
         >
-          {loginInitialState.map((element, index) => {
-            return (
-              <InputB
-                key={index}
-                index={index}
-                value={login[index].value}
-                setValue={onChange}
-                label={element.label}
-                type={element.type}
-                inputError={login[index].error}
-                errorMessage={login[index].errorMessage}
-              />
-            );
-          })}
+          <InputB index={0} state={login} onChange={onChange} />
+          <InputB index={1} state={login} onChange={onChange} />
         </Box>
         <div className="btns">
           <Link>

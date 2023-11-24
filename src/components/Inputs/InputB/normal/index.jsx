@@ -1,17 +1,20 @@
 import TextField from "@mui/material/TextField";
+import { forwardRef } from "react";
 
-export default function InputBnormal({ value, setValue, label, index, type, error }) {
+export default function InputBnormal({ state, setValue, index,ref, type, onSubmit}) {
   return (
     <TextField
       required
+      ref={ref}
       id="outlined-required"
-      label={label}
+      label={state[index].label}
       type={type}
-      error={error}
+      error={state[index].error}
       variant="outlined"
       InputLabelProps={{ shrink: true, style: { height: "auto" } }}
       className="inputLogin"
-      value={value}
+      value={state[index].value? state[index].value : ""}
+      onSubmit={onSubmit}
       onChange={(e) => {
         setValue(e.target.value, index)
       }}

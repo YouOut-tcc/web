@@ -2,27 +2,24 @@ import InputMask from "react-input-mask";
 import TextField from "@mui/material/TextField";
 
 export default function InputBmasked({
-  mask,
-  value,
+  state,
   setValue,
-  label,
   index,
-  error,
   type,
 }) {
-  console.log({
-    mask,
-    value,
-    setValue,
-    label,
-    error,
-    type,
-  });
+  // console.log({
+  //   mask,
+  //   value,
+  //   setValue,
+  //   label,
+  //   error,
+  //   type,
+  // });
   return (
     <>
       <InputMask
-        mask={mask}
-        value={value}
+        mask={state[index].mask}
+        value={state[index].value? state[index].value : ""}
         disabled={false}
         maskChar="_"
         onChange={(e) => setValue(e.target.value, index)}
@@ -34,9 +31,9 @@ export default function InputBmasked({
             className="inputLogin"
             InputLabelProps={{ shrink: true, style: { height: "auto" } }}
             variant="outlined"
-            error={error}
+            error={state[index].error}
             type={type}
-            label={label}
+            label={state[index].label}
             style={{ width: "30vw" }}
           />
         )}

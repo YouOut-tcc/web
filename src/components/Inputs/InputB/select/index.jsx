@@ -1,15 +1,15 @@
-import * as React from "react";
+import { useState } from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
-export default function InputBSelect({ categoria, setCategoria }) {
-
+export default function InputBSelect({ categorias, state, index, setValue }) {
+  const [categoria, setCategoria] = useState();
 
   const handleChange = (event) => {
     setCategoria(event.target.value);
-
+    setValue(event.target.value, index)
   };
 
   console.log(" teste categoria", categoria)
@@ -24,14 +24,19 @@ export default function InputBSelect({ categoria, setCategoria }) {
         <InputLabel
           shrink={true}
           htmlFor="demo-simple-select-autowidth-label"
-          sx={{ backgroundColor: "var(--primary-color)" }}
+          sx={{ backgroundColor: "var(--primary-color)", height: "auto" }}
         >
-          Categoria/Segmento
+          {state[index].label}
         </InputLabel>
         <Select
-          value={categoria}
+          className="inputLogin"
+          style={{ width: "30vw" }}
+          id="outlined-required"
+          value={state[index].value}
           onChange={handleChange}
-          label={"categoria"}
+          label={state[index].label}
+          error={state[index].error}
+          variant="outlined"
         >
             <MenuItem value="" sx={menuItemStyle}>
               <em></em>
@@ -60,7 +65,7 @@ export default function InputBSelect({ categoria, setCategoria }) {
             <MenuItem value={"Educação"} sx={menuItemStyle}>
               Educação
             </MenuItem>
-            <MenuItem value={"Construção e Reparação2"} sx={menuItemStyle}>
+            <MenuItem value={"Construção e Reparação"} sx={menuItemStyle}>
               Construção e Reparação
             </MenuItem>
             <MenuItem value={"Artes e Cultura"} sx={menuItemStyle}>
