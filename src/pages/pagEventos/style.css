@@ -178,6 +178,8 @@ margin-top: 3vh;
 .inputTitulo{
   height: auto;
   margin: 2%;
+  display: flex;
+  flex-direction: row;
 }
 .inputDate{
   background-color: var(--primary-color);

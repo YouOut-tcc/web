@@ -9,6 +9,7 @@ export default function InputB({
   onChange,
   categorias,
   onSubmit,
+  style
 }) {
   // const inputRef = useRef();
   let type = state[index].type;
@@ -18,6 +19,7 @@ export default function InputB({
     setValue: onChange,
     index: index,
     type: type,
+    style: style
     // onSubmit: onSubmit ? onSubmit : handleSubmit,
   };
 

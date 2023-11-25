@@ -4,7 +4,7 @@ import { ImTicket } from "react-icons/im";
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
 import { BsPlusCircleFill } from "react-icons/bs";
 import { BsCalendarCheck } from "react-icons/bs";
-import Modal from "../../components/modalCupons";
+import Modal from "../../components/modalA";
 import { BiTimeFive } from "react-icons/bi";
 import LogoTicket from "../../img/logoTicket.png";
 import HeaderPerfil from "../../components/headerPerfil";

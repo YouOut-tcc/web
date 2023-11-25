@@ -59,9 +59,11 @@ export default function ModalEventos() {
         Evento
       </h1>
       <div className="inputTitulo">
-        <InputB index={0} state={state} onChange={onChange} />
-        <InputB index={1} state={state} onChange={onChange} />
-        <InputB index={2} state={state} onChange={onChange} />
+        
+          <InputB index={0} state={state} onChange={onChange} />
+          <InputB index={1} state={state} onChange={onChange} />
+          <InputB index={2} state={state} onChange={onChange} />
+        
 
         {/* <TextField
           required

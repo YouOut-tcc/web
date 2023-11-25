@@ -6,11 +6,12 @@ import { useRouteLoaderData } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
 import CardEventos from "../../components/cardEventos/cardEvento";
 import HeaderPerfil from "../../components/headerPerfil";
-import Modal from "../../components/modalCupons";
+import Modal from "../../components/modalA";
 import { criarEvento } from "../../services/commerce";
 import ModalEventos from "./modalEventos";
 import UuidContext from "../../contexts/uuidCommerceContext";
 import styles from "../pagEventos/style.css";
+import zIndex from "@mui/material/styles/zIndex";
 
 function App({ setUuid }) {
   const [openModal, setOpenModal] = useState(false);
@@ -85,7 +86,7 @@ function App({ setUuid }) {
             style={{ width: "50px", height: "50px" }}
             onClick={() => setOpenModal(true)}
           >
-            <BsPlusCircleFill size={25} />
+            <BsPlusCircleFill size={25} style={{zIndex:1}}/>
           </Fab>
         </Box>
       </div>
@@ -97,6 +98,11 @@ function App({ setUuid }) {
 
       <div className="evento">
         <CardEventos />
+        <CardEventos />
+        <CardEventos />
+        <CardEventos />
+        <CardEventos />
+
       </div>
     </div>
   );

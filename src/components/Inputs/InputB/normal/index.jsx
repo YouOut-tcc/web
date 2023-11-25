@@ -1,7 +1,7 @@
 import TextField from "@mui/material/TextField";
 import { forwardRef } from "react";
 
-export default function InputBnormal({ state, setValue, index,ref, type, onSubmit}) {
+export default function InputBnormal({ state, setValue, index,ref, type, onSubmit, style}) {
   return (
     <TextField
       required
