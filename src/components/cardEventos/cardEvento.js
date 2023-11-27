@@ -24,7 +24,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function CardEventos({title, valor}) {
+export default function CardEventos({title, valor, imagem}) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -38,7 +38,7 @@ export default function CardEventos({title, valor}) {
       <CardMedia
         component="img"
         height="100"
-        image={eventos}
+        image={imagem? imagem: eventos}
         alt="Paella dish"
         sx={{ height: "200px" }}
       />

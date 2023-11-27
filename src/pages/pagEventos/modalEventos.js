@@ -3,6 +3,7 @@ import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
+import { Button } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
@@ -77,81 +78,109 @@ const initialState = [
   },
 ];
 
-export default function ModalEventos({setModalOpen}) {
+// problemas não pensados, duplicação de imagem e de eventos
+
+export default function ModalEventos({ setModalOpen }) {
   const [state, onChange, setError, clearErrors] =
     useReducerInputs(initialState);
+
+  const [selectedIMG, setSelectedIMG] = useState();
 
   const uuid = useContext(UuidContext);
 
   const regexGetValue = /([0-9]+(\.[0-9]+)+),[0-9][0-9]/g;
-  
+
   // verificar se o inicio é superior a data atual, o mesmo para o fim
   // não deixar cadastrar um evento com o mesmo inicio e fim
   // não exite uma medida para não permitir cadastra o mesmo evento
-  
+
   // verificar caso não seja possivel cadastra o evento, e mostrar para o usuario
   // mostrar e fechar a modal caso o cadastro do evento seja realizado
-  
+
   // não é possivel fechar a modal apatir daqui
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     let valor = state[3].value;
     valor = valor.slice(3);
 
-    let inicio = new Date(state[1].value)
-    let fim = new Date(state[2].value)
+    let inicio = new Date(state[1].value);
+    let fim = new Date(state[2].value);
 
-    if(isNaN(inicio) || isNaN(fim)){
+    if (isNaN(inicio) || isNaN(fim)) {
+      console.log("datas invalidads")
       return;
     }
 
     // if (validateInputsEmpty(login, setError)) return;
 
-    inicio = inicio.toISOString()
-    .replace("T", " ")
-    .replace(".000Z", "");
+    inicio = inicio.toISOString().replace("T", " ").replace(".000Z", "");
 
-    fim = fim.toISOString()
-    .replace("T", " ")
-    .replace(".000Z", "");
+    fim = fim.toISOString().replace("T", " ").replace(".000Z", "");
+
+    let eventoForm = new FormData();
+
+    // console.log(selectedIMG == selectedImage.image)
 
     let evento = {
       nome: state[0].value,
       inicio: inicio,
       fim: fim,
-      valor: parseFloat(valor.replace(/\./g, "").replace(",", ""))/100,
-      // valor: valor,
+      valor: parseFloat(valor.replace(/\./g, "").replace(",", "")) / 100,
       descricao: state[4].value,
     };
+    eventoForm.append("image", selectedIMG);
+    eventoForm.append('nome', evento.nome);
+    eventoForm.append('inicio', evento.inicio);
+    eventoForm.append('fim', evento.fim);
+    eventoForm.append('valor', evento.valor);
+    eventoForm.append('descricao', evento.descricao);
 
     clearErrors();
 
-    console.log(evento);
+    console.log(eventoForm);
 
     try {
-      await criarEvento(uuid, evento);
-      setModalOpen(false);
+      await criarEvento(uuid, eventoForm);
+      // setModalOpen(false);
     } catch (error) {
       console.log(error.constructor.name);
     }
   };
 
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+      // Use FileReader para ler o arquivo como uma URL de dados
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        // Quando a leitura estiver completa, atualize o estado com a URL da imagem
+        setSelectedIMG(reader.result);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  };
+
   const onChangeMoney = (e, key) => {
-    let inputValue = e.replace(/[^\d]/g, '');
-    if(inputValue.length > 8){
+    let inputValue = e.replace(/[^\d]/g, "");
+    if (inputValue.length > 8) {
       inputValue = inputValue.slice(0, 8);
     }
 
-    inputValue = parseFloat(inputValue)/100;
-    const valorFormatado = inputValue.toLocaleString('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
+    inputValue = parseFloat(inputValue) / 100;
+    const valorFormatado = inputValue.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
       // minimumFractionDigits: 2,
     });
-    onChange(valorFormatado, key)
-  }
+    onChange(valorFormatado, key);
+  };
 
   return (
     <>
+    <form encType="multipart/form-data" onSubmit={handleSubmit}>
       <div className="modalEventoBody">
         <div className="inputTitulo">
           <div id="modalEventInputTitle">
@@ -168,15 +197,30 @@ export default function ModalEventos({setModalOpen}) {
         <div className="divImage">
           <CardMedia
             component="img"
-            image={eventos}
+            image={selectedIMG? selectedIMG: eventos}
             alt="Paella dish"
-            sx={{ width: "25vw", height: "14.06vw" }}
+            sx={{ width: "25vw", height: "14.06vw" }} // ~16:9
           />
-          <BsPlusCircleFill
-            size={30}
-            color="--var(secondary-color)"
-            // style={{ marginTop: "35vh", marginLeft: "2vh" }}
-          />
+          {/* <input type="file" hidden /> */}
+
+          {/* <BsPlusCircleFill
+              size={30}
+              color="--var(secondary-color)"
+              containerElement='label'
+              // style={{ marginTop: "35vh", marginLeft: "2vh" }}
+            >
+              <input type="file" />
+            </BsPlusCircleFill> */}
+
+          <Button variant="contained" component="label">
+            <BsPlusCircleFill
+              size={30}
+              color="--var(secondary-color)"
+              containerElement="label"
+              // style={{ marginTop: "35vh", marginLeft: "2vh" }}
+            />
+            <input type="file" hidden accept=".jpg, .jpeg, .png" onChange={handleImageChange}/>
+          </Button>
         </div>
       </div>
       <div
@@ -189,10 +233,11 @@ export default function ModalEventos({setModalOpen}) {
         <InputB index={4} state={state} onChange={onChange} />
       </div>
       <div className="divSalvar">
-        <button className="btnSalvarEvento" onClick={handleSubmit}>
+        <button className="btnSalvarEvento" type="submit">
           Salvar Evento
         </button>
       </div>
+      </form>
     </>
     // <>
     //   {/* <h1

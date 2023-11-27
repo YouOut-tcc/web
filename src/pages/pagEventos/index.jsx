@@ -79,7 +79,7 @@ function App({ setUuid }) {
       <div className="evento">
         {eventos &&
           eventos.map((evento, index) => (
-            <CardEventos key={index} title={evento.nome} valor={evento.valor}/>
+            <CardEventos key={index} title={evento.nome} valor={evento.valor} imagem={evento.image}/>
           ))}
       </div>
     </div>
