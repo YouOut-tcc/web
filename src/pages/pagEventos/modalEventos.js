@@ -12,12 +12,15 @@ import Typography from "@mui/material/Typography";
 import { BiEdit } from "react-icons/bi";
 import Fab from "@mui/material/Fab";
 import InputB from "../../components/Inputs/InputB";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { criarEvento } from "../../services/commerce";
 import eventos from "../../assets/events.png";
 import TextField from "@mui/material/TextField";
 import { BsPlusCircleFill } from "react-icons/bs";
 import UuidContext from "../../contexts/uuidCommerceContext";
 import { useReducerInputs } from "../../hooks/Inputs";
-import "./style.css"
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import "./style.css";
 
 // colocar os useStates aqui
 // fazer a função de enviar
@@ -50,16 +53,21 @@ const initialState = [
     name: "email",
   },
   {
-    label: "Data e Hora",
+    label: "Inicio",
     name: "senha",
     type: "datetime-local",
-    value: now,
+    // value: now,
+  },
+  {
+    label: "Fim",
+    name: "senha",
+    type: "datetime-local",
   },
   {
     label: "Valor",
     name: "senha",
     // value: "00,00",
-    mask: "R$ 99999999",
+    // mask: "R$ *********",
     maskChar: " ",
     // beforeMask: beforeMaskedValueChange,
   },
@@ -69,25 +77,121 @@ const initialState = [
   },
 ];
 
-export default function ModalEventos() {
+export default function ModalEventos({setModalOpen}) {
   const [state, onChange, setError, clearErrors] =
     useReducerInputs(initialState);
 
   const uuid = useContext(UuidContext);
 
+  const regexGetValue = /([0-9]+(\.[0-9]+)+),[0-9][0-9]/g;
+  
+  // verificar se o inicio é superior a data atual, o mesmo para o fim
+  // não deixar cadastrar um evento com o mesmo inicio e fim
+  // não exite uma medida para não permitir cadastra o mesmo evento
+  
+  // verificar caso não seja possivel cadastra o evento, e mostrar para o usuario
+  // mostrar e fechar a modal caso o cadastro do evento seja realizado
+  
+  // não é possivel fechar a modal apatir daqui
+  const handleSubmit = async () => {
+    let valor = state[3].value;
+    valor = valor.slice(3);
+
+    let inicio = new Date(state[1].value)
+    let fim = new Date(state[2].value)
+
+    if(isNaN(inicio) || isNaN(fim)){
+      return;
+    }
+
+    // if (validateInputsEmpty(login, setError)) return;
+
+    inicio = inicio.toISOString()
+    .replace("T", " ")
+    .replace(".000Z", "");
+
+    fim = fim.toISOString()
+    .replace("T", " ")
+    .replace(".000Z", "");
+
+    let evento = {
+      nome: state[0].value,
+      inicio: inicio,
+      fim: fim,
+      valor: parseFloat(valor.replace(/\./g, "").replace(",", ""))/100,
+      // valor: valor,
+      descricao: state[4].value,
+    };
+
+    clearErrors();
+
+    console.log(evento);
+
+    try {
+      await criarEvento(uuid, evento);
+      setModalOpen(false);
+    } catch (error) {
+      console.log(error.constructor.name);
+    }
+  };
+
+  const onChangeMoney = (e, key) => {
+    let inputValue = e.replace(/[^\d]/g, '');
+    if(inputValue.length > 8){
+      inputValue = inputValue.slice(0, 8);
+    }
+
+    inputValue = parseFloat(inputValue)/100;
+    const valorFormatado = inputValue.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+      // minimumFractionDigits: 2,
+    });
+    onChange(valorFormatado, key)
+  }
+
   return (
     <>
-      <div className="inputTitulo">
-        <div id="modalEventInputTitle">
-          <InputB index={0} state={state} onChange={onChange} />
+      <div className="modalEventoBody">
+        <div className="inputTitulo">
+          <div id="modalEventInputTitle">
+            <InputB index={0} state={state} onChange={onChange} />
+          </div>
+          <div id="modalEventInputDates">
+            <InputB index={1} state={state} onChange={onChange} />
+            <InputB index={2} state={state} onChange={onChange} />
+          </div>
+          <div id="modalEventInputMoney">
+            <InputB index={3} state={state} onChange={onChangeMoney} />
+          </div>
         </div>
-        <div id="modalEventInputDates">
-          <InputB index={1} state={state} onChange={onChange} />
-          <InputB index={1} state={state} onChange={onChange} />
+        <div className="divImage">
+          <CardMedia
+            component="img"
+            image={eventos}
+            alt="Paella dish"
+            sx={{ width: "25vw", height: "14.06vw" }}
+          />
+          <BsPlusCircleFill
+            size={30}
+            color="--var(secondary-color)"
+            // style={{ marginTop: "35vh", marginLeft: "2vh" }}
+          />
         </div>
-        <div id="modalEventInputMoney"> 
-          <InputB index={2} state={state} onChange={onChange} />
-        </div>
+      </div>
+      <div
+        style={{
+          height: "auto",
+          marginLeft: "2%",
+          marginTop: "2%",
+        }}
+      >
+        <InputB index={4} state={state} onChange={onChange} />
+      </div>
+      <div className="divSalvar">
+        <button className="btnSalvarEvento" onClick={handleSubmit}>
+          Salvar Evento
+        </button>
       </div>
     </>
     // <>

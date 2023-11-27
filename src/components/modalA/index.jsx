@@ -7,15 +7,17 @@ export default function Modal({ isOpen, setModalOpen, children, title }) {
   if (isOpen) {
     return (
       <div className="divBackground">
-          <div className="divModal">
+        <div className="divModal">
+          <div className="divModalMain">
             <div className="divModalFechar">
-            <button onClick={setModalOpen} className="btnModalFechar">
-              <IoClose className="iconeBtnModalFechar" />
-            </button>
-            <h1>{title}</h1>
+              <button onClick={setModalOpen} className="btnModalFechar">
+                <IoClose className="iconeBtnModalFechar" />
+              </button>
+              <h1>{title}</h1>
             </div>
             <div className="divModalBody">{children}</div>
           </div>
+        </div>
       </div>
     );
   }

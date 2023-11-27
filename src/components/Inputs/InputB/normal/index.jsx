@@ -15,6 +15,7 @@ export default function InputBnormal({ state, setValue, index,ref, type, onSubmi
       className="inputLogin"
       value={state[index].value? state[index].value : ""}
       multiline={state[index].multiline}
+      // max="9999-12-31T00:00"
       onSubmit={onSubmit}
       onChange={(e) => {
         setValue(e.target.value, index)

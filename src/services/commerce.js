@@ -1,5 +1,5 @@
-import api from './api';
-import {AxiosError} from 'axios';
+import api from "./api";
+import { AxiosError } from "axios";
 // import { BackendAcessError } from '../error/user';
 
 async function getCommerceInfo(uuid) {
@@ -37,9 +37,8 @@ async function getAvaliacoes(uuid) {
 async function responderAvaliacao(uuid, id, resposta) {
   try {
     await api.post(`/estabelecimento/manage/${uuid}/responder/${id}`, {
-      resposta
+      resposta,
     });
-
   } catch (error) {
     console.log(error.constructor.name);
     if (error instanceof AxiosError) {
@@ -53,10 +52,22 @@ async function responderAvaliacao(uuid, id, resposta) {
 
 async function criarEvento(uuid, evento) {
   try {
-    await api.post(`/estabelecimento/manage/${uuid}/eventos/`, {
-      evento
-    });
+    await api.post(`/estabelecimento/manage/${uuid}/eventos/`, evento);
+  } catch (error) {
+    console.log(error.constructor.name);
+    if (error instanceof AxiosError) {
+      console.log(error.response.status);
+      console.log(error.response.data.message);
+    } else if (error instanceof ReferenceError) {
+      console.log(error.message);
+    }
+  }
+}
 
+async function getEventos(uuid) {
+  try {
+    let res = await api.get(`/estabelecimento/places/${uuid}/eventos/`);
+    return res.data;
   } catch (error) {
     console.log(error.constructor.name);
     if (error instanceof AxiosError) {
@@ -70,21 +81,28 @@ async function criarEvento(uuid, evento) {
 
 async function placeCadastro(data) {
   try {
-    const res = await api.post("/estabelecimento/manage/request", data)
+    const res = await api.post("/estabelecimento/manage/request", data);
 
     return res;
   } catch (error) {
-    console.log(error.constructor.name)
-    if (error instanceof AxiosError){
-      console.log("erro no cadastro")
-      console.log(error.response.status)
-      console.log(error.response.data.message)
+    console.log(error.constructor.name);
+    if (error instanceof AxiosError) {
+      console.log("erro no cadastro");
+      console.log(error.response.status);
+      console.log(error.response.data.message);
       throw error;
-    } else if (error instanceof ReferenceError){
-      console.log(error.message)
+    } else if (error instanceof ReferenceError) {
+      console.log(error.message);
       throw error;
     }
   }
 }
 
-export { getAvaliacoes, getCommerceInfo, responderAvaliacao, placeCadastro, criarEvento }
+export {
+  getAvaliacoes,
+  getCommerceInfo,
+  responderAvaliacao,
+  placeCadastro,
+  criarEvento,
+  getEventos,
+};

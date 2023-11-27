@@ -167,12 +167,13 @@ margin-top: 3vh;
 }
 
 .divImage{
-  margin: auto;
-  width: 90%;
+  /* margin: auto; */
+  width: 100%;
   height: 80%;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: center; */
   display: flex;
+  margin-top: 2%;
 
 }
 .inputTitulo{
@@ -180,6 +181,7 @@ margin-top: 3vh;
   margin: 2%;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .inputDate{
   background-color: var(--primary-color);
@@ -198,16 +200,30 @@ margin-top: 3vh;
   justify-content: center;
 }
 
+.modalEventoBody{
+  display: flex;
+  flex-direction: row;
+  height: auto;
+}
+
 #modalEventInputTitle{
-  margin-bottom: 2%;
+  width: 100%;
+  margin-bottom: 1%;
+  height: auto;
 }
 
 #modalEventInputDates{
   display: flex;
   flex-direction: column;
+  width: 50%;
+  height: auto;
+}
+
+#modalEventInputMoney{
+  width: 25%;
+  height: auto;
 }
 
 #modalEventInputDates div{
-  margin-bottom: 1%;
-
+  margin-bottom: 2%;
 }

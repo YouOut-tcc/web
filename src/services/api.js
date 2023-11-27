@@ -26,6 +26,7 @@ api.interceptors.request.use(async (config)=>{
 api.interceptors.response.use(null, (error)=>{
   if(!error.response){
     // retorna o erro de backend
+    console.log("error no backend")
   }
   return Promise.reject(error);
 })

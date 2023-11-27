@@ -24,7 +24,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function CardEventos() {
+export default function CardEventos({title, valor}) {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -34,7 +34,7 @@ export default function CardEventos() {
   return (
     <>
     <Card sx={{ maxWidth: 345, margin: "2vh",  marginLeft: "4vh", backgroundColor:"var(--primary-color)", border: "solid 2px #8200a8" }}>
-      <CardHeader title="Evento tal" subheader="September 14, 2016. Entrada: R$ 100,00"/>
+      <CardHeader title={title} subheader={`September 14, 2016. Entrada: R$ ${valor}`}/>
       <CardMedia
         component="img"
         height="100"

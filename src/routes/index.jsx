@@ -4,15 +4,19 @@ import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import ErrorPage from "../pages/Errors";
 import Home from "../pages/Home";
 import Cadastro from "../pages/cadastro";
-import Usuario from "../pages/InfoAoUser"
+import Usuario from "../pages/InfoAoUser";
 import PagEventos from "../pages/pagEventos";
 import PagCupons from "../pages/pagCupons";
 import PagNotificacao from "../pages/pagNotificacao";
 import InfoPerfil from "../pages/infoPerfil";
 import PagRecuperarSenha from "../pages/pagRecuperarSenha";
 import LayoutA from "../pages/layouts/LayoutA";
-import LayoutB, { loader as commenceHomeLoader} from "../pages/layouts/LayoutB";
-import Login from "../pages/login"
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import LayoutB, {
+  loader as commenceHomeLoader,
+} from "../pages/layouts/LayoutB";
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
+import Login from "../pages/login";
 import CommenceHome from "../pages/CommenceHome";
 import CadastroEstabelecimento from "../pages/cadEstabelecimento";
 import theme from "../styles/Global";
@@ -42,13 +46,13 @@ const router = createBrowserRouter([
       },
       {
         path: "usuario",
-        element: <Usuario/>,
+        element: <Usuario />,
       },
       {
         path: "/login",
         element: <Login />,
       },
-    ]
+    ],
   },
   {
     path: "/home",
@@ -98,15 +102,16 @@ const router = createBrowserRouter([
   },
   {
     path: "/layoutB",
-    element: <LayoutB/>
+    element: <LayoutB />,
   },
 ]);
 
 export default function App() {
-  return(
+  return (
     <ThemeProvider theme={theme}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
       <RouterProvider router={router} />
-      </ThemeProvider>
-
-  ) 
+      </LocalizationProvider>
+    </ThemeProvider>
+  );
 }
