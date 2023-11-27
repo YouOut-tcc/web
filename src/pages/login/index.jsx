@@ -67,6 +67,10 @@ export default function Login() {
         <Box
           component="form"
           sx={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+            width: "40%",
             "& .MuiTextField-root": {
               m: 1,
               width: "65ch",

@@ -141,6 +141,7 @@ export default function CadastroEstabelecimento() {
         <Box
           component="form"
           sx={{
+            width: "70%",
             "& .MuiTextField-root": {
               m: 1,
               width: "65ch",

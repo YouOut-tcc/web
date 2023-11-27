@@ -38,7 +38,30 @@ function inputReducer(state, action) {
 
       break;
   }
-  return structuredClone(state);
+  let saveFunc = [];
+
+  state.forEach((elementArray, index)=>{
+    Object.entries(elementArray).forEach((element)=>{
+      if(typeof element[1] == "function"){
+        saveFunc[index] = {};
+        saveFunc[index][element[0]] = element[1];
+        elementArray[element[0]] = "";
+      }
+    })
+  })
+
+  let clone = structuredClone(state);
+
+  saveFunc.forEach((element, index)=>{
+    if(element != undefined){
+      Object.entries(element).forEach((elementobj)=>{
+        state[index][elementobj[0]] = elementobj[1];
+        clone[index][elementobj[0]] = elementobj[1];
+      })
+    }
+  })
+
+  return clone;
 }
 
 function useReducerInputs(initialState) {

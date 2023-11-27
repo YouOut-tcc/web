@@ -91,7 +91,7 @@ function App({ setUuid }) {
         </Box>
       </div>
       <div>
-        <Modal isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}>
+        <Modal isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)} title={"Evento"}>
           <ModalEventos />
         </Modal>
       </div>

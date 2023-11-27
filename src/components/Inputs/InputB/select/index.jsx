@@ -19,8 +19,8 @@ export default function InputBSelect({ categorias, state, index, setValue }) {
   };
 
   return (
-    <div>
-      <FormControl sx={{ m: 1, minWidth: "30vw" }}>
+    // <div>
+      <FormControl sx={{ m: 1, width: "100%" }} fullWidth>
         <InputLabel
           shrink={true}
           htmlFor="demo-simple-select-autowidth-label"
@@ -30,7 +30,7 @@ export default function InputBSelect({ categorias, state, index, setValue }) {
         </InputLabel>
         <Select
           className="inputLogin"
-          style={{ width: "30vw" }}
+          style={{ width: "100%" }}
           id="outlined-required"
           value={state[index].value}
           onChange={handleChange}
@@ -79,6 +79,6 @@ export default function InputBSelect({ categorias, state, index, setValue }) {
             </MenuItem>
         </Select>
       </FormControl>
-    </div>
+    // </div>
   );
 }

@@ -4,7 +4,7 @@
   align-items: center; 
   text-align: center; 
   height: auto;
-  /* width: 50%; */
+  width: 100%;
   /* justify-content: center; */
   margin-top: 25vh;
 }
@@ -16,6 +16,8 @@
 .formLogin{
   display: flex;
   flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
 
 .inputA, .inputB{

@@ -8,13 +8,15 @@
   z-index: 10000;
 }
 
-.divModalFechar{
+.divModalFechar {
   height: auto;
   width: 100%;
+  display: flex;
+  justify-content: end;
 }
 
 .divModalFechar h1 {
-  width: auto;
+  width: 100%;
   height: auto;
   font-size: 3vh;
   font-weight: bold;
@@ -22,46 +24,33 @@
   text-align: center;
 }
 
-.divModal{
-  background-color:#EDE0D6;
+.divModal {
+  background-color: #ede0d6;
   overflow-y: auto;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 10%; /* matematica vadia */
+  left: 20%;
   width: 60%;
   /* max-height: 80vh; */
   height: 80%;
-  border: 4px #8200A8 solid;
+  border: 4px #8200a8 solid;
   border-radius: 20px;
 }
 
-.btnModalFechar{
-  /* background-color: transparent;
+.btnModalFechar {
+  z-index: 1;
+  background-color: transparent;
   border: none;
-  margin-left: 85%;
-  width: 10%;
-  height: 7vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  bottom: 105vh; */
-      /* margin-left: 85%; */
-      z-index: 1;
-      /* position: absolute; */
-      background-color: transparent;
-      border: none;
-      width: 25vh;
-
+  width: 6vh;
+  position: absolute;
 }
 
-.iconeBtnModalFechar{
-  width: 50%;
-  height: 5vh;
+.iconeBtnModalFechar {
+  width: 100%;
+  height: 100%;
 }
 
-.divModalButtonAdd{
+.divModalButtonAdd {
   position: relative;
   width: 5%;
   height: auto;
@@ -69,14 +58,13 @@
   bottom: 30%;
 }
 
-
-.iconeBtnModalAdd{
-  color: #8200A2;
+.iconeBtnModalAdd {
+  color: #8200a2;
   width: 100%;
   height: 3vh;
 }
 
-.divModalBody{
+.divModalBody {
   height: "100%";
+  margin: 2%;
 }
- 

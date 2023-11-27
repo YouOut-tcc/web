@@ -15,14 +15,17 @@ export default function InputBmasked({
   //   error,
   //   type,
   // });
+  let beforeMask = state[index].beforeMask;
+
   return (
     <>
       <InputMask
         mask={state[index].mask}
         value={state[index].value? state[index].value : ""}
         disabled={false}
-        maskChar="_"
+        maskChar={state[index].maskChar? state[index].maskChar: "_"}
         onChange={(e) => setValue(e.target.value, index)}
+        beforeMaskedValueChange={beforeMask}
       >
         {() => (
           <TextField
@@ -34,7 +37,7 @@ export default function InputBmasked({
             error={state[index].error}
             type={type}
             label={state[index].label}
-            style={{ width: "30vw" }}
+            style={{ width: "100%" }}
           />
         )}
       </InputMask>

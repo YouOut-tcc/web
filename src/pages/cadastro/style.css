@@ -16,7 +16,7 @@
 
 #container-b {
   /* background-color: #EDE0D6; */
-  /* width: 50%; */
+  width: 100%;
   /* border-radius: 25px 0 0 25px; */
   /* overflow: auto; */
 
@@ -56,6 +56,7 @@
   padding: 10px;
   color:#8200A8; 
   padding-left: 10%;
+  align-items: center;
   /* gap: 20px; */
 }
 
@@ -158,5 +159,9 @@
 
 .formCad {
   height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   /* padding: 5% 10% 5% 10% ; */
 }

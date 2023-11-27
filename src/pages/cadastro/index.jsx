@@ -78,8 +78,17 @@ export default function Cadastro() {
       <h1 className="title">Cadastre-se</h1>
       <form className="form" onSubmit={handleSignupForm}>
         <Box
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "70%"
+          }}
           component="form"
           sx={{
+            // display: "flex",
+            // alignItems: "center",
+            // flexDirection: "column",
+            // width: "75%",
             "& .MuiTextField-root": {
               m: 1,
               width: "65ch",

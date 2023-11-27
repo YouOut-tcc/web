@@ -179,7 +179,7 @@ margin-top: 3vh;
   height: auto;
   margin: 2%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 .inputDate{
   background-color: var(--primary-color);
@@ -196,4 +196,18 @@ margin-top: 3vh;
   align-items: center;
   display: flex;
   justify-content: center;
+}
+
+#modalEventInputTitle{
+  margin-bottom: 2%;
+}
+
+#modalEventInputDates{
+  display: flex;
+  flex-direction: column;
+}
+
+#modalEventInputDates div{
+  margin-bottom: 1%;
+
 }

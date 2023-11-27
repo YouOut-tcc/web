@@ -4,7 +4,6 @@ import { IoClose } from "react-icons/io5";
 import { BsPlusCircleFill } from "react-icons/bs";
 
 export default function Modal({ isOpen, setModalOpen, children, title }) {
-  title = "teste"
   if (isOpen) {
     return (
       <div className="divBackground">

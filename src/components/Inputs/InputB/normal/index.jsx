@@ -14,11 +14,12 @@ export default function InputBnormal({ state, setValue, index,ref, type, onSubmi
       InputLabelProps={{ shrink: true, style: { height: "auto" } }}
       className="inputLogin"
       value={state[index].value? state[index].value : ""}
+      multiline={state[index].multiline}
       onSubmit={onSubmit}
       onChange={(e) => {
         setValue(e.target.value, index)
       }}
-      style={{ width: "30vw" }}
+      style={{ width: "100%" }}
     />
   );
 }
