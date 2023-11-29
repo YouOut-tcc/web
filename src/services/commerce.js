@@ -98,6 +98,36 @@ async function placeCadastro(data) {
   }
 }
 
+async function criarCupom(uuid, cupom) {
+  try {
+    let result = await api.post(`/estabelecimento/manage/${uuid}/cupons/`, cupom);
+    return result.data
+  } catch (error) {
+    console.log(error.constructor.name);
+    if (error instanceof AxiosError) {
+      console.log(error.response.status);
+      console.log(error.response.data.message);
+    } else if (error instanceof ReferenceError) {
+      console.log(error.message);
+    }
+  }
+}
+
+async function getCupom(uuid) {
+  try {
+    let res = await api.get(`/estabelecimento/places/${uuid}/cupons/`);
+    return res.data;
+  } catch (error) {
+    console.log(error.constructor.name);
+    if (error instanceof AxiosError) {
+      console.log(error.response.status);
+      console.log(error.response.data.message);
+    } else if (error instanceof ReferenceError) {
+      console.log(error.message);
+    }
+  }
+}
+
 export {
   getAvaliacoes,
   getCommerceInfo,
@@ -105,4 +135,6 @@ export {
   placeCadastro,
   criarEvento,
   getEventos,
+  criarCupom,
+  getCupom,
 };
