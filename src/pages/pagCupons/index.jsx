@@ -2,6 +2,8 @@ import { useState, useContext, useEffect } from "react";
 import { useRouteLoaderData } from "react-router-dom";
 import { ImTicket } from "react-icons/im";
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
+import Box from "@mui/material/Box";
+import Fab from "@mui/material/Fab";
 import { BsPlusCircleFill } from "react-icons/bs";
 import { BsCalendarCheck } from "react-icons/bs";
 import Modal from "../../components/modalA";
@@ -10,9 +12,12 @@ import LogoTicket from "../../img/logoTicket.png";
 import HeaderPerfil from "../../components/headerPerfil";
 import UuidContext from "../../contexts/uuidCommerceContext";
 import "./style.css";
+import ModalCupom from "./modalCupom";
+import CardCupom from "../../components/cardCupom/cardCupom";
 
 function App({setUuid}) {
   const [openModal, setOpenModal] = useState(false);
+  const [cupom, setCupom] = useState([]);
 
   const commerces = useRouteLoaderData("commerceRoot");
   const uuid = useContext(UuidContext);
@@ -20,100 +25,46 @@ function App({setUuid}) {
   return (
     <div className="containerCupons">
       <HeaderPerfil commerces={commerces} setUuid={setUuid} />
-      <div className="divTituloCupons">
-        <h1 className="tituloHeaderCupons">Cupons</h1>
-        <ImTicket className="iconeCupon" />
-        <button className="btnAddCupons" onClick={() => setOpenModal(true)}>
-          <BsPlusCircleFill className="iconeAddCupons" />
-        </button>
-      </div>
+       <div className="divTituloCupom">
+      <h1>
+          <BsCalendarCheck size={35} /> Cupons
+        </h1>
+        <Box
+          sx={{
+            "& > :not(style)": { m: 1 },
+            justifyContent: "end",
+            height: "auto",
+            display: "flex",
+            marginTop: "-8.5vh",
+          }}
+        >
+          <Fab
+            color="primary"
+            aria-label="add"
+            style={{ width: "50px", height: "50px" }}
+            onClick={() => setOpenModal(true)}
+          >
+            <BsPlusCircleFill size={25} style={{ zIndex: 1 }} />
+          </Fab>
+        </Box>
+        </div>
       <div className="divPaiModalConteudoCupons">
-        <Modal isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}>
-          <div className="divModalConteudoCupons">
-            <h1 className="tituloCupom">Primeira Compra</h1>
-
-            <div className="divModalConteudoImgCupons">
-              <img src={LogoTicket} className="imgLogoCupom" />
-              <div className="porcentagemCupom">
-                <h1>30%</h1>
-              </div>
-              <div className="txtCupom">
-                <h1>YouOut</h1>
-              </div>
-            </div>
-
-            <div className="divModalConteudoInputsCupons">
-              <h1>Condições</h1>
-              <BsCalendarCheck /> <input type="text" />
-              <BiTimeFive />
-              <input type="text" />
-              <RiMoneyDollarCircleFill /> <input type="text" />
-              <button className="btnSalvarCupom">Salvar Cupom</button>
-            </div>
-          </div>
+      <Modal
+          isOpen={openModal}
+          setModalOpen={() => setOpenModal(!openModal)}
+          title={"Cupom"}
+        >
+          <ModalCupom setModalOpen={setOpenModal} />
         </Modal>
       </div>
-
-      <div className="divCupons">
-        <div className="cardCupons">
-          <h1 className="dadosCupons">Cupom primeira compra</h1>
-          <br></br>
-          <h1>Condições:</h1>
-          <ul>
-            <li>Apenas primeiras compras</li>
-            <li>Expira em XX dias ...</li>
-          </ul>
-        </div>
-
-        <div className="cardCupons">
-          <h1 className="dadosCupons">Cupom primeira compra </h1>
-          <br></br>
-          <h1>Condições:</h1>
-          <ul>
-            <li>Apenas primeiras compras</li>
-            <li>Expira em XX dias ...</li>
-          </ul>
-        </div>
-
-        <div className="cardCupons">
-          <h1 className="dadosCupons">Cupom primeira compra</h1>
-          <br></br>
-          <h1>Condições:</h1>
-          <ul>
-            <li>Apenas primeiras compras</li>
-            <li>Expira em XX dias ...</li>
-          </ul>
-        </div>
-
-        <div className="cardCupons">
-          <h1 className="dadosCupons">Cupom primeira compra</h1>
-          <br></br>
-          <h1>Condições:</h1>
-          <ul>
-            <li>Apenas primeiras compras</li>
-            <li>Expira em XX dias ...</li>
-          </ul>
-        </div>
-
-        <div className="cardCupons">
-          <h1 className="dadosCupons">Cupom primeira compra</h1>
-          <br></br>
-          <h1>Condições:</h1>
-          <ul>
-            <li>Apenas primeiras compras</li>
-            <li>Expira em XX dias ...</li>
-          </ul>
-        </div>
-
-        <div className="cardCupons">
-          <h1 className="dadosCupons">Cupom primeira compra</h1>
-          <br></br>
-          <h1>Condições:</h1>
-          <ul>
-            <li>Apenas primeiras compras</li>
-            <li>Expira em XX dias ...</li>
-          </ul>
-        </div>
+      <div className="evento">
+        {cupom && cupom.length > 0 ? (
+          cupom.map((cupom, index) => (
+            <CardCupom key={index} title={cupom.nome} valor={cupom.valor} imagem={cupom.image}/>
+          ))
+        ):(
+          <p style={{fontSize: "4vh", textAlign:"center", margin:"auto"}}>Nenhum cupom cadastrado para essa unidade. Clique em  <BsPlusCircleFill size={30}color={"#8200A8"}/> para cadastrar.</p>
+        )}
       </div>
     </div>
   );

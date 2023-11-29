@@ -213,12 +213,12 @@ export default function ModalEventos({ setModalOpen }) {
               <input type="file" />
             </BsPlusCircleFill> */}
 
-          <Button variant="contained" component="label">
+          <Button variant="contained" component="label"
+          sx={{alignItems:"flex-end", margin: "2vh 0 0 42vh"}}>
             <BsPlusCircleFill
-              size={30}
+              size={35}
               color="--var(secondary-color)"
               containerElement="label"
-              // style={{ marginTop: "35vh", marginLeft: "2vh" }}
             />
             <input type="file" hidden accept=".jpg, .jpeg, .png" onChange={handleImageChange}/>
           </Button>

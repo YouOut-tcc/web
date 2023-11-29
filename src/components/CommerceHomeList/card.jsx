@@ -26,6 +26,10 @@ export default function CommerceHomeCard({ place }) {
     console.log("redenrizando um card");
   }, []);
 
+  const truncateText = (text) => {
+    return text.length > 20 ? text.slice(0, 20) + '...' : text;
+  };
+  
   return (
     <div className="commerceDiv">
       {/* <li key={place.uuid} className="commerceList">
@@ -93,20 +97,30 @@ export default function CommerceHomeCard({ place }) {
                     variant="h5"
                     component="div"
                     className="divTextCommerce"
+                    title={place.nome}
                   >
-                    {place.nome}
+                      {truncateText(place.nome)}
                   </Typography>
                   <Typography
                     variant="body2"
                     color="text.secondary"
                     className="divTextCommerce"
-                    sx={{ fontSize: "3vh", paddingTop: "0"}}
+                    sx={{
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 3, 
+                      fontSize: "3vh", 
+                      paddingTop: "0"
+                    }}
                   >
                     {endereco && 
                     <>
-                    <p>{endereco.logradouro}, {place.numero}</p>
-                    <p>{endereco.bairro},{endereco.uf} </p>
-                    <p>{endereco.cep}</p>
+                  <p style={{ maxWidth: "25ch" }} title={`${endereco.logradouro}, ${place.numero}`}>
+                    {truncateText(endereco.logradouro)}, {place.numero}</p>
+                    <p style={{ maxWidth: "25ch"}}>{endereco.bairro},{endereco.uf} </p>
+                    <p style={{ maxWidth: "25ch"}}>{endereco.cep}</p>
                     </>
                     }
                     <p

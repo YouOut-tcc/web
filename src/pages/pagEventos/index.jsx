@@ -77,10 +77,13 @@ function App({ setUuid }) {
       </div>
 
       <div className="evento">
-        {eventos &&
+        {eventos && eventos.length > 0 ? (
           eventos.map((evento, index) => (
             <CardEventos key={index} title={evento.nome} valor={evento.valor} imagem={evento.image}/>
-          ))}
+          ))
+        ):(
+          <p style={{fontSize: "4vh", textAlign:"center", margin:"auto"}}>Nenhum evento cadastrado para essa unidade. Clique em  <BsPlusCircleFill size={30}color={"#8200A8"}/> para cadastrar.</p>
+        )}
       </div>
     </div>
   );

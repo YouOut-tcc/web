@@ -172,7 +172,7 @@ margin-top: 3vh;
   height: 80%;
   /* align-items: center; */
   /* justify-content: center; */
-  display: flex;
+  /* display: flex;*/
   margin-top: 2%;
 
 }
@@ -215,12 +215,12 @@ margin-top: 3vh;
 #modalEventInputDates{
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width:  100%;
   height: auto;
 }
 
 #modalEventInputMoney{
-  width: 25%;
+  width: 100%;
   height: auto;
 }
 

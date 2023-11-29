@@ -70,7 +70,7 @@ export default function Login() {
             display: "flex",
             alignItems: "center",
             flexDirection: "column",
-            width: "40%",
+            width: "60%",
             "& .MuiTextField-root": {
               m: 1,
               width: "65ch",

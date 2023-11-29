@@ -1,18 +1,18 @@
 .pele {
-  background-color: #EDE0D6 ;
+  background-color: #ede0d6;
   height: auto;
 }
-.divInfoP {
+.divInfo {
   display: flex;
   flex-direction: column;
-  gap: 7px; /*Espaço entre os inputs*/
+  gap: 7px;
   align-items: start;
-  background-color: #EDE0D6;
   height: auto;
-
+  width: 70vh;
+  margin: 5vh;
 }
 
-.divInfoP input{
+.divInfoP input {
   position: relative;
   bottom: 20px;
   left: 5%;
@@ -21,28 +21,20 @@
   width: 40%;
   height: 40px;
   border-radius: 15px;
-  background-color: #EDE0D6;
-
+  background-color: #ede0d6;
 }
 
-.divInfoP h1{
+.divInfoP h1 {
   height: 7vh;
   font-size: 20px; /*Tamanho da font*/
   font-weight: bold; /*Negrito*/
   margin-left: 5%;
   margin-top: 12%;
- 
 }
 
-.btnAlterar {
-  background-color: blue;
-  font-size: 25px;
-  font-weight: bold;
-  border-radius: 10px;
-  height: 4vh;
-  width: 5%;
-  display: flex;
-  margin-left: 22%;
+.divSalvarPerfil {
+  margin: 2vh;
+  width: 20vh;
+  margin-left: 30vh;
+  height: 10vh;
 }
-
-
