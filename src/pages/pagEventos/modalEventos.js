@@ -20,6 +20,7 @@ import TextField from "@mui/material/TextField";
 import { BsPlusCircleFill } from "react-icons/bs";
 import UuidContext from "../../contexts/uuidCommerceContext";
 import { useReducerInputs } from "../../hooks/Inputs";
+import { minetypeFromBase64 } from "../../helpers";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import "./style.css";
 
@@ -129,6 +130,7 @@ export default function ModalEventos({ setModalOpen }) {
       descricao: state[4].value,
     };
     eventoForm.append("image", selectedIMG);
+    eventoForm.append("minetype", minetypeFromBase64(selectedIMG));
     eventoForm.append('nome', evento.nome);
     eventoForm.append('inicio', evento.inicio);
     eventoForm.append('fim', evento.fim);
@@ -137,11 +139,11 @@ export default function ModalEventos({ setModalOpen }) {
 
     clearErrors();
 
-    console.log(eventoForm);
+    // console.log(eventoForm);
 
     try {
       await criarEvento(uuid, eventoForm);
-      // setModalOpen(false);
+      setModalOpen(false);
     } catch (error) {
       console.log(error.constructor.name);
     }
@@ -153,7 +155,6 @@ export default function ModalEventos({ setModalOpen }) {
     if (file) {
       // Use FileReader para ler o arquivo como uma URL de dados
       const reader = new FileReader();
-
       reader.onloadend = () => {
         // Quando a leitura estiver completa, atualize o estado com a URL da imagem
         setSelectedIMG(reader.result);
