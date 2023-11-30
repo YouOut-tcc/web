@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import { getAvaliacoes } from "../../services/commerce";
 import "./style.css";
 
-function Comentarios({ uuid }) {
+function Comentarios({ uuid, nota }) {
   const [avaliacoes, setAvaliacoes] = useState([]);
 
   const fetchAvaliacoes = async () => {
@@ -37,7 +37,7 @@ function Comentarios({ uuid }) {
   return (
     <div className="containerComentario">
       {avaliacoes ? (
-        <ComentarioHeader length={avaliacoes.length} />
+        <ComentarioHeader length={avaliacoes.length} nota={nota}/>
       ) : (
         <ComentarioHeader length={0} />
       )}

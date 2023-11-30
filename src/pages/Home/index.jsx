@@ -21,15 +21,13 @@ function Home() {
     setCommerce(comerce);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchData();
-  },[uuid])
+  }, [uuid]);
 
   return (
     <div>
-      {commerce &&
-        <HeaderComercio uuid={uuid} commerce={commerce}/>
-      }
+      {commerce && <HeaderComercio uuid={uuid} commerce={commerce} />}
       <div className="divButtons">
         <button onClick={() => setSelectedOption("perfil")}>Perfil</button>
         <button onClick={() => setSelectedOption("dashboard")}>
@@ -38,13 +36,13 @@ function Home() {
       </div>
       {selectedOption === "perfil" && (
         <div>
-          <Carrosel uuid={uuid}/>
-          <Comentarios uuid={uuid}/>
+          <Carrosel uuid={uuid} />
+          {commerce && <Comentarios uuid={uuid} nota={commerce.nota}/>}
         </div>
       )}
       {selectedOption === "dashboard" && (
         <div>
-          <Dashboard/>
+          <Dashboard />
         </div>
       )}
     </div>
