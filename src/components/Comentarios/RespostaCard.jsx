@@ -9,40 +9,37 @@ import InputB from "../Inputs/InputB";
 let respostaState = [
   {
     label: "Digite sua resposta",
+    value: "",
     multiline: true,
+    maxRows: 4
   }
 ]
 export default function RespostaCard({ respostaProps, avaliacaoid, uuid }) {
   const [resposta, setResposta] = useState(respostaProps);
-  const [respostaInput, setRespostaInput] = useState("");
   const [state, onChange, setError, clearErrors] =
   useReducerInputs(respostaState);
 
+  // vaidar coisas
   const handleResposta = () => {
-    console.log(respostaInput);
-    responderAvaliacao(uuid, avaliacaoid, respostaInput);
-    setResposta(respostaInput);
+    let resposta = state[0].value;
+    // console.log(resposta);
+    responderAvaliacao(uuid, avaliacaoid, resposta);
+    setResposta(resposta);
   };
-
-  const handleOpenResposta = () => {
-    console.log("eeeeeeee");
-  };
-
 
   return (
     <div className="conteinerRespostas">
-      <div className="line2"></div>
+      {/* <div className="line2"></div> */}
       <div className="conteinerRespostasImg">
       <img src={CommerceLogo} className="fotoPerfilCNPJ" alt="Logo YouOut" />
       </div>
       <div className="conteinerRespostasInput">
         {resposta ? (
-          <p>
+          <p className="resposta">
             {resposta}
           </p>
         ) : (
           <>
-            {/* onChange={(e) => {setRespostaInput(e.target.value)}} */}
             <InputB index={0} state={state} onChange={onChange} />
             <GoPaperAirplane className="iconeAviao" onClick={handleResposta} />
           </>

@@ -29,26 +29,6 @@ import "./style.css";
 // fazer as validaçãoes
 let now = new Date().toISOString();
 
-function beforeMaskedValueChange(newState, oldState, userInput) {
-  let { value } = newState;
-  let selection = newState.selection;
-  let cursorPosition = selection ? selection.start : null;
-
-  console.log(value);
-  console.log(selection);
-  console.log(cursorPosition);
-
-  // keep minus if entered by user
-  let money = `R$ ${Number(value / 100)
-    .toFixed(2)
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
-
-  return {
-    money,
-    selection,
-  };
-}
-
 const initialState = [
   {
     label: "Título do evento",
@@ -85,7 +65,9 @@ export default function ModalEventos({ setModalOpen }) {
   const [state, onChange, setError, clearErrors] =
     useReducerInputs(initialState);
 
+  const [selectedIMGPreview, setSelectedIMGPreview] = useState();
   const [selectedIMG, setSelectedIMG] = useState();
+
 
   const uuid = useContext(UuidContext);
 
@@ -97,8 +79,6 @@ export default function ModalEventos({ setModalOpen }) {
 
   // verificar caso não seja possivel cadastra o evento, e mostrar para o usuario
   // mostrar e fechar a modal caso o cadastro do evento seja realizado
-
-  // não é possivel fechar a modal apatir daqui
   const handleSubmit = async (e) => {
     e.preventDefault();
     let valor = state[3].value;
@@ -120,8 +100,6 @@ export default function ModalEventos({ setModalOpen }) {
 
     let eventoForm = new FormData();
 
-    // console.log(selectedIMG == selectedImage.image)
-
     let evento = {
       nome: state[0].value,
       inicio: inicio,
@@ -130,7 +108,6 @@ export default function ModalEventos({ setModalOpen }) {
       descricao: state[4].value,
     };
     eventoForm.append("image", selectedIMG);
-    eventoForm.append("minetype", minetypeFromBase64(selectedIMG));
     eventoForm.append('nome', evento.nome);
     eventoForm.append('inicio', evento.inicio);
     eventoForm.append('fim', evento.fim);
@@ -138,8 +115,6 @@ export default function ModalEventos({ setModalOpen }) {
     eventoForm.append('descricao', evento.descricao);
 
     clearErrors();
-
-    // console.log(eventoForm);
 
     try {
       await criarEvento(uuid, eventoForm);
@@ -151,17 +126,10 @@ export default function ModalEventos({ setModalOpen }) {
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
+    const preview = URL.createObjectURL(file);
 
-    if (file) {
-      // Use FileReader para ler o arquivo como uma URL de dados
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        // Quando a leitura estiver completa, atualize o estado com a URL da imagem
-        setSelectedIMG(reader.result);
-      };
-
-      reader.readAsDataURL(file);
-    }
+    setSelectedIMG(file);
+    setSelectedIMGPreview(preview);
   };
 
   const onChangeMoney = (e, key) => {
@@ -198,7 +166,7 @@ export default function ModalEventos({ setModalOpen }) {
         <div className="divImage">
           <CardMedia
             component="img"
-            image={selectedIMG? selectedIMG: eventos}
+            image={selectedIMGPreview? selectedIMGPreview: eventos}
             alt="Paella dish"
             sx={{ width: "25vw", height: "14.06vw" }} // ~16:9
           />

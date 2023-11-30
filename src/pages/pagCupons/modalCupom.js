@@ -17,25 +17,6 @@ import TipoCupom from "../../components/cardCupom/tipoCupom";
 
 let now = new Date().toISOString();
 
-function beforeMaskedValueChange(newState, oldState, userInput) {
-  let { value } = newState;
-  let selection = newState.selection;
-  let cursorPosition = selection ? selection.start : null;
-
-  console.log(value);
-  console.log(selection);
-  console.log(cursorPosition);
-
-  let money = `R$ ${Number(value / 100)
-    .toFixed(2)
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
-
-  return {
-    money,
-    selection,
-  };
-}
-
 const initialState = [
   {
     label: "Título do cupom",
@@ -71,6 +52,7 @@ export default function ModalCupom({ setModalOpen }) {
     useReducerInputs(initialState);
   const [tipoDesconto, setTipoDesconto] = useState("reais");
 
+  const [selectedIMGPreview, setSelectedIMGPreview] = useState();
   const [selectedIMG, setSelectedIMG] = useState();
 
   const uuid = useContext(UuidContext);
@@ -124,18 +106,12 @@ export default function ModalCupom({ setModalOpen }) {
     }
   };
 
-  const handleImageChange = (cupom) => {
-    const file = cupom.target.files[0];
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    const preview = URL.createObjectURL(file);
 
-    if (file) {
-      const reader = new FileReader();
-
-      reader.onloadend = () => {
-        setSelectedIMG(reader.result);
-      };
-
-      reader.readAsDataURL(file);
-    }
+    setSelectedIMG(file);
+    setSelectedIMGPreview(preview);
   };
 
   const onChangeMoney = (e, key) => {
@@ -192,7 +168,7 @@ export default function ModalCupom({ setModalOpen }) {
           <div className="divImage">
             <CardMedia
               component="img"
-              image={selectedIMG ? selectedIMG : cupom}
+              image={selectedIMGPreview ? selectedIMGPreview : cupom}
               alt="Paella dish"
               sx={{ width: "25vw", height: "14.06vw" }}
             />

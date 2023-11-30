@@ -1,4 +1,3 @@
-import styles from "../Carrosel/style.css";
 import { useState, useEffect } from "react";
 import comercio1 from "../../img/comercio1.jpg";
 import comercio2 from "../../img/comercio2.jpg";
@@ -8,6 +7,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import { BiEdit } from "react-icons/bi";
+import "./style.css";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -18,7 +18,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { register } from "swiper/element/bundle";
 register();
 
-function Slider() {
+export default function Carrosel({uuid}) {
   const [slidePerView, setSlidePerView] = useState(3);
 
   const data = [
@@ -103,5 +103,3 @@ function Slider() {
     </div>
   );
 }
-
-export default Slider;

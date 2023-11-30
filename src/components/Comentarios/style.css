@@ -9,6 +9,8 @@
   justify-content: space-between;
   height: auto;
   margin-top: 5vh;
+  margin-bottom: 3%;
+
   font-size: 3vh;
 }
 
@@ -16,6 +18,9 @@
   font-weight: bold;
   margin-left: 5%;
   margin-right: 2%;
+}
+.divComentario h1 span{
+  opacity: 1;
 }
 
 /* -- ---------------------- */
@@ -56,8 +61,25 @@
   font-weight: bold;
 }
 
-.conteinerAvaliacao p{
+/* .conteinerAvaliacao p{
   margin-top: 1%;
+  width: 70vw;
+  height: 6%;
+  font-weight: bold;
+  margin-left: 1%;
+  overflow-wrap: break-word;
+} */
+
+.comentario{
+  margin-top: 1%;
+  width: 70vw;
+  height: 6%;
+  font-weight: bold;
+  margin-left: 1%;
+  /* overflow-wrap: break-word; */
+}
+
+.resposta{
   width: 70vw;
   height: 6%;
   font-weight: bold;
@@ -86,31 +108,43 @@
   margin-left: 1%;
   margin-top: 2%;
   /* align-items: center; */
+  align-items: start;
   width: 90%;
 }
 
 .conteinerRespostasInput{
   display: flex;
-  align-items: center;
-  width: 70vw;
-  height: 4vw;
+  align-items: end;
+  align-self: center;
+  width: 100%;
+  height: auto;
   margin-left: 1%;
 }
 
 .iconeAviao{
-  position: relative;
   color: #FE0472;
-  width: 4vh;
-  height: 1.6vh;
-  bottom: 0.2vh;
-  right: 2.0vw;
+  width: 5vh;
+  height: 100%;
+  margin-left: 1%;
+  margin-bottom: 1%;
 
   transform: rotate(-25deg);
+}
+
+.iconeAviao:hover{
+  color: rgb(172, 163, 167);
+
 }
 
 .btResponderAvaliacao{
   color: var(--secondary-color);
   cursor: pointer;
+  margin-top: 1%;
+  width: 70vw;
+  height: 6%;
+  font-weight: bold;
+  margin-left: 1%;
+  overflow-wrap: break-word;
 }
 
 .avaliacoesListDot{
@@ -123,7 +157,7 @@
 .conteinerRespostasImg{
   width: auto;
   height: auto;
-  align-items: center;
+  /* align-items: center; */
   display: flex;
 }
 
@@ -134,7 +168,7 @@
 }
 .infoComent{
   display: inline-block;
-  margin-left: 70%;
+  margin-left: 90%;
   justify-content: end;
   margin-top: -10vh;
   height: auto;
@@ -143,6 +177,8 @@
 }
 .line2{
   border: 1px solid #BAB8B5;
-  height: 5rem;
+  height: auto;
   margin: 0.7rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }

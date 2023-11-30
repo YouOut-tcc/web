@@ -27,6 +27,8 @@ export default function ComentarioCard({ avaliacao, uuid }) {
     setResposta(avaliacao.resposta);
   }, []);
 
+  let date = new Date(avaliacao.criado).toLocaleDateString('en-GB');
+
   return (
     <div className="divAvaliacao">
       <div className="conteinerAvaliacaoImg">
@@ -35,23 +37,23 @@ export default function ComentarioCard({ avaliacao, uuid }) {
       <div className="conteinerAvaliacao">
         <h1>{avaliacao.nome}</h1>
         <div className="infoComent">
-          
           <Box
             sx={{
               "& > legend": { mt: 2 },
               color: "var(--click-color)",
             }}
           >
-            <Typography component="legend"> 15/11/1111</Typography>
+            <Typography component="legend">{date}</Typography>
             <Rating
+              style={{ opacity: 1 }}
               name="disabled"
               disabled
-              value={3}
+              value={avaliacao.pontuacao}
               sx={{ color: "#fe0472" }}
             />
           </Box>
         </div>
-        <p>{avaliacao.comentario}</p>
+        <p className="comentario">{avaliacao.comentario}</p>
         {resposta ? (
           <RespostaCard
             respostaProps={resposta}

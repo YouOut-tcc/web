@@ -32,25 +32,6 @@ export default function CommerceHomeCard({ place }) {
   
   return (
     <div className="commerceDiv">
-      {/* <li key={place.uuid} className="commerceList">
-      <Link to={`comercio/${place.uuid}`} className="commerceLink">
-        <div className="cardCommerce">
-          <div className="commerceListImg">
-            <img src={logoComercio} alt="" />
-          </div>
-          <div className="divTextCommerce">
-            <p>Lorem Ipsum</p>
-            <p>Estr. Kizaemon Takeuti, 1987</p>
-            <p>Pirajussara, Taboão da Serra - SP</p>
-            <p> 06775-002</p>
-            {/* <p>{place.nome}</p> 
-            <p>{endereco.logradouro}, {place.numero}</p> 
-            <p>{endereco.bairro},{endereco.uf}</p> 
-            <p> {place.cep}</p>  */}
-      {/* </div>
-        </div>
-      </Link>
-    </li> */}
       <Card
         key={place.uuid}
         className="commerceList"

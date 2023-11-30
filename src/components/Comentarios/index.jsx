@@ -6,16 +6,12 @@ import ComentarioHeader from "./ComentariosHeader";
 import ComentarioCard from "./ComentarioCard";
 import { useState, useEffect } from "react";
 import { getAvaliacoes } from "../../services/commerce";
-import { useParams } from "react-router";
 import "./style.css";
 
-function Comentarios() {
+function Comentarios({ uuid }) {
   const [avaliacoes, setAvaliacoes] = useState([]);
 
-  let { uuid } = useParams();
-
   const fetchAvaliacoes = async () => {
-    // falta pegar o uuid
     let avaliacoesFetch = await getAvaliacoes(uuid);
     console.log(avaliacoesFetch);
     if (avaliacoesFetch < 1) {
@@ -24,7 +20,6 @@ function Comentarios() {
     }
 
     // um para testar ou para usar
-
     setAvaliacoes(avaliacoesFetch);
     // setAvaliacoes(avaliacoesFetch.concat({
     // 	id: 0,
@@ -37,7 +32,7 @@ function Comentarios() {
 
   useEffect(() => {
     fetchAvaliacoes();
-  }, []);
+  }, [uuid]);
 
   return (
     <div className="containerComentario">
@@ -54,13 +49,6 @@ function Comentarios() {
             </li>
           );
         })}
-      {/* segue um exemplo e imfomaçoes nescessarias para fazer um comentario falso para testar */}
-      {/* use a funçao avaliacoesFetch e coloque concatene um array com o array de avaliacoes para testar */}
-      {/* [{
-						nome:
-						comentario:
-						resposta:
-			}] */}
     </div>
   );
 }
