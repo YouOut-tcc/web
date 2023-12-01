@@ -26,10 +26,12 @@ export default function CommerceHomeList({ data }) {
           Cadastrar nova unidade
         </Button>
       </Link>
-      {places.length > 0 &&
-        places.map((element) => {
-          return <CommerceHomeCard place={element} />;
-        })}
+      <div className="conteinerPlacesCards">
+        {places.length > 0 &&
+          places.map((element) => {
+            return <CommerceHomeCard place={element} />;
+          })}
+      </div>
     </>
   );
 }

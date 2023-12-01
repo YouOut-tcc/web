@@ -8,6 +8,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { AiFillStar } from "react-icons/ai";
+import { Rating } from "@mui/material";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 
 export default function CommerceHomeCard({ place }) {
@@ -27,100 +28,108 @@ export default function CommerceHomeCard({ place }) {
   }, []);
 
   const truncateText = (text) => {
-    return text.length > 20 ? text.slice(0, 20) + '...' : text;
+    return text.length > 20 ? text.slice(0, 20) + "..." : text;
   };
-  
-  return (
-    <div className="commerceDiv">
-      <Card
-        key={place.uuid}
-        className="commerceList"
-        sx={{
-          border: "2px solid var(--secondary-color)",
-          backgroundColor: "var(--primary-color)",
-          borderRadius: "2vh", marginLeft: "15vh",
-          width: "38%",
-        }}
-      >
-        <CardActionArea>
-          <Link to={`comercio/${place.uuid}`} className="commerceLink" >
-            <Grid container spacing={2}>
-              <Grid
-                item
-                sx={{
-                  alignSelf: "center",
-                  display: "grid",
-                  alignContent: "center",
-                  
-                }}
-              >
-                <CardMedia
-                  className="commerceListImg"
-                  component="img"
-                  image={logoComercio}
-                  sx={{
-                    backgroundColor: "var(--primary-color)",
-                    borderRadius: "50%",
-                    alignContent: "center",
-                    marginBottom: "2vh",
-                    marginTop: "2vh",
-                    justifyContent: "center",
-                    justifySelf: "center",
-                    marginLeft: "2vh",    
 
-                  }}
-                />
-              </Grid>
-              <Grid item>
-                <CardContent>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    className="divTextCommerce"
-                    title={place.nome}
-                  >
-                      {truncateText(place.nome)}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    className="divTextCommerce"
-                    sx={{
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      display: "-webkit-box",
-                      WebkitBoxOrient: "vertical",
-                      WebkitLineClamp: 3, 
-                      fontSize: "3vh", 
-                      paddingTop: "0"
-                    }}
-                  >
-                    {endereco && 
-                    <>
-                  <p style={{ maxWidth: "25ch" }} title={`${endereco.logradouro}, ${place.numero}`}>
-                    {truncateText(endereco.logradouro)}, {place.numero}</p>
-                    <p style={{ maxWidth: "25ch"}}>{endereco.bairro},{endereco.uf} </p>
-                    <p style={{ maxWidth: "25ch"}}>{endereco.cep}</p>
-                    </>
-                    }
-                    <p
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <AiFillStar size={30} color="var(--secondary-color)" />{"  "}
-                      4,47
-                    </p>
-                  </Typography>
-                </CardContent>
-              </Grid>
+  return (
+    // <div className="commerceDiv">
+    <Card
+      key={place.uuid}
+      className="commerceList"
+      // classes={}
+      sx={{
+        border: "2px solid var(--secondary-color)",
+        backgroundColor: "var(--primary-color)",
+        borderRadius: "2vh",
+        // marginLeft: "15vh",
+        width: "44vw",
+      }}
+    >
+      <CardActionArea>
+        <Link to={`comercio/${place.uuid}`} className="commerceLink">
+          <Grid container>
+            <Grid
+              item
+              sx={{
+                alignSelf: "center",
+                display: "grid",
+                alignContent: "center",
+              }}
+            >
+              <CardMedia
+                className="commerceListImg"
+                component="img"
+                image={logoComercio}
+                sx={{
+                  backgroundColor: "var(--primary-color)",
+                  borderRadius: "50%",
+                  alignContent: "center",
+                  marginBottom: "2vh",
+                  marginTop: "2vh",
+                  justifyContent: "center",
+                  justifySelf: "center",
+                  marginLeft: "2vh",
+                  marginLeft: "2vh",
+
+                  marginLeft: "2vh",
+                }}
+              />
             </Grid>
-          </Link>
-        </CardActionArea>
-      </Card>
-    </div>
+            {/* <Grid item justifySelf={"center"}> */}
+            <div>
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  className="divTextCommerce"
+                  title={place.nome}
+                >
+                  {truncateText(place.nome)}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  className="divTextCommerce"
+                  sx={{
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    display: "-webkit-box",
+                    WebkitBoxOrient: "vertical",
+                    WebkitLineClamp: 4,
+                    fontSize: "3vh",
+                    paddingTop: "0",
+                  }}
+                >
+                  {endereco && (
+                    <>
+                      <p
+                        style={{ maxWidth: "25ch" }}
+                        title={`${endereco.logradouro}, ${place.numero}`}
+                      >
+                        {truncateText(endereco.logradouro)}, {place.numero}
+                      </p>
+                      <p style={{ maxWidth: "25ch" }}>
+                        {endereco.bairro},{endereco.uf}{" "}
+                      </p>
+                      <p style={{ maxWidth: "25ch" }}>{endereco.cep}</p>
+                      <Rating
+                        name="disabled"
+                        disabled
+                        value={place.nota}
+                        sx={{ color: "#fe0472" }}
+                        style={{ opacity: 1 }}
+                      />
+                    </>
+                  )}
+                </Typography>
+              </CardContent>
+              {/* </Grid> */}
+            </div>
+          </Grid>
+        </Link>
+      </CardActionArea>
+    </Card>
+    // </div>
   );
 }

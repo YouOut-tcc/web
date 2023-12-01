@@ -20,12 +20,6 @@ function App({ setUuid }) {
   const commerces = useRouteLoaderData("commerceRoot");
   const uuid = useContext(UuidContext);
 
-  // // funcionado parcialmente
-  // useEffect(()=>{
-  //   console.log("pegando o uuid do useContext");
-  //   console.log(uuid);
-  // },[uuid]);
-
   const eventosFetch = async () => {
     let eventoFetch = await getEventos(uuid);
     console.log(eventoFetch);

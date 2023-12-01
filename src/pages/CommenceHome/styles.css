@@ -12,7 +12,8 @@
   list-style-type: none;
   margin-top: 1%;
   display: inline-flex;
-  margin: 3%;
+  margin: 4%;
+  margin-right: 0;
 }
 
 .cardCommerce {

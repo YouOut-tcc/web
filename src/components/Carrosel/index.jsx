@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 import comercio1 from "../../img/comercio1.jpg";
 import comercio2 from "../../img/comercio2.jpg";
 import comercio3 from "../../img/comercio3.jpg";
+import CardMedia from "@mui/material/CardMedia";
 import { BsPlusCircleFill } from "react-icons/bs";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import { BiEdit } from "react-icons/bi";
+import Modal from "../modalA";
+import ModalImagens from "./modalImagens";
 import "./style.css";
 
 import "swiper/css";
@@ -18,30 +21,22 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { register } from "swiper/element/bundle";
 register();
 
-export default function Carrosel({uuid}) {
+export default function Carrosel({ uuid }) {
   const [slidePerView, setSlidePerView] = useState(3);
+  const [openModalImagens, setOpenModalImagens] = useState(false);
+  const [openModalInfos, setOpenModalInfos] = useState(false);
 
   const data = [
     { image: comercio1 },
     { image: comercio2 },
     { image: comercio3 },
-    { image: "https://blog.decorlumen.com.br/wp-content/uploads/2020/09/restaurante_4.jpg" },
+    {
+      image:
+        "https://blog.decorlumen.com.br/wp-content/uploads/2020/09/restaurante_4.jpg",
+    },
     {
       image:
         "https://static.wixstatic.com/media/a52447_0cc2649656014001b99a392992bfdef2.jpg/v1/fit/w_2500,h_1330,al_c/a52447_0cc2649656014001b99a392992bfdef2.jpg",
-    },
-    {
-      image:
-        "https://www.macedosrestaurante.com.br/imagens/slider/banner-home_002.jpg",
-    },
-    { image: "https://s2-oglobo.glbimg.com/MD1_gg8cx1FgBBx_ZIKBSci1YPA=/0x0:1361x907/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2023/5/B/5cdNh1RqeRocBOLQRs2g/adega-santiago-ambiente-credito-rodrigo-azevedo-8-1-.jpg" },
-    {
-      image:
-        "https://a.cdn-hotels.com/gdcs/production107/d1469/cd36c828-5e95-440f-a8ca-2542627a6d67.jpg",
-    },
-    {
-      image:
-        "https://www.cnnbrasil.com.br/viagemegastronomia/wp-content/uploads/sites/5/2022/08/votre-brasserie.jpeg?w=1200&h=675&crop=1",
     },
   ];
 
@@ -73,10 +68,22 @@ export default function Carrosel({uuid}) {
           display: "flex",
         }}
       >
-        <Fab color="primary" aria-label="add">
+        <Fab
+          color="primary"
+          aria-label="add"
+          onClick={() => {
+            setOpenModalImagens(true);
+          }}
+        >
           <BsPlusCircleFill size={30} />
         </Fab>
-        <Fab color="primary" aria-label="edit">
+        <Fab
+          color="primary"
+          aria-label="edit"
+          onClick={() => {
+            setOpenModalInfos(true);
+          }}
+        >
           <BiEdit size={30} />
         </Fab>
       </Box>
@@ -88,17 +95,49 @@ export default function Carrosel({uuid}) {
           autoplay={true}
           autoplayTimeout={5}
           className="slider"
+          style={{
+            // marginLeft: "1%",
+            paddingLeft: "3.5vw",
+          }}
         >
           {data.map((item) => (
-            <SwiperSlide key={item.id}>
-              <img
-                src={item.image}
-                alt="Imagens Estabelecimento"
-                className="sliderItem"
+            <SwiperSlide
+              key={item.id}
+              style={{
+                width: "28.3vw",
+                height: "15.7vw",
+              }}
+            >
+              <CardMedia
+                component="img"
+                image={item.image}
+                alt="Paella dish"
+                sx={{
+                  width: "28.3vw",
+                  height: "15.7vw",
+                  borderRadius: "20px",
+                  marginLeft: "0vw",
+                }} // ~16:9
               />
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
+      <div>
+        <Modal
+          isOpen={openModalImagens}
+          setModalOpen={() => setOpenModalImagens(!openModalImagens)}
+          title={"Editar Imagens"}
+        >
+          <ModalImagens setModalOpen={setOpenModalImagens} />
+        </Modal>
+        <Modal
+          isOpen={openModalInfos}
+          setModalOpen={() => setOpenModalInfos(!openModalInfos)}
+          title={"Editar Imformações"}
+        >
+          {/* <ModalEventos setModalOpen={setOpenModal} /> */}
+        </Modal>
       </div>
     </div>
   );

@@ -7,9 +7,9 @@
 }
 
 .divSlide{
-    display: inline;
+    /* display: inline; */
     
-    height: auto;
+    /* height: auto; */
 }
 
 .slider{
@@ -19,8 +19,8 @@
 }
 
 .sliderItem{
-    width: 85%;
-    height: 280px;
+    width: 64%;
+    height: 36%;
     border-radius: 20px;
     margin-left: 5vh;
  
@@ -28,14 +28,16 @@
 
 .swiper-button-prev:after{
     color: #FE0472;
-    margin-right: 10px;
+    /* margin-right: 10px; */
 }
 
 .swiper-button-next:after{
     color: #FE0472;
 }
 
-
+.conteinerImageSelector{
+    display: grid;
+}
 
 
 

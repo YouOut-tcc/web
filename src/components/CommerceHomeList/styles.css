@@ -1,0 +1,7 @@
+.conteinerPlacesCards{
+  /* background-color: #EDE0D6; */
+  display: flex;
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+  height: auto;
+}
