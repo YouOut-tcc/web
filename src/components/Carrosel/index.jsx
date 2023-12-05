@@ -9,7 +9,7 @@ import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import { BiEdit } from "react-icons/bi";
 import Modal from "../modalA";
-import ModalImagens from "./modalImagens";
+import ModalImagens from "../BannerModal";
 import "./style.css";
 
 import "swiper/css";
@@ -27,17 +27,13 @@ export default function Carrosel({ uuid }) {
   const [openModalInfos, setOpenModalInfos] = useState(false);
 
   const data = [
-    { image: comercio1 },
-    { image: comercio2 },
-    { image: comercio3 },
-    {
-      image:
+    comercio1,
+    comercio2 ,
+    comercio3,
+
         "https://blog.decorlumen.com.br/wp-content/uploads/2020/09/restaurante_4.jpg",
-    },
-    {
-      image:
+
         "https://static.wixstatic.com/media/a52447_0cc2649656014001b99a392992bfdef2.jpg/v1/fit/w_2500,h_1330,al_c/a52447_0cc2649656014001b99a392992bfdef2.jpg",
-    },
   ];
 
   useEffect(() => {
@@ -110,7 +106,7 @@ export default function Carrosel({ uuid }) {
             >
               <CardMedia
                 component="img"
-                image={item.image}
+                image={item}
                 alt="Paella dish"
                 sx={{
                   width: "28.3vw",
@@ -129,7 +125,7 @@ export default function Carrosel({ uuid }) {
           setModalOpen={() => setOpenModalImagens(!openModalImagens)}
           title={"Editar Imagens"}
         >
-          <ModalImagens setModalOpen={setOpenModalImagens} />
+          <ModalImagens setModalOpen={setOpenModalImagens} images={data}/>
         </Modal>
         <Modal
           isOpen={openModalInfos}
