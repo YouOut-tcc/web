@@ -128,6 +128,36 @@ async function getCupom(uuid) {
   }
 }
 
+async function getBannersImage(uuid) {
+  try {
+    let res = await api.get(`/estabelecimento/places/${uuid}/banners`);
+    return res.data;
+  } catch (error) {
+    console.log(error.constructor.name);
+    if (error instanceof AxiosError) {
+      console.log(error.response.status);
+      console.log(error.response.data.message);
+    } else if (error instanceof ReferenceError) {
+      console.log(error.message);
+    }
+  }
+}
+
+async function updateBannersImage(uuid, data) {
+  try {
+    let res = await api.post(`/estabelecimento/manage/${uuid}/banners`, data, {headers: {'Content-Type': 'multipart/form-data'}});
+    return res.data;
+  } catch (error) {
+    console.log(error.constructor.name);
+    if (error instanceof AxiosError) {
+      console.log(error.response.status);
+      console.log(error.response.data.message);
+    } else if (error instanceof ReferenceError) {
+      console.log(error.message);
+    }
+  }
+}
+
 export {
   getAvaliacoes,
   getCommerceInfo,
@@ -137,4 +167,6 @@ export {
   getEventos,
   criarCupom,
   getCupom,
+  updateBannersImage,
+  getBannersImage
 };

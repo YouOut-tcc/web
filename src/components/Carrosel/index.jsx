@@ -4,6 +4,7 @@ import comercio2 from "../../img/comercio2.jpg";
 import comercio3 from "../../img/comercio3.jpg";
 import CardMedia from "@mui/material/CardMedia";
 import { BsPlusCircleFill } from "react-icons/bs";
+import { useParams } from "react-router-dom";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
@@ -18,13 +19,18 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import { getBannersImage } from "../../services/commerce";
 import { register } from "swiper/element/bundle";
 register();
 
-export default function Carrosel({ uuid }) {
+
+export default function Carrosel() {
   const [slidePerView, setSlidePerView] = useState(3);
   const [openModalImagens, setOpenModalImagens] = useState(false);
   const [openModalInfos, setOpenModalInfos] = useState(false);
+  const [images, setImages] = useState();
+
+  let { uuid } = useParams();
 
   const data = [
     comercio1,
@@ -35,6 +41,16 @@ export default function Carrosel({ uuid }) {
 
         "https://static.wixstatic.com/media/a52447_0cc2649656014001b99a392992bfdef2.jpg/v1/fit/w_2500,h_1330,al_c/a52447_0cc2649656014001b99a392992bfdef2.jpg",
   ];
+
+  const fetchBanners = async () => {
+    let images = await getBannersImage(uuid);
+    console.log(images);
+    setImages(images);
+  }
+
+  useEffect(() => {
+    fetchBanners();
+  },[uuid])
 
   useEffect(() => {
     function tamanhoTela() {
@@ -96,7 +112,8 @@ export default function Carrosel({ uuid }) {
             paddingLeft: "3.5vw",
           }}
         >
-          {data.map((item) => (
+          {images &&
+            images.map((item) => (
             <SwiperSlide
               key={item.id}
               style={{
@@ -125,7 +142,7 @@ export default function Carrosel({ uuid }) {
           setModalOpen={() => setOpenModalImagens(!openModalImagens)}
           title={"Editar Imagens"}
         >
-          <ModalImagens setModalOpen={setOpenModalImagens} images={data}/>
+          <ModalImagens setModalOpen={setOpenModalImagens} images={images? images:[]}/>
         </Modal>
         <Modal
           isOpen={openModalInfos}

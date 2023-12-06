@@ -1,7 +1,7 @@
 import CardMedia from "@mui/material/CardMedia";
 import comercio1 from "../../img/comercio1.jpg";
 import { Button } from "@mui/material";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   DndContext,
   closestCenter,
@@ -17,6 +17,7 @@ import {
   sortableKeyboardCoordinates,
   rectSortingStrategy,
 } from "@dnd-kit/sortable";
+import { useParams } from "react-router-dom";
 
 import Fab from "@mui/material/Fab";
 import { BsPlusCircleFill } from "react-icons/bs";
@@ -26,6 +27,9 @@ import ImageSortable from "./ImageSortable";
 import Image from "./Image";
 import { Grid } from "./grid";
 import Droppable from "./Droppable";
+import { updateBannersImage } from "../../services/commerce";
+
+import UuidContext from "../../contexts/uuidCommerceContext";
 
 const photos = [
   "https://source.unsplash.com/WLUHO9A_xik/900x900",
@@ -47,10 +51,25 @@ export default function ModalImagens({ setModalOpen, images }) {
   const [activeId, setActiveId] = useState(null);
   const [items, setItems] = useState(images);
   const [selectedIMG, setSelectedIMG] = useState();
-  const itemsid = images.map((_, index) => {
-    return index;
-  });
+  const [newImagens, setNewImagens] = useState([]);
+  const [newImagesIdPos, setNewImagesIdPos] = useState([]);
+  const [itemsDelete, setItemsDelete] = useState([]);
+  const [itemsNewPos, setItemsNewPos] = useState([]);
+  const [lastId, setLastId] = useState(images.length - 1);
+
+  const [isImageLimit, setIsImageLimit] = useState(
+    images.length >= 5 ? false : true
+  );
+
+  let itemsid;
+  if (images) {
+    itemsid = images.map((_, index) => {
+      return index;
+    });
+  }
   const [itemsId, setItemsId] = useState(itemsid);
+
+  let { uuid } = useParams();
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -63,6 +82,7 @@ export default function ModalImagens({ setModalOpen, images }) {
     setActiveId(event.active.id);
   };
 
+  // irei cegamente confiar nesse codigo
   function handleDragEnd(event) {
     const { active, over } = event;
 
@@ -70,16 +90,24 @@ export default function ModalImagens({ setModalOpen, images }) {
       const imageIndex = items.indexOf(active.id);
       setActiveId(null);
       setItems((items) => items.filter((element) => element !== active.id));
+      setItemsDelete(() => {
+        let newArray = itemsDelete.map((element) => {
+          return element;
+        });
+        newArray.push(itemsId[imageIndex]);
+        return newArray;
+      });
       setItemsId((itemsId) =>
         itemsId.filter((_, index) => index !== imageIndex)
       );
+      setIsImageLimit(items.length >= 4 ? false : true);
       return;
     }
 
     if (active.id !== over.id) {
       const oldIndex = items.indexOf(active.id);
       const newIndex = items.indexOf(over.id);
-      setActiveId(() => {
+      setItemsId(() => {
         let newArray = itemsId.map((element) => {
           return element;
         });
@@ -91,18 +119,67 @@ export default function ModalImagens({ setModalOpen, images }) {
     }
 
     setActiveId(null);
-  };
+  }
   function handleDragCancel() {
     setActiveId(null);
-  };
-  
+  }
+
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     const preview = URL.createObjectURL(file);
 
-    let newArray = items.map(element => element);
+    setNewImagens(newImagens.concat(file));
+    setItemsId(() => {
+      let newArray = itemsId.map((element) => {
+        return element;
+      });
+      newArray.push(lastId + 1);
+      setNewImagesIdPos(() => {
+        let newArray = newImagesIdPos.map((element) => {
+          return element;
+        });
+        newArray.push(lastId + 1);
+        return newArray;
+      });
+      setLastId(lastId + 1);
+      return newArray;
+    });
+    let newArray = items.map((element) => element);
     newArray.push(preview);
     setItems(newArray);
+  };
+
+  const handleImageLimit = () => {
+    setIsImageLimit(items.length >= 5 ? false : true);
+  };
+
+  const handleSubmit = async () => {
+    let bannerForm = new FormData();
+    console.log(itemsId);
+    console.log(items);
+
+    if (itemsid.toString() != itemsId.toString()) {
+      itemsDelete.forEach((element) => {
+        bannerForm.append("imageDelete", element);
+      });
+      itemsId.forEach((element) => {
+        bannerForm.append("ordem", element);
+      });
+    }
+
+    newImagens.forEach((element, index) => {
+      element.id_pos = newImagesIdPos[index];
+      bannerForm.append("banners", element);
+      bannerForm.append("newImagesIdPos", element.id_pos);
+    });
+
+    try {
+      // console.log(uuid);
+      await updateBannersImage(uuid, bannerForm);
+      setModalOpen(false);
+    } catch (error) {
+      console.log(error.constructor.name);
+    }
   };
 
   return (
@@ -114,45 +191,54 @@ export default function ModalImagens({ setModalOpen, images }) {
         onDragStart={handleDragStart}
         onDragCancel={handleDragCancel}
       >
-        <div style={{
-          display: "flex",
-          flexDirection: "row"
-        }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
           <Droppable />
-          <Fab
-            color="primary"
-            aria-label="add"
-            // onClick={() => {
-            //   setOpenModalImagens(true);
-            // }}
-          >
+          <Fab color="primary" aria-label="add" onClick={handleSubmit}>
             <BsPlusCircleFill size={30} />
           </Fab>
-          <Button variant="contained" component="label"
-          sx={{alignItems:"flex-end", margin: "2vh 0 0 42vh"}}>
+          <Button
+            variant="contained"
+            component="label"
+            onClick={handleImageLimit}
+            sx={{ alignItems: "flex-end", margin: "2vh 0 0 42vh" }}
+          >
             <BsPlusCircleFill
               size={35}
               color="--var(secondary-color)"
               containerElement="label"
             />
-            <input type="file" hidden accept=".jpg, .jpeg, .png" onChange={handleImageChange}/>
+            {isImageLimit && (
+              <input
+                type="file"
+                hidden
+                accept=".jpg, .jpeg, .png"
+                onChange={handleImageChange}
+              />
+            )}
           </Button>
         </div>
+        {items && (
+          <SortableContext items={items} strategy={rectSortingStrategy}>
+            <Grid columns={2}>
+              {items.map((url, index) => (
+                <ImageSortable
+                  key={index}
+                  url={url}
+                  index={index}
+                  onClick={() => {
+                    console.log("rwe");
+                  }}
+                />
+              ))}
+            </Grid>
+          </SortableContext>
+        )}
 
-        <SortableContext items={items} strategy={rectSortingStrategy}>
-          <Grid columns={2}>
-            {items.map((url, index) => (
-              <ImageSortable
-                key={index}
-                url={url}
-                index={index}
-                onClick={() => {
-                  console.log("rwe");
-                }}
-              />
-            ))}
-          </Grid>
-        </SortableContext>
         <DragOverlay adjustScale={true}>
           {activeId ? (
             <Image url={activeId} index={items.indexOf(activeId)} />
