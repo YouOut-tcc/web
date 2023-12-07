@@ -1,7 +1,7 @@
 import CardMedia from "@mui/material/CardMedia";
 import comercio1 from "../../img/comercio1.jpg";
 import { Button } from "@mui/material";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import {
   DndContext,
   closestCenter,
@@ -56,11 +56,13 @@ export default function ModalImagens({ setModalOpen, images }) {
   const [itemsDelete, setItemsDelete] = useState([]);
   const [itemsNewPos, setItemsNewPos] = useState([]);
   const [lastId, setLastId] = useState(images.length - 1);
+  const [itemsTrack, setItemsTrack] = useState([]);
 
   const [isImageLimit, setIsImageLimit] = useState(
     images.length >= 5 ? false : true
   );
 
+  let itemsTrackOut = [];
   let itemsid;
   if (images) {
     itemsid = images.map((_, index) => {
@@ -70,6 +72,14 @@ export default function ModalImagens({ setModalOpen, images }) {
   const [itemsId, setItemsId] = useState(itemsid);
 
   let { uuid } = useParams();
+
+  useEffect(()=>{
+    let itemsTrackX = images.map((element) => {
+      return element;
+    });
+    itemsTrackOut = itemsTrackX;
+    setItemsTrack(itemsTrackX);
+  },[images]);
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -88,39 +98,58 @@ export default function ModalImagens({ setModalOpen, images }) {
 
     if (over.id == "delete") {
       const imageIndex = items.indexOf(active.id);
+      const imageTrackIndex = itemsTrack.indexOf(active.id);
+      const itemToDelete = itemsTrack[imageTrackIndex];
       setActiveId(null);
-      setItems((items) => {
-        let newArray = items.map((element) => {
-          return element;
-        });
-        newArray[imageIndex] = undefined;
-        return newArray;
-      });
-      setItems((items) => items.filter((element) => element !== active.id));
 
       setItemsDelete(() => {
         let newArray = itemsDelete.map((element) => {
           return element;
         });
-        newArray.push(itemsId[imageIndex]);
+        newArray.push(itemToDelete);
         return newArray;
       });
-      setItemsId((itemsId) =>
-        itemsId.filter((element, index) => element !== imageIndex)
-      );
-      setIsImageLimit(items.length >= 4 ? false : true);
+
+      setItems((items) => {
+        let newArray = items.map((element) => {
+          return element;
+        });
+        newArray.splice(imageIndex, 1);
+        setItemsTrack((itemsTrack)=> {
+          itemsTrack[imageTrackIndex] = undefined;
+          itemsTrackOut[imageTrackIndex] = undefined;
+          return itemsTrack;
+        });
+        return newArray;
+      });
+
+      setItemsId((itemsId) => {
+        let newArray = itemsId.map((element) => {
+          return element;
+        });
+        let valueToRemove = newArray.indexOf(imageTrackIndex);
+        newArray.splice(valueToRemove, 1);
+        setIsImageLimit(itemsId.length >= 4 ? false : true);
+        return newArray;
+      });
+
       return;
     }
 
     if (active.id !== over.id) {
       const oldIndex = items.indexOf(active.id);
       const newIndex = items.indexOf(over.id);
+      const oldTrackIndex = itemsTrack.indexOf(active.id);
+      const newTrackIndex = itemsTrack.indexOf(over.id);
+      const newIdIndex = itemsId.indexOf(newTrackIndex);
+      const oldIdIndex = itemsId.indexOf(oldTrackIndex);
+      
       setItemsId(() => {
         let newArray = itemsId.map((element) => {
           return element;
         });
-        newArray[oldIndex] = itemsId[newIndex];
-        newArray[newIndex] = itemsId[oldIndex];
+        newArray[oldIdIndex] = itemsId[newIdIndex];
+        newArray[newIdIndex] = itemsId[oldIdIndex];
         return newArray;
       });
       setItems(arrayMove(items, oldIndex, newIndex));
@@ -135,18 +164,29 @@ export default function ModalImagens({ setModalOpen, images }) {
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     const preview = URL.createObjectURL(file);
+    const lastIdTrack = itemsTrack.length;
+    setItemsTrack((itemsTrack)=> {
+      let newArray = itemsTrack.map((element) => {
+        return element;
+      });
+      itemsTrackOut.push(preview);
+      newArray.push(preview);
+      return newArray;
+    
+    });
 
     setNewImagens(newImagens.concat(file));
     setItemsId(() => {
       let newArray = itemsId.map((element) => {
         return element;
       });
+      // colocar na ultima pos das imagens
       newArray.push(lastId + 1);
       setNewImagesIdPos(() => {
         let newArray = newImagesIdPos.map((element) => {
           return element;
         });
-        newArray.push(lastId + 1);
+        newArray.push(lastIdTrack);
         return newArray;
       });
       setLastId(lastId + 1);
@@ -158,34 +198,67 @@ export default function ModalImagens({ setModalOpen, images }) {
   };
 
   const handleImageLimit = () => {
-    setIsImageLimit(items.length >= 5 ? false : true);
+    setIsImageLimit(itemsId.length >= 5 ? false : true);
   };
 
   const handleSubmit = async () => {
     let bannerForm = new FormData();
-    console.log(newImagens);
-    console.log(itemsId);
+    let newImagesIndex = [];
+    let counter = 5;
+    let maxItems = 5;
 
     if (itemsid.toString() != itemsId.toString()) {
       itemsDelete.forEach((element) => {
-        bannerForm.append("imageDelete", element);
+        if(element[0] != 'b'){
+          let uuid = element
+          bannerForm.append("imageDelete", uuid);
+        }
       });
-      itemsId.forEach((element) => {
-        bannerForm.append("ordem", element);
+
+      itemsId.forEach(async (element, index) => {
+        let oldIndex = parseInt(element);
+        let name = itemsTrack[oldIndex];
+        if(name[0] == 'b'){
+          let imageindex;
+          for (let i = 0; i < newImagesIdPos.length; i++) {
+            const element = newImagesIdPos[i];
+            if(element == oldIndex){
+              imageindex = i;
+              break;
+            }
+          }
+          newImagesIndex.push(index);
+          name = imageindex;
+        } else {
+          let replacePath = "https://youout-78dca879-0807-48b5-832f-af52319fefe9.s3.us-east-2.amazonaws.com/" + uuid + /banners/;
+          let tempname = name.replace(replacePath, "");
+          tempname = tempname.split("."); 
+          name = tempname[0];
+        }
+        let data = {
+          uuid: name,
+          oldIndex: oldIndex,
+        }
+        console.log(data);
+        bannerForm.append("ordemOldId", oldIndex);
+        bannerForm.append("ordemUuid", name);
+        counter--;
       });
     }
 
+    console.log(counter);
+    bannerForm.append("deleteStartIndex", maxItems-counter);
+
     newImagens.forEach((element, index) => {
-      element.id_pos = newImagesIdPos[index];
+      element.id_pos = newImagesIndex[index];
+      console.log(element);
       bannerForm.append("banners", element);
       bannerForm.append("newImagesIdPos", element.id_pos);
     });
 
-    console.log(items)
-    console.log(itemsId);
     try {
-      // console.log(uuid);
-      // await updateBannersImage(uuid, bannerForm);
+      console.log(bannerForm);
+      await updateBannersImage(uuid, bannerForm);
       setModalOpen(false);
     } catch (error) {
       console.log(error.constructor.name);
