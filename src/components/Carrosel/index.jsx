@@ -32,16 +32,6 @@ export default function Carrosel() {
 
   let { uuid } = useParams();
 
-  const data = [
-    comercio1,
-    comercio2 ,
-    comercio3,
-
-        "https://blog.decorlumen.com.br/wp-content/uploads/2020/09/restaurante_4.jpg",
-
-        "https://static.wixstatic.com/media/a52447_0cc2649656014001b99a392992bfdef2.jpg/v1/fit/w_2500,h_1330,al_c/a52447_0cc2649656014001b99a392992bfdef2.jpg",
-  ];
-
   const fetchBanners = async () => {
     let images = await getBannersImage(uuid);
     console.log(images);

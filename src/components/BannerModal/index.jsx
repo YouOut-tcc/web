@@ -89,7 +89,15 @@ export default function ModalImagens({ setModalOpen, images }) {
     if (over.id == "delete") {
       const imageIndex = items.indexOf(active.id);
       setActiveId(null);
+      setItems((items) => {
+        let newArray = items.map((element) => {
+          return element;
+        });
+        newArray[imageIndex] = undefined;
+        return newArray;
+      });
       setItems((items) => items.filter((element) => element !== active.id));
+
       setItemsDelete(() => {
         let newArray = itemsDelete.map((element) => {
           return element;
@@ -98,7 +106,7 @@ export default function ModalImagens({ setModalOpen, images }) {
         return newArray;
       });
       setItemsId((itemsId) =>
-        itemsId.filter((_, index) => index !== imageIndex)
+        itemsId.filter((element, index) => element !== imageIndex)
       );
       setIsImageLimit(items.length >= 4 ? false : true);
       return;
@@ -155,8 +163,8 @@ export default function ModalImagens({ setModalOpen, images }) {
 
   const handleSubmit = async () => {
     let bannerForm = new FormData();
+    console.log(newImagens);
     console.log(itemsId);
-    console.log(items);
 
     if (itemsid.toString() != itemsId.toString()) {
       itemsDelete.forEach((element) => {
@@ -173,9 +181,11 @@ export default function ModalImagens({ setModalOpen, images }) {
       bannerForm.append("newImagesIdPos", element.id_pos);
     });
 
+    console.log(items)
+    console.log(itemsId);
     try {
       // console.log(uuid);
-      await updateBannersImage(uuid, bannerForm);
+      // await updateBannersImage(uuid, bannerForm);
       setModalOpen(false);
     } catch (error) {
       console.log(error.constructor.name);
@@ -205,7 +215,7 @@ export default function ModalImagens({ setModalOpen, images }) {
             variant="contained"
             component="label"
             onClick={handleImageLimit}
-            sx={{ alignItems: "flex-end", margin: "2vh 0 0 42vh" }}
+            // sx={{, margin: "2vh 0 0 42vh" }}
           >
             <BsPlusCircleFill
               size={35}
@@ -216,7 +226,7 @@ export default function ModalImagens({ setModalOpen, images }) {
               <input
                 type="file"
                 hidden
-                accept=".jpg, .jpeg, .png"
+                accept=".jpg, .jpeg, .png, .jfif"
                 onChange={handleImageChange}
               />
             )}
@@ -225,8 +235,9 @@ export default function ModalImagens({ setModalOpen, images }) {
         {items && (
           <SortableContext items={items} strategy={rectSortingStrategy}>
             <Grid columns={2}>
-              {items.map((url, index) => (
-                <ImageSortable
+              {items.map((url, index) => {
+                if(url){
+                  return  <ImageSortable
                   key={index}
                   url={url}
                   index={index}
@@ -234,7 +245,8 @@ export default function ModalImagens({ setModalOpen, images }) {
                     console.log("rwe");
                   }}
                 />
-              ))}
+                }
+                })}
             </Grid>
           </SortableContext>
         )}
