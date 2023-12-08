@@ -74,7 +74,7 @@ export default function Carrosel({cardapios}) {
 
       <CardMedia
         component="img"
-        src={images? images[0]:require("../../assets/menu.png")}
+        src={require("../../assets/menu.png")}
         sx={{
           width: "28.3vw",
           height: "15.7vw",
