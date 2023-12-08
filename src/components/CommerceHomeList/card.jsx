@@ -61,7 +61,7 @@ export default function CommerceHomeCard({ place }) {
                 component="img"
                 image={place.icon_url? place.icon_url:logoComercio}
                 sx={{
-                  width: "auto",
+                  width: "26vh",
                   backgroundColor: "var(--primary-color)",
                   borderRadius: "50%",
                   alignContent: "center",
