@@ -14,7 +14,7 @@ let respostaState = [
     maxRows: 4
   }
 ]
-export default function RespostaCard({ respostaProps, avaliacaoid, uuid }) {
+export default function RespostaCard({ respostaProps, avaliacaoid, uuid, icon }) {
   const [resposta, setResposta] = useState(respostaProps);
   const [state, onChange, setError, clearErrors] =
   useReducerInputs(respostaState);
@@ -31,7 +31,7 @@ export default function RespostaCard({ respostaProps, avaliacaoid, uuid }) {
     <div className="conteinerRespostas">
       {/* <div className="line2"></div> */}
       <div className="conteinerRespostasImg">
-      <img src={CommerceLogo} className="fotoPerfilCNPJ" alt="Logo YouOut" />
+      <img src={icon? icon:CommerceLogo} className="fotoPerfilCNPJ" alt="Logo YouOut" />
       </div>
       <div className="conteinerRespostasInput">
         {resposta ? (

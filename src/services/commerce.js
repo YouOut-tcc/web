@@ -158,6 +158,36 @@ async function updateBannersImage(uuid, data) {
   }
 }
 
+async function updateIconImage(uuid, data) {
+  try {
+    let res = await api.post(`/estabelecimento/manage/${uuid}/icon`, data, {headers: {'Content-Type': 'multipart/form-data'}});
+    return res.data;
+  } catch (error) {
+    console.log(error.constructor.name);
+    if (error instanceof AxiosError) {
+      console.log(error.response.status);
+      console.log(error.response.data.message);
+    } else if (error instanceof ReferenceError) {
+      console.log(error.message);
+    }
+  }
+}
+
+async function updateInfo(uuid, data) {
+  try {
+    let res = await api.post(`/estabelecimento/manage/${uuid}/info`, data);
+    return res.data;
+  } catch (error) {
+    console.log(error.constructor.name);
+    if (error instanceof AxiosError) {
+      console.log(error.response.status);
+      console.log(error.response.data.message);
+    } else if (error instanceof ReferenceError) {
+      console.log(error.message);
+    }
+  }
+}
+
 export {
   getAvaliacoes,
   getCommerceInfo,
@@ -168,5 +198,7 @@ export {
   criarCupom,
   getCupom,
   updateBannersImage,
-  getBannersImage
+  getBannersImage,
+  updateIconImage,
+  updateInfo
 };

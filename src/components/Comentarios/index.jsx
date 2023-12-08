@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import { getAvaliacoes } from "../../services/commerce";
 import "./style.css";
 
-function Comentarios({ uuid, nota }) {
+function Comentarios({ uuid, nota, icon }) {
   const [avaliacoes, setAvaliacoes] = useState([]);
 
   const fetchAvaliacoes = async () => {
@@ -45,7 +45,7 @@ function Comentarios({ uuid, nota }) {
         avaliacoes.map((element) => {
           return (
             <li key={element.id} className="avaliacoesListDot">
-              <ComentarioCard avaliacao={element} uuid={uuid} />
+              <ComentarioCard icon={icon} avaliacao={element} uuid={uuid} />
             </li>
           );
         })}

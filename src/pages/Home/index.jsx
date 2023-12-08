@@ -37,7 +37,7 @@ function Home() {
       {selectedOption === "perfil" && (
         <div>
           <Carrosel uuid={uuid} />
-          {commerce && <Comentarios uuid={uuid} nota={commerce.nota}/>}
+          {commerce && <Comentarios icon={commerce.icon_url} uuid={uuid} nota={commerce.nota}/>}
         </div>
       )}
       {selectedOption === "dashboard" && (

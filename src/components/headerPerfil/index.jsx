@@ -7,7 +7,7 @@ import styles from "../headerPerfil/style.css";
 // estabelecimento cadastro
 // vai que ¯\_(ツ)_/¯
 
-export default function HeaderPerfil({ commerces, setUuid }) {
+export default function HeaderPerfil({ commerces, setUuid, setCommerceInfo }) {
   const [selectedEstabelecimento, setSelectedEstabelecimento] = useState(
     commerces[0]
   );
@@ -17,6 +17,9 @@ export default function HeaderPerfil({ commerces, setUuid }) {
     let selected = commerces[index];
     setSelectedEstabelecimento(selected);
     setUuid(commerces[index].uuid);
+    if(setCommerceInfo != undefined){
+      setCommerceInfo(commerces[index]);
+    }
     console.log(commerces[index].uuid)
   };
 
@@ -24,6 +27,9 @@ export default function HeaderPerfil({ commerces, setUuid }) {
     console.log("header entrou no useeffect")
     console.log(selectedEstabelecimento.uuid)
     setUuid(commerces[0].uuid);
+    if(setCommerceInfo != undefined){
+      setCommerceInfo(commerces[0]);
+    }
   },[])
 
   return (
@@ -42,7 +48,7 @@ export default function HeaderPerfil({ commerces, setUuid }) {
       </select>
       <div className="estabelecimento-info">
         <img
-          src={CommerceLogo}
+          src={selectedEstabelecimento.icon_url? selectedEstabelecimento.icon_url:CommerceLogo}
           alt={selectedEstabelecimento.nome}
           className="fotoPerfilCommerce"
         />

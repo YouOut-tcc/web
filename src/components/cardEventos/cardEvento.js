@@ -24,8 +24,20 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function CardEventos({ title, valor, imagem }) {
+//o fuso horario esta correto
+export default function CardEventos({ evento, title, valor, imagem }) {
   const [expanded, setExpanded] = React.useState(false);
+  const opcoesDeFormato = { 
+    weekday: 'long', 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  };
+  const dataInicio = new Date(evento.inicio);
+  const dataFim = new Date(evento.fim);
+
+  const dataInicioFormatted = dataInicio.toLocaleDateString('pt-Br', opcoesDeFormato);
+  const dataFimFormatted = dataFim.toLocaleDateString('pt-Br', opcoesDeFormato);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -43,21 +55,19 @@ export default function CardEventos({ title, valor, imagem }) {
         }}
       >
         <CardHeader
-          title={title}
-          subheader={`September 14, 2016. Entrada: R$ ${valor}`}
+          title={evento.nome}
+          subheader={`${dataFimFormatted}. Entrada: R$ ${evento.valor}`}
         />
         <CardMedia
           component="img"
           height="100"
-          image={imagem ? imagem : eventos}
+          image={evento.image ? evento.image : eventos}
           alt="Paella dish"
           sx={{ height: "200px" }}
         />
         <CardContent>
           <Typography variant="body2" color="text.secondary">
-            This impressive paella is a perfect party dish and a fun meal to
-            cook together with your guests. Add 1 cup of frozen peas along with
-            the mussels, if you like.
+            {evento.descricao}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>

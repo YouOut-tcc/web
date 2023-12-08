@@ -59,8 +59,9 @@ export default function CommerceHomeCard({ place }) {
               <CardMedia
                 className="commerceListImg"
                 component="img"
-                image={logoComercio}
+                image={place.icon_url? place.icon_url:logoComercio}
                 sx={{
+                  width: "auto",
                   backgroundColor: "var(--primary-color)",
                   borderRadius: "50%",
                   alignContent: "center",
@@ -75,8 +76,8 @@ export default function CommerceHomeCard({ place }) {
                 }}
               />
             </Grid>
-            {/* <Grid item justifySelf={"center"}> */}
-            <div>
+            <Grid item justifySelf={"center"}>
+            {/* <div> */}
               <CardContent>
                 <Typography
                   gutterBottom
@@ -124,8 +125,8 @@ export default function CommerceHomeCard({ place }) {
                   )}
                 </Typography>
               </CardContent>
-              {/* </Grid> */}
-            </div>
+            {/* </div> */}
+              </Grid>
           </Grid>
         </Link>
       </CardActionArea>

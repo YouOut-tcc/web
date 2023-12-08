@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 
 import "./style.css";
 
-export default function ComentarioCard({ avaliacao, uuid }) {
+export default function ComentarioCard({ avaliacao, uuid, icon }) {
   const [resposta, setResposta] = useState(false);
   const [requestResposta, setRequestResposta] = useState(false);
 
@@ -56,12 +56,14 @@ export default function ComentarioCard({ avaliacao, uuid }) {
         <p className="comentario">{avaliacao.comentario}</p>
         {resposta ? (
           <RespostaCard
+            icon={icon}
             respostaProps={resposta}
             avaliacaoid={avaliacao.id}
             uuid={uuid}
           />
         ) : requestResposta ? (
           <RespostaCard
+            icon={icon}
             respostaProps={resposta}
             avaliacaoid={avaliacao.id}
             uuid={uuid}
