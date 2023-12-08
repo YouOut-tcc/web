@@ -6,6 +6,8 @@ import UuidContext from "../../contexts/uuidCommerceContext";
 import CommerceContext from "../../contexts/commerceContext";
 import InputB from "../../components/Inputs/InputB";
 import "./style.css";
+import Fab from "@mui/material/Fab";
+import { BsPlusCircleFill } from "react-icons/bs";
 import MenuPerfil from "../../components/MenuPerfil";
 import logoComercio from "../../assets/logoComercio.png";
 import CardMedia from "@mui/material/CardMedia";
@@ -62,11 +64,11 @@ function App({ setUuid, setCommerce }) {
 
     let oldValuesInputs = Object.entries(oldInputValues);
     oldValuesInputs.forEach((element, index) => {
-      if(element[1] != state[index].value){
+      if (element[1] != state[index].value) {
         change = true;
       }
     });
-    if(selectedIMGPreview){
+    if (selectedIMGPreview) {
       // enviar a imagem
       console.log("imagem para atualizar");
       let form = new FormData();
@@ -76,33 +78,32 @@ function App({ setUuid, setCommerce }) {
       setIcon(selectedIMGPreview);
       setSelectedIMGPreview(undefined);
     }
-    if(!change){
+    if (!change) {
       console.log("não mudou nada");
-
     } else {
       console.log("mudou alguma coisa");
       let data = {
         telefone,
-        celular
-      }
+        celular,
+      };
       updateInfo(uuid, data);
     }
-  }
+  };
 
   const fetchPlaceInfos = () => {};
 
   useEffect(() => {
     console.log(commerce);
-    if(commerce){
-      if(commerce.icon_url){
+    if (commerce) {
+      if (commerce.icon_url) {
         setIcon(commerce.icon_url);
       } else {
         setIcon(logoComercio);
       }
       setOldInputValues({
         telefone: commerce.telefone,
-        celular: commerce.celular
-      })
+        celular: commerce.celular,
+      });
       onChange(commerce.telefone, 0);
       onChange(commerce.celular, 1);
     }
@@ -110,7 +111,6 @@ function App({ setUuid, setCommerce }) {
 
   return (
     <>
-      <MenuPerfil />
       <HeaderPerfil
         commerces={commerces}
         setUuid={setUuid}
@@ -141,7 +141,8 @@ function App({ setUuid, setCommerce }) {
           sx={{
             backgroundColor: "var(--primary-color)",
             borderRadius: "50%",
-            width: "auto",
+            width: "200px",
+            height: "200px",
             alignContent: "center",
             marginBottom: "2vh",
             marginTop: "2vh",
@@ -150,6 +151,9 @@ function App({ setUuid, setCommerce }) {
             marginLeft: "5vh",
           }}
         />
+        <button className="btnSalvarCupom">
+          Adicionar/Alterar
+        </button>
       </button>
 
       <div className="divInfo">
@@ -162,15 +166,6 @@ function App({ setUuid, setCommerce }) {
           Salvar Informações
         </button>
       </div>
-      {/* Fazer para essa parte a regra de seleção do MenuPerfil, usar a metade da tela para essas infos */}
-      <div
-        style={{
-          flex: "1",
-          borderLeft: "1px #808080 solid",
-          height: "80vh",
-          margin: "-73vh 0 2vh 90vh",
-        }}
-      ></div>
     </>
   );
 }
@@ -181,7 +176,7 @@ export default function Perfil() {
   return (
     <UuidContext.Provider value={uuid}>
       <CommerceContext.Provider value={commerce}>
-        <App setUuid={setUuid} setCommerce={setCommerce}/>
+        <App setUuid={setUuid} setCommerce={setCommerce} />
       </CommerceContext.Provider>
     </UuidContext.Provider>
   );

@@ -20,6 +20,7 @@ import {
 import { useParams } from "react-router-dom";
 
 import Fab from "@mui/material/Fab";
+import { AiOutlineCheck } from 'react-icons/ai';
 import { BsPlusCircleFill } from "react-icons/bs";
 
 // import photos from './photos.json';
@@ -278,17 +279,16 @@ export default function ModalImagens({ setModalOpen, images }) {
           style={{
             display: "flex",
             flexDirection: "row",
+            justifyContent: "end",
           }}
         >
-          <Droppable />
-          <Fab color="primary" aria-label="add" onClick={handleSubmit}>
-            <BsPlusCircleFill size={30} />
-          </Fab>
+           {items.length > 0 && (
+          <Droppable />)}
           <Button
             variant="contained"
             component="label"
             onClick={handleImageLimit}
-            // sx={{, margin: "2vh 0 0 42vh" }}
+            sx={{marginLeft: "2vh", marginRight: "2vh" }}
           >
             <BsPlusCircleFill
               size={35}
@@ -305,31 +305,60 @@ export default function ModalImagens({ setModalOpen, images }) {
             )}
           </Button>
         </div>
-        {items && (
+       
+        {Array.isArray(items) && items.length > 0 ? (
           <SortableContext items={items} strategy={rectSortingStrategy}>
             <Grid columns={2}>
               {items.map((url, index) => {
-                if(url){
-                  return  <ImageSortable
-                  key={index}
-                  url={url}
-                  index={index}
-                  onClick={() => {
-                    console.log("rwe");
-                  }}
-                />
+                if (url) {
+                  return (
+                    <ImageSortable
+                      key={index}
+                      url={url}
+                      index={index}
+                      onClick={() => {
+                        console.log("rwe");
+                      }}
+                    />
+                  );
                 }
-                })}
+              })}
             </Grid>
           </SortableContext>
-        )}
+          ) : (  <p style={{fontSize: "4vh", textAlign:"center", marginTop:"10vh"}}>Nenhuma imagem cadastrada para essa unidade. Clique em  <BsPlusCircleFill size={30}color={"#8200A8"}/> para cadastrar.</p>)}
 
         <DragOverlay adjustScale={true}>
           {activeId ? (
             <Image url={activeId} index={items.indexOf(activeId)} />
-          ) : null}
+            ) : null}
         </DragOverlay>
       </DndContext>
+            {items.length > 0 && (
+      <div className="divButtonsAdd">
+            {/* <button onClick={handleSubmit}>
+              Salvar imagens
+            </button> */}
+            <Fab
+              style={{
+                width: "25vh",
+                borderRadius: "5px",
+                backgroundColor: '#8200A8',
+                color: "white",
+                textTransform: "none",
+                fontWeight: "bold",
+                textTransform: 'none',
+                '&:hover': {
+                  backgroundColor: '#8200A8',  
+                },
+              }}
+              aria-label="salvar imagens"
+              onClick={handleSubmit}
+            >
+              <AiOutlineCheck size={30} style={{ marginRight: "8px" }} /> Salvar
+              Imagens
+            </Fab>
+          </div>
+      )}
     </div>
   );
 }

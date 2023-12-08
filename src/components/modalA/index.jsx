@@ -10,10 +10,10 @@ export default function Modal({ isOpen, setModalOpen, children, title }) {
         <div className="divModal">
           <div className="divModalMain">
             <div className="divModalFechar">
+              <h1>{title}</h1>
               <button onClick={setModalOpen} className="btnModalFechar">
                 <IoClose className="iconeBtnModalFechar" />
               </button>
-              <h1>{title}</h1>
             </div>
             <div className="divModalBody">{children}</div>
           </div>

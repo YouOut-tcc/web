@@ -8,6 +8,7 @@ import { getCommerceInfo } from "../../services/commerce";
 import { Link } from "react-router-dom";
 import Dashboard from "../../components/Dashboard";
 import "./style.css";
+import Cardapio from "../../components/Cardápios/Cardapio";
 
 function Home() {
   const [selectedOption, setSelectedOption] = useState("perfil");
@@ -35,10 +36,13 @@ function Home() {
         </button>
       </div>
       {selectedOption === "perfil" && (
+        <>
         <div>
           <Carrosel uuid={uuid} />
+          <Cardapio />
           {commerce && <Comentarios icon={commerce.icon_url} uuid={uuid} nota={commerce.nota}/>}
         </div>
+        </>
       )}
       {selectedOption === "dashboard" && (
         <div>

@@ -79,15 +79,15 @@ export default function Carrosel() {
         >
           <BsPlusCircleFill size={30} />
         </Fab>
-        <Fab
+        {/* <Fab
           color="primary"
           aria-label="edit"
           onClick={() => {
-            setOpenModalInfos(true);
+            // setOpenModalInfos(true);
           }}
-        >
-          <BiEdit size={30} />
-        </Fab>
+        > */}
+          {/* <BiEdit size={30} />
+        </Fab> */}
       </Box>
 
       <div className="divSlide">
@@ -130,7 +130,7 @@ export default function Carrosel() {
         <Modal
           isOpen={openModalImagens}
           setModalOpen={() => setOpenModalImagens(!openModalImagens)}
-          title={"Editar Imagens"}
+          title={"Adicionar Imagens"}
         >
           <ModalImagens setModalOpen={setOpenModalImagens} images={images? images:[]}/>
         </Modal>

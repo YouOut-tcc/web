@@ -22,7 +22,8 @@
   border: medium solid #8200A8;
   border-radius: 15px;
   height: 25vh;
-  width: 70vh;
+  width: 60vh;
+  
 }
 
 .commerceLink {
@@ -39,6 +40,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  border-color: 1px solid red;
 }
 
 

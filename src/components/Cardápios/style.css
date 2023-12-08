@@ -1,0 +1,16 @@
+.divCardapio{
+  margin: 7vh;
+}
+.divCardapio h1{
+  font-weight: bold;
+  font-size: 3vh;
+}
+
+.divBtnAdd{
+  display: flex;
+  justify-content: end;
+}
+.image-preview-container{
+  display: flex;
+  justify-content: center;
+}

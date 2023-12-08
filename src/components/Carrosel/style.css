@@ -37,9 +37,25 @@
 
 .conteinerImageSelector{
     display: grid;
+    
 }
+.divButtonsAdd{
+    display: flex;
+    justify-content: center;
+   
+  }
+  .divButtonsAdd button{
+    height: 6vh;
+    border-radius: 10px;
+    background-color: #8200A8;
+    color: white;
+    align-items: center;
+    margin: 10px;
+    width: 18vh;
+    border: none;
+   
 
-
+  }
 
 
 

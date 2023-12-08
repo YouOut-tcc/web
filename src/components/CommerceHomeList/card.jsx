@@ -41,8 +41,8 @@ export default function CommerceHomeCard({ place }) {
         border: "2px solid var(--secondary-color)",
         backgroundColor: "var(--primary-color)",
         borderRadius: "2vh",
-        // marginLeft: "15vh",
-        width: "44vw",
+        marginLeft: "15vh",
+        width: "38vw",
       }}
     >
       <CardActionArea>
@@ -71,7 +71,6 @@ export default function CommerceHomeCard({ place }) {
                   justifySelf: "center",
                   marginLeft: "2vh",
                   marginLeft: "2vh",
-
                   marginLeft: "2vh",
                 }}
               />
