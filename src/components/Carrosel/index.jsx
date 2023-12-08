@@ -28,14 +28,15 @@ export default function Carrosel() {
   const [slidePerView, setSlidePerView] = useState(3);
   const [openModalImagens, setOpenModalImagens] = useState(false);
   const [openModalInfos, setOpenModalInfos] = useState(false);
-  const [images, setImages] = useState();
+  const [images, setImages] = useState([]);
 
   let { uuid } = useParams();
 
   const fetchBanners = async () => {
-    let images = await getBannersImage(uuid);
-    console.log(images);
-    setImages(images);
+    let image = await getBannersImage(uuid);
+    console.log("banners");
+    console.log(image);
+    setImages(image);
   }
 
   useEffect(() => {
