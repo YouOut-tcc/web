@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import Modal from "../modalA";
 import ModalCardapio from "./ModalCardapio";
-import { getBannersImage } from "../../services/commerce";
+import { getCardapio } from "../../services/commerce";
 import { register } from "swiper/element/bundle";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -16,20 +16,20 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 register();
 
-export default function Carrosel() {
+export default function Carrosel({cardapios}) {
   const [slidePerView, setSlidePerView] = useState(3);
   const [openModalInfos, setOpenModalInfos] = useState(false);
   const [images, setImages] = useState([]);
   let { uuid } = useParams();
 
-  const fetchBanners = async () => {
-    let images = await getBannersImage(uuid);
+  const fetchCardapio = async () => {
+    let images = await getCardapio(uuid);
     console.log(images);
     setImages(images);
   };
 
   useEffect(() => {
-    fetchBanners();
+    fetchCardapio();
   }, [uuid]);
 
   useEffect(() => {
@@ -74,7 +74,7 @@ export default function Carrosel() {
 
       <CardMedia
         component="img"
-        src={require("../../assets/menu.png")}
+        src={images.length > 0? images[0]:require("../../assets/menu.png")}
         sx={{
           width: "28.3vw",
           height: "15.7vw",

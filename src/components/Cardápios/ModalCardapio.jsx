@@ -3,22 +3,23 @@ import { styled } from "@mui/material/styles";
 import CardMedia from "@mui/material/CardMedia";
 import { Button, Typography } from "@mui/material";
 import InputB from "../../components/Inputs/InputB";
-import { criarCupom } from "../../services/commerce";
+import { uploadCardapio } from "../../services/commerce";
 import { BsPlusCircleFill } from "react-icons/bs";
 import UuidContext from "../../contexts/uuidCommerceContext";
 import { useReducerInputs } from "../../hooks/Inputs";
 import "./style.css";
 import TipoCupom from "../../components/cardCupom/tipoCupom";
+import { useParams, useLocation } from "react-router";
 
 import Fab from "@mui/material/Fab";
 import { AiOutlineCheck } from 'react-icons/ai';
 
-export default function ModalCardapio({ setModalOpen }) {
+export default function ModalCardapio({ setModalOpen, images }) {
 
-  const [selectedIMGPreview, setSelectedIMGPreview] = useState();
+  const [selectedIMGPreview, setSelectedIMGPreview] = useState(images[0]);
   const [selectedIMG, setSelectedIMG] = useState();
 
-  const uuid = useContext(UuidContext);
+  let { uuid } = useParams();
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -28,8 +29,18 @@ export default function ModalCardapio({ setModalOpen }) {
     setSelectedIMGPreview(preview);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    let form = new FormData();
+    form.append("cardapio", selectedIMG);
+
+    try {
+      await uploadCardapio(uuid, form);
+      setModalOpen(false);
+    } catch (error) {
+      console.log(error.constructor.name);
+    }
     // Add your logic to handle the image submission
+
   };
 
   return (

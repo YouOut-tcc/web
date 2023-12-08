@@ -188,6 +188,36 @@ async function updateInfo(uuid, data) {
   }
 }
 
+async function uploadCardapio(uuid, data) {
+  try {
+    let res = await api.post(`/estabelecimento/manage/${uuid}/cardapio`, data);
+    return res.data;
+  } catch (error) {
+    console.log(error.constructor.name);
+    if (error instanceof AxiosError) {
+      console.log(error.response.status);
+      console.log(error.response.data.message);
+    } else if (error instanceof ReferenceError) {
+      console.log(error.message);
+    }
+  }
+}
+
+async function getCardapio(uuid, data) {
+  try {
+    let res = await api.get(`/estabelecimento/places/${uuid}/cardapio`, data);
+    return res.data;
+  } catch (error) {
+    console.log(error.constructor.name);
+    if (error instanceof AxiosError) {
+      console.log(error.response.status);
+      console.log(error.response.data.message);
+    } else if (error instanceof ReferenceError) {
+      console.log(error.message);
+    }
+  }
+}
+
 export {
   getAvaliacoes,
   getCommerceInfo,
@@ -200,5 +230,7 @@ export {
   updateBannersImage,
   getBannersImage,
   updateIconImage,
-  updateInfo
+  updateInfo,
+  uploadCardapio,
+  getCardapio
 };
